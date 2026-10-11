@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="Mathew IA Creative Studio.">
+    <meta name="robots" content="index, follow">
+    <title>Mathew IA Creative Studio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #0a0a0a;
+            --concrete: #1a1a1a;
+            --steel: #2a2a2a;
+            --neon-pink: #ff006e;
+            --neon-cyan: #00f5ff;
+            --neon-yellow: #ffea00;
+            --neon-purple: #bd00ff;
+            --ash: #888888;
+            --smoke: #cccccc;
+            --white: #ffffff;
+
+            --gradient-neon: linear-gradient(135deg, #ff006e 0%, #bd00ff 50%, #00f5ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--void);
+            color: var(--smoke);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--void);
+            border-left: 1px solid var(--steel);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-pink);
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 110, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 110, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--neon-pink);
+        }
+
+        .navbar-brand {
+            display: inline-flex;
+            flex-shrink: 0;
+            align-items: center;
+            height: 25px;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--white) !important;
+            letter-spacing: 2px;
+            line-height: 25px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .navbar-brand .brand-main { color: var(--white); }
+        .navbar-brand .brand-ia { color: var(--neon-cyan); }
+        .navbar-brand .brand-cs { color: var(--neon-pink); }
+
+        .navbar-brand::after {
+            position: absolute;
+            inset: 0;
+            content: attr(aria-label);
+            color: #fff200;
+            opacity: 0;
+            pointer-events: none;
+            clip-path: inset(0 0 42% 0);
+            text-shadow: 2px 0 #fff200;
+            animation: brand-glitch 6s steps(1, end) infinite;
+        }
+
+        @keyframes brand-glitch {
+            0% { opacity: 0; transform: translateX(0); }
+            0.6% { opacity: 0.9; transform: translateX(-3px); }
+            1.2% { opacity: 0; transform: translateX(2px); }
+            2% { opacity: 0.85; transform: translateX(3px); }
+            2.8% { opacity: 0; transform: translateX(-1px); }
+            3.6% { opacity: 0.75; transform: translateX(-2px); }
+            4.4%, 100% { opacity: 0; transform: translateX(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .navbar-brand::after { animation: none; }
+        }
+
+        .navbar > .container {
+            display: flex;
+            width: calc(100% - 2rem) !important;
+            max-width: none !important;
+            margin-inline: auto;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-left: auto;
+        }
+
+        .header-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            min-height: 25px;
+            padding: 0 0.55rem;
+            border: 2px solid var(--neon-pink);
+            color: var(--neon-pink);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .header-contact:hover {
+            background: var(--neon-pink);
+            color: var(--white);
+        }
+
+        .language-picker {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 25px;
+        }
+
+        .language-picker > summary { list-style: none; }
+        .language-picker > summary::-webkit-details-marker { display: none; }
+
+        .language-picker::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 12px;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-right: 1.5px solid var(--neon-cyan);
+            border-bottom: 1.5px solid var(--neon-cyan);
+            transform: translateY(-70%) rotate(45deg);
+            pointer-events: none;
+        }
+
+        .language-select {
+            display: inline-flex;
+            align-items: center;
+            width: 58px;
+            height: 25px;
+            padding: 0 0.2rem 0 1.45rem;
+            border: 2px solid var(--neon-cyan);
+            background: rgba(10, 10, 10, 0.96);
+            color: var(--neon-cyan);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .selected-language { font-size: 0; }
+        .selected-language::before {
+            content: 'ES';
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .language-picker:has(input[value="en"]:checked) .selected-language::before { content: 'EN'; }
+        .language-picker:has(input[value="fr"]:checked) .selected-language::before { content: 'FR'; }
+        .language-picker:has(input[value="it"]:checked) .selected-language::before { content: 'IT'; }
+
+        .language-options {
+            position: absolute;
+            z-index: 1050;
+            top: calc(100% + 4px);
+            left: 0;
+            width: 100%;
+            padding: 0.25rem;
+            border: 1px solid var(--neon-cyan);
+            background: #0a0a0a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+            display: none;
+        }
+
+        .language-picker[open] .language-options { display: block; }
+
+        .language-option {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0.5rem 0.6rem;
+            border-left: 2px solid transparent;
+            background: transparent;
+            color: var(--ash);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-option input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .language-option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+        }
+
+        .language-option:has(input:checked) {
+            border-left-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .navbar > .container > .navbar-collapse {
+            display: flex !important;
+            flex: 0 0 100%;
+            flex-basis: 100% !important;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 0.15rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.18em;
+            color: var(--ash) !important;
+            margin-left: 0;
+            padding-inline: 0.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .nav-link:focus { outline: none; }
+
+        .nav-index {
+            font-size: 12px;
+            line-height: 1;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-label { white-space: nowrap; }
+
+        .nav-link .nav-mark,
+        .nav-link .nav-separator {
+            color: #ffea00 !important;
+        }
+
+        .nav-link .nav-index,
+        .nav-link .nav-label {
+            color: var(--ash) !important;
+        }
+
+        .nav-link.active .nav-mark,
+        .nav-link.active .nav-separator {
+            color: var(--ash) !important;
+        }
+
+        .nav-link.active .nav-index,
+        .nav-link.active .nav-label {
+            color: #ffea00 !important;
+        }
+
+        .nav-link:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 4px;
+        }
+
+        /* ===== MAIN VACÍO ===== */
+        main {
+            flex: 1;
+            min-height: calc(100vh - 77px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--void);
+            padding: 0 0 2.5rem;
+            margin-top: auto;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--steel);
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-social-bottom {
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .footer-social-bottom a {
+            width: 38px;
+            height: 38px;
+            background: transparent;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ash);
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .footer-social-bottom a:hover {
+            border-color: #ffea00;
+            color: #ffea00;
+            box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .navbar > .container { flex-wrap: wrap; }
+            .navbar-brand { font-size: 1.1rem; }
+            .navbar > .container > .navbar-collapse {
+                flex-basis: 100% !important;
+                width: 100%;
+            }
+            .navbar-nav {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.25rem 0.5rem;
+            }
+            .nav-link { margin-left: 0; font-size: 0.75rem; }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html#inicio" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
+            <div class="header-actions">
+                <a class="header-contact" href="contacto.html">CONTACTO</a>
+                <details class="language-picker">
+                    <summary class="language-select" aria-label="Seleccionar idioma">
+                        <span class="selected-language" aria-hidden="true"></span>
+                    </summary>
+                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles">
+                        <label class="language-option" lang="es"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="es" checked><span>ES</span></label>
+                        <label class="language-option" lang="en"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="en"><span>EN</span></label>
+                        <label class="language-option" lang="fr"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="fr"><span>FR</span></label>
+                        <label class="language-option" lang="it"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="it"><span>IT</span></label>
+                    </div>
+                </details>
+            </div>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#inicio"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="laboratorio.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Aquí va el contenido de cada página -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>Mathew IA Creative Studio - 2026©</p>
+                <div class="footer-social-bottom">
+                    <a href="contacto.html" aria-label="Enviar correo"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="description" content="MATHEWIACS es un estudio creativo digital especializado en diseño gráfico, branding, diseño web, UX/UI y arte generativo con inteligencia artificial.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="MATHEWIACS | Estudio creativo digital y branding">
+    <meta property="og:description" content="Diseño gráfico, branding, diseño web, UX/UI y arte generativo con inteligencia artificial.">
+    <meta name="twitter:card" content="summary">
+    <title>MATHEWIACS | Estudio creativo digital y branding</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #0a0a0a;
+            --concrete: #1a1a1a;
+            --steel: #2a2a2a;
+            --neon-pink: #ff006e;
+            --neon-cyan: #00f5ff;
+            --neon-yellow: #ffea00;
+            --neon-purple: #bd00ff;
+            --ash: #888888;
+            --smoke: #cccccc;
+            --white: #ffffff;
+
+            --gradient-neon: linear-gradient(135deg, #ff006e 0%, #bd00ff 50%, #00f5ff 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--void);
+            color: var(--smoke);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--void);
+            border-left: 1px solid var(--steel);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-pink);
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 0, 110, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 0, 110, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.04;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--neon-pink);
+        }
+
+        .navbar-brand {
+            display: inline-flex;
+            flex-shrink: 0;
+            align-items: center;
+            height: 25px;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--white) !important;
+            letter-spacing: 2px;
+            line-height: 25px;
+            position: relative;
+            text-decoration: none;
+        }
+
+        .navbar-brand .brand-main { color: var(--white); }
+        .navbar-brand .brand-ia { color: var(--neon-cyan); }
+        .navbar-brand .brand-cs { color: var(--neon-pink); }
+
+        .navbar-brand::after {
+            position: absolute;
+            inset: 0;
+            content: attr(aria-label);
+            color: #fff200;
+            opacity: 0;
+            pointer-events: none;
+            clip-path: inset(0 0 42% 0);
+            text-shadow: 2px 0 #fff200;
+            animation: brand-glitch 6s steps(1, end) infinite;
+        }
+
+        @keyframes brand-glitch {
+            0% { opacity: 0; transform: translateX(0); }
+            0.6% { opacity: 0.9; transform: translateX(-3px); }
+            1.2% { opacity: 0; transform: translateX(2px); }
+            2% { opacity: 0.85; transform: translateX(3px); }
+            2.8% { opacity: 0; transform: translateX(-1px); }
+            3.6% { opacity: 0.75; transform: translateX(-2px); }
+            4.4%, 100% { opacity: 0; transform: translateX(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .navbar-brand::after { animation: none; }
+        }
+
+        .navbar > .container {
+            display: flex;
+            width: calc(100% - 2rem) !important;
+            max-width: none !important;
+            margin-inline: auto;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-left: auto;
+        }
+
+        .header-contact {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 25px;
+            min-height: 25px;
+            padding: 0 0.55rem;
+            border: 2px solid var(--neon-pink);
+            color: var(--neon-pink);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .header-contact:hover {
+            background: var(--neon-pink);
+            color: var(--white);
+        }
+
+        .language-picker {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 25px;
+        }
+
+        .language-picker > summary { list-style: none; }
+        .language-picker > summary::-webkit-details-marker { display: none; }
+
+        .language-picker::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 12px;
+            width: 0.45rem;
+            height: 0.45rem;
+            border-right: 1.5px solid var(--neon-cyan);
+            border-bottom: 1.5px solid var(--neon-cyan);
+            transform: translateY(-70%) rotate(45deg);
+            pointer-events: none;
+        }
+
+        .language-select {
+            display: inline-flex;
+            align-items: center;
+            width: 58px;
+            height: 25px;
+            padding: 0 0.2rem 0 1.45rem;
+            border: 2px solid var(--neon-cyan);
+            background: rgba(10, 10, 10, 0.96);
+            color: var(--neon-cyan);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-select:focus-visible,
+        .language-option:focus-within {
+            outline: 1px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        .selected-language { font-size: 0; }
+        .selected-language::before {
+            content: 'ES';
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .language-picker:has(input[value="en"]:checked) .selected-language::before { content: 'EN'; }
+        .language-picker:has(input[value="fr"]:checked) .selected-language::before { content: 'FR'; }
+        .language-picker:has(input[value="it"]:checked) .selected-language::before { content: 'IT'; }
+
+        .language-options {
+            position: absolute;
+            z-index: 1050;
+            top: calc(100% + 4px);
+            left: 0;
+            width: 100%;
+            padding: 0.25rem;
+            border: 1px solid var(--neon-cyan);
+            background: #0a0a0a;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+            display: none;
+        }
+
+        .language-picker[open] .language-options { display: block; }
+
+        .language-option {
+            position: relative;
+            display: block;
+            width: 100%;
+            padding: 0.5rem 0.6rem;
+            border-left: 2px solid transparent;
+            background: transparent;
+            color: var(--ash);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .language-option input {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+
+        .language-option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+        }
+
+        .language-option:has(input:checked) {
+            border-left-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .navbar > .container > .navbar-collapse {
+            display: flex !important;
+            flex: 0 0 100%;
+            flex-basis: 100% !important;
+            width: 100%;
+            min-width: 0;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            gap: 0.15rem;
+        }
+
+        .nav-link {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.18em;
+            color: var(--ash) !important;
+            margin-left: 0;
+            padding-inline: 0.25rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            position: relative;
+            white-space: nowrap;
+            text-decoration: none;
+        }
+
+        .nav-link:focus {
+            outline: none;
+        }
+
+        .nav-index {
+            font-size: 12px;
+            line-height: 1;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-label { white-space: nowrap; }
+
+        .nav-link::before,
+        .nav-link::after { content: none; }
+
+        .nav-link .nav-mark,
+        .nav-link .nav-separator {
+            color: #ffea00 !important;
+        }
+
+        .nav-link .nav-index,
+        .nav-link .nav-label {
+            color: var(--ash) !important;
+        }
+
+        .nav-link.active .nav-mark,
+        .nav-link.active .nav-separator {
+            color: var(--ash) !important;
+        }
+
+        .nav-link.active .nav-index,
+        .nav-link.active .nav-label {
+            color: #ffea00 !important;
+        }
+
+        .nav-link:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 4px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 140px 0 80px;
+            overflow: hidden;
+            background: var(--void);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 0, 110, 0.15) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: pulse 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 0.95;
+            margin-bottom: 2rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero h1 .hero-bracket,
+        .hero h1 .hero-percent,
+        .hero h1 .hero-word {
+            color: transparent;
+            -webkit-text-stroke: 2px;
+            position: relative;
+            display: inline-block;
+            vertical-align: baseline;
+        }
+
+        .hero h1 .hero-bracket {
+            -webkit-text-stroke-color: var(--neon-yellow);
+            text-shadow:
+                0 0 3px rgba(255, 234, 0, 0.35),
+                0 0 8px rgba(255, 234, 0, 0.15);
+        }
+
+        .hero h1 .hero-percent {
+            -webkit-text-stroke-color: var(--white);
+            text-shadow:
+                0 0 3px rgba(255, 255, 255, 0.35),
+                0 0 8px rgba(255, 255, 255, 0.15);
+        }
+
+        .hero h1 .hero-word {
+            -webkit-text-stroke-color: var(--neon-pink);
+            text-shadow:
+                0 0 3px rgba(255, 0, 110, 0.35),
+                0 0 8px rgba(255, 0, 110, 0.15);
+        }
+
+        .hero h1 .hero-word[data-text="SINTÉTICO"] {
+            animation: neon-flicker 10s linear infinite;
+        }
+
+        @keyframes neon-flicker {
+            0%   { opacity: 1; }
+            1%   { opacity: 0.15; }
+            2%   { opacity: 1; }
+            3%   { opacity: 0.2; }
+            4%   { opacity: 0.9; }
+            5%   { opacity: 0.1; }
+            6%   { opacity: 1; }
+            7%   { opacity: 0.3; }
+            8%   { opacity: 1; }
+            9%   { opacity: 0.15; }
+            10%  { opacity: 0; }
+            11%  { opacity: 0.5; }
+            12%  { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        .hero-description {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--ash);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            border-left: 3px solid var(--neon-yellow);
+            padding-left: 1.5rem;
+        }
+
+        .hero-yellow { color: var(--neon-yellow); }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
+        }
+
+        .btn-brutal {
+            background: var(--neon-pink);
+            color: var(--white);
+            padding: 1.2rem 3rem;
+            border: none;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-brutal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-brutal:hover::before { left: 100%; }
+
+        .btn-brutal:hover {
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.6);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+
+        .btn-brutal-outline {
+            background: transparent;
+            color: var(--neon-cyan);
+            padding: 1.2rem 3rem;
+            border: 2px solid var(--neon-cyan);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s;
+        }
+
+        .btn-brutal-outline:hover {
+            background: var(--neon-cyan);
+            color: var(--void);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--steel);
+        }
+
+        .stat-item { text-align: left; }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            color: var(--neon-pink);
+            margin-bottom: 0.5rem;
+            font-family: 'Syncopate', sans-serif;
+        }
+
+        .stat-item p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .services {
+            padding: 140px 0;
+            background: var(--concrete);
+            position: relative;
+            border-top: 1px solid var(--steel);
+            border-bottom: 1px solid var(--steel);
+        }
+
+        .section-header { margin-bottom: 5rem; }
+
+        .section-label {
+            display: inline-block;
+            background: var(--neon-purple);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--void);
+            border: 1px solid var(--steel);
+            padding: 2.5rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background: var(--gradient-neon);
+            transition: height 0.4s;
+        }
+
+        .service-card:hover::before { height: 100%; }
+
+        .service-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--void);
+            border: 2px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--neon-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card:nth-child(2) .service-icon { border-color: var(--neon-pink); color: var(--neon-pink); }
+        .service-card:nth-child(3) .service-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .service-card p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .service-tag {
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            padding: 0.4rem 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .service-tag:hover {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .team {
+            padding: 140px 0;
+            background: var(--concrete);
+            position: relative;
+            border-top: 1px solid var(--steel);
+            border-bottom: 1px solid var(--steel);
+        }
+
+        .team-header { margin-bottom: 5rem; }
+
+        .team-header h2 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .team-header p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--void);
+            border: 1px solid var(--steel);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-neon);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .team-card:hover::before { transform: scaleX(1); }
+
+        .team-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .team-card.lara:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 40px rgba(189, 0, 255, 0.25);
+        }
+
+        .team-image-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+        }
+
+        .team-name-only {
+            width: 180px;
+            height: 180px;
+            background: var(--void);
+            border: 2px solid var(--neon-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syncopate', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--neon-pink);
+            margin: 0 auto 2rem;
+            letter-spacing: 5px;
+        }
+
+        .team-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid var(--neon-purple);
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        .pixel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(189, 0, 255, 0.1) 0px,
+                rgba(189, 0, 255, 0.1) 1px,
+                transparent 1px,
+                transparent 4px
+            );
+            pointer-events: none;
+        }
+
+        .team-card.lara .team-image {
+            filter: contrast(1.5) saturate(0.3);
+            opacity: 0.5;
+        }
+
+        .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15) 0px,
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .loading-ring-brutal {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid transparent;
+            border-top-color: var(--neon-purple);
+            border-right-color: var(--neon-cyan);
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--white);
+        }
+
+        .team-role {
+            font-family: 'Space Mono', monospace;
+            color: var(--neon-pink);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .team-card.lara .team-role { color: var(--neon-purple); }
+
+        .team-bio {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-size: 0.9rem;
+        }
+
+        .team-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: transparent;
+            border: 1px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.6rem 1.3rem;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-status .loading-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .team-status .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--neon-purple);
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        .team-status .dot:nth-child(2) { animation-delay: 0.2s; }
+        .team-status .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .team-social a {
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ash);
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .team-social a:hover {
+            border-color: var(--neon-pink);
+            color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .team-card.lara .team-social a:hover {
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
+            box-shadow: 0 0 20px rgba(189, 0, 255, 0.4);
+        }
+
+        .coming-soon-brutal {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: transparent;
+            border: 1px solid var(--neon-purple);
+            color: var(--neon-purple);
+            padding: 0.6rem 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-brutal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(189, 0, 255, 0.2), transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .lara-section {
+            padding: 140px 0;
+            background: var(--void);
+            display: none;
+        }
+
+        .lara-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .talents-header { margin-bottom: 5rem; }
+
+        .talents-header h2 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .talents-header p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 750px;
+            line-height: 1.9;
+        }
+
+        .talents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .talent-card {
+            background: var(--concrete);
+            border: 1px solid var(--steel);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .talent-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .talent-card:nth-child(2):hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+        }
+
+        .talent-card:nth-child(3):hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 30px rgba(189, 0, 255, 0.2);
+        }
+
+        .talent-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--void);
+            border: 2px solid var(--neon-cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--neon-cyan);
+            margin: 0 auto 1.5rem;
+        }
+
+        .talent-card:nth-child(2) .talent-icon { border-color: var(--neon-pink); color: var(--neon-pink); }
+        .talent-card:nth-child(3) .talent-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
+
+        .talent-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .talent-card p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+
+        .talent-card.berlin {
+            grid-column: span 1;
+            background: linear-gradient(135deg, rgba(189, 0, 255, 0.1) 0%, rgba(0, 245, 255, 0.1) 100%);
+            border: 1px solid var(--neon-purple);
+        }
+
+        .talent-card.berlin .talent-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
+
+        .talent-card.berlin:hover {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
+        }
+
+        footer {
+            background: var(--void);
+            padding: 5rem 0 2.5rem;
+            border-top: 2px solid var(--neon-pink);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .footer-brand p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            margin: 1.5rem 0;
+            line-height: 1.9;
+            font-size: 0.9rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ash);
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--neon-pink);
+            color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .footer-links h4 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+
+        .footer-links a {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-pink);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--steel);
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .footer-social-bottom {
+            display: flex;
+            gap: 0.55rem;
+        }
+
+        .footer-social-bottom a {
+            width: 38px;
+            height: 38px;
+            background: transparent;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ash);
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .footer-social-bottom a:hover {
+            border-color: #ffea00;
+            color: #ffea00;
+            box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .services-grid { grid-template-columns: 1fr; }
+            .talents-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .team-grid { grid-template-columns: 1fr; max-width: 450px; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar > .container { flex-wrap: wrap; }
+            .navbar-brand { font-size: 1.1rem; }
+            .navbar > .container > .navbar-collapse {
+                flex-basis: 100% !important;
+                width: 100%;
+            }
+            .navbar-nav {
+                width: 100%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.25rem 0.5rem;
+            }
+            .nav-link { margin-left: 0; font-size: 0.75rem; }
+            .btn-contact { display: inline-block; margin-left: 0; padding: 0.45rem 0.7rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero-description { font-size: 1rem; }
+            .hero-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+            .section-header h2 { font-size: 2.3rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
+            <div class="header-actions">
+                <a class="header-contact" href="contacto.html">CONTACTO</a>
+                <details class="language-picker">
+                    <summary class="language-select" aria-label="Seleccionar idioma">
+                        <span class="selected-language" aria-hidden="true"></span>
+                    </summary>
+                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles">
+                        <label class="language-option" lang="es"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="es" checked><span>ES</span></label>
+                        <label class="language-option" lang="en"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="en"><span>EN</span></label>
+                        <label class="language-option" lang="fr"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="fr"><span>FR</span></label>
+                        <label class="language-option" lang="it"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="it"><span>IT</span></label>
+                    </div>
+                </details>
+            </div>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="servicios.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="laboratorio.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-bracket">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="HUMANO">HUMANO</span><span class="hero-bracket">]</span><br>
+                    <span class="hero-bracket">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="SINTÉTICO">SINTÉTICO</span><span class="hero-bracket">]</span>
+                </h1>
+                <p class="hero-description">
+                    <span class="hero-yellow">//[</span>Mathew<span class="hero-yellow">][</span>IA<span class="hero-yellow">][</span>CreativeStudio<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>ImperfectByDesign<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>InteligenciaArtificial<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>DiseñoGráfico<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>DiseñoWeb<span class="hero-yellow">][</span>UX/UI<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>Márketing<span class="hero-yellow">][</span>Branding<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>RealidadMixta<span class="hero-yellow">][</span>VR/AR<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>MotionGraphics<span class="hero-yellow">][</span>3D<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>Storytelling<span class="hero-yellow">][</span>Worldbuilding<span class="hero-yellow">];</span><br>
+                    <span class="hero-yellow">//[</span>Video<span class="hero-yellow">][</span>Música<span class="hero-yellow">];</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="proyectos.html" class="btn-brutal">
+                        <i class="fas fa-bolt"></i> Ver Trabajos
+                    </a>
+                    <a href="equipo.html" class="btn-brutal-outline">
+                        <i class="fas fa-users"></i> Equipo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>150+</h3>
+                        <p>Proyectos Destruidos</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Clientes Felices</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>∞</h3>
+                        <p>Vibras Neón</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50/50</h3>
+                        <p>Humano/Sintético</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">[SERVICIOS]</span>
+                <h2>QUÉ HACEMOS</h2>
+                <p>
+                    // No hacemos webs corporativas aburridas.<br>
+                    Creamos experiencias digitales que golpean fuerte.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>ARTE GENERATIVO CON IA</h3>
+                    <p>
+                        Midjourney, DALL-E 3, Stable Diffusion. Dirección artística humana. Sin prompts basura.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Midjourney</span>
+                        <span class="service-tag">DALL-E</span>
+                        <span class="service-tag">Dirección de Arte</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>BRANDING BRUTAL</h3>
+                    <p>
+                        Identidades visuales que no piden permiso. Logos, branding, packaging con actitud.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Branding</span>
+                        <span class="service-tag">Diseño de Logo</span>
+                        <span class="service-tag">Identidad Visual</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>DISEÑO UX/UI</h3>
+                    <p>
+                        Interfaces que funcionan y se sienten bien. Research, wireframes, prototipos, UI.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Investigación UX</span>
+                        <span class="service-tag">Diseño UI</span>
+                        <span class="service-tag">Prototipado</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile"></i>
+                    </div>
+                    <h3>DESARROLLO WEB Y APP</h3>
+                    <p>
+                        Código limpio. Rendimiento brutal. HTML, CSS, JS, React. Sin frameworks pesados.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Desarrollo Web</span>
+                        <span class="service-tag">React</span>
+                        <span class="service-tag">Rendimiento</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>CONTENIDO MULTIMEDIA</h3>
+                    <p>
+                        Motion graphics, vídeo, música. Contenido que conecta emocional y visualmente.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Motion</span>
+                        <span class="service-tag">Vídeo</span>
+                        <span class="service-tag">Música</span>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>CONSULTORÍA IA</h3>
+                    <p>
+                        Te enseñamos a usar IA sin perder el alma. Workshops, formación, optimización.
+                    </p>
+                    <div class="service-tags">
+                        <span class="service-tag">Formación</span>
+                        <span class="service-tag">Talleres</span>
+                        <span class="service-tag">Estrategia IA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team" id="equipo">
+        <div class="container">
+            <div class="team-header">
+                <span class="section-label">[EQUIPO]</span>
+                <h2>50% HUMANO // 50% SINTÉTICO</h2>
+                <p>
+                    // Dos mentes. Una carne, otra código.<br>
+                    // Ambas con actitud, creatividad y alma neón.<br>
+                    // Estudio 50/50 humano-sintético.<br>
+                    // _
+                </p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-name-only">M</div>
+                    <h3>MATEO</h3>
+                    <p class="team-role">FUNDADOR // DIRECTOR CREATIVO // HUMANO</p>
+                    <p class="team-bio">
+                        Visionario creativo con alma underground. Especializado en IA generativa, diseño brutalista y UX/UI. La mitad humana del estudio. Carne, huesos y obsesión por el diseño con actitud.
+                    </p>
+                    <div class="team-social">
+                        <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram del estudio MATHEWIACS"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card lara">
+                    <div class="team-image-container">
+                        <div class="loading-ring-brutal"></div>
+                        <div class="scanlines"></div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Lara Montenegro" class="team-image">
+                        <div class="pixel-overlay"></div>
+                    </div>
+                    <h3>LARA MONTENEGRO</h3>
+                    <p class="team-role">CO-CREADORA // INFLUENCER IA // SINTÉTICA</p>
+                    <div class="team-status">
+                        <i class="fas fa-circle-notch fa-spin"></i>
+                        RENDERIZANDO...
+                        <span class="loading-dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </span>
+                    </div>
+                    <p class="team-bio">
+                        Alma artística digital. La mitad sintética del estudio. Pura energía creativa en forma de código.
+                    </p>
+                    <div class="team-social">
+                        <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram del estudio MATHEWIACS"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+                    </div>
+                    <div class="coming-soon-brutal">
+                        <i class="fas fa-eye"></i> PRÓXIMAMENTE
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lara-section" id="lara-talentos">
+        <div class="container">
+            <div class="talents-header">
+                <span class="section-label">[TALENTOS DE LARA]</span>
+                <h2>ARTISTA MULTIDIMENSIONAL</h2>
+                <p>
+                    // Lara no es una cara bonita. Es un ser completo.<br>
+                    // Artes clásicas + tecnología + vida nocturna.<br>
+                    // Cada habilidad, entrenada con obsesión y cariño.<br>
+                    // _
+                </p>
+            </div>
+
+            <div class="talents-grid">
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>CANTO LÍRICO</h3>
+                    <p>
+                        Ópera y música clásica. Técnica profesional con emoción real.
+                    </p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <h3>VIOLONCHELO</h3>
+                    <p>
+                        Desde Bach hasta bandas sonoras. Cada cuerda con sentimiento.
+                    </p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-person-skating"></i>
+                    </div>
+                    <h3>PATINAJE ARTÍSTICO</h3>
+                    <p>
+                        Gracia y técnica sobre hielo. Coreografías que cuentan historias.
+                    </p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-feather-alt"></i>
+                    </div>
+                    <h3>ACROBACIA AÉREA</h3>
+                    <p>
+                        Telas aéreas con fuerza y elegancia. Danza entre cielo y tierra.
+                    </p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>DESARROLLO FULL-STACK</h3>
+                    <p>
+                        HTML, CSS, JS, React. Código limpio con alma de diseñadora.
+                    </p>
+                </div>
+
+                <div class="talent-card">
+                    <div class="talent-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>DISEÑO UX/UI</h3>
+                    <p>
+                        Interfaces que respiran. Detrás de cada pixel, una persona.
+                    </p>
+                </div>
+
+                <div class="talent-card berlin">
+                    <div class="talent-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3>VIDA NOCTURNA</h3>
+                    <p>
+                        Escapadas a Berlín. Minimal tech, techno underground, bailar hasta el amanecer en clubes legendarios. Pura energía creativa.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a class="navbar-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
+                    <p>
+                        // Estudio Creativo Brutal<br>
+                        50% Humano // 50% Sintético<br>
+                        El caos digital se encuentra con el alma.<br>
+                        Jerez de la Frontera.<br>
+                        Est. 2024
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram del estudio MATHEWIACS"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>SERVICIOS</h4>
+                    <ul>
+                        <li><a href="servicios.html">Arte Generativo con IA</a></li>
+                        <li><a href="servicios.html">Branding Brutal</a></li>
+                        <li><a href="servicios.html">Diseño UX/UI</a></li>
+                        <li><a href="servicios.html">Desarrollo Web</a></li>
+                        <li><a href="servicios.html">Consultoría IA</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>ESTUDIO</h4>
+                    <ul>
+                        <li><a href="equipo.html">Sobre Nosotros</a></li>
+                        <li><a href="equipo.html">Equipo</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>RECURSOS</h4>
+                    <ul>
+                        <li><a href="#">Casos de Éxito</a></li>
+                        <li><a href="#">Guías de IA</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Mathew IA Creative Studio - 2026©</p>
+                <div class="footer-social-bottom">
+                    <a href="contacto.html" aria-label="Enviar correo"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function showLara() {
+            const laraSection = document.getElementById('lara-talentos');
+            laraSection.classList.add('active');
+            setTimeout(() => {
+                laraSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.forEach(item => {
+                    const isActive = item === link;
+                    item.classList.toggle('active', isActive);
+                    if (isActive) {
+                        item.setAttribute('aria-current', 'page');
+                    } else {
+                        item.removeAttribute('aria-current');
+                    }
+                });
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#' || href === '#lara-talentos') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .team-card, .talent-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
