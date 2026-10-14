@@ -1184,6 +1184,23 @@
             .footer-social-bottom { grid-column: 2; grid-row: 2; }
         }
 
+        /* ===== Fotos del equipo (recuadro cuadrado exacto) ===== */
+        .team-photo-container {
+            width: 180px;
+            height: 180px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto 2rem;
+        }
+
+        .team-photo {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 30%;
+            border: 2px solid var(--neon-pink);
+        }
+
         /* ===== Efecto escáner + glitch (foto de Lara) ===== */
         .scan-photo {
             position: relative;
