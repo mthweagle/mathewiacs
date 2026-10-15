@@ -682,72 +682,8 @@
 
         footer {
             background: var(--void);
-            padding: 5rem 0 2.5rem;
+            padding: 2.5rem 0;
             border-top: 2px solid var(--neon-pink);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
-            gap: 3rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .footer-brand p {
-            font-family: 'Space Mono', monospace;
-            color: var(--ash);
-            margin: 1.5rem 0;
-            line-height: 1.9;
-            font-size: 0.9rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .footer-social a {
-            width: 45px;
-            height: 45px;
-            background: transparent;
-            border: 1px solid var(--steel);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--ash);
-            transition: all 0.3s;
-            font-size: 1.2rem;
-        }
-
-        .footer-social a:hover {
-            border-color: var(--neon-pink);
-            color: var(--neon-pink);
-            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
-        }
-
-        .footer-links h4 {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--neon-cyan);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links ul { list-style: none; }
-        .footer-links li { margin-bottom: 0.8rem; }
-
-        .footer-links a {
-            font-family: 'Space Mono', monospace;
-            color: var(--ash);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: all 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--neon-pink);
-            padding-left: 5px;
         }
 
         .footer-bottom {
@@ -755,8 +691,6 @@
             grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
             align-items: center;
             gap: 24px;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--steel);
             font-family: 'Space Mono', monospace;
             color: var(--ash);
             font-size: 0.85rem;
@@ -797,7 +731,6 @@
         @media (max-width: 992px) {
             .hero h1 { font-size: 3.5rem; }
             .services-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -817,7 +750,6 @@
             .hero h1 { font-size: 2.5rem; }
             .hero-description { font-size: 1rem; }
             .section-header h2 { font-size: 2.3rem; }
-            .footer-grid { grid-template-columns: 1fr; }
         }
 
         /* ===== Mapa animado del footer ===== */
@@ -1081,55 +1013,6 @@
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a class="navbar-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
-                    <p data-i18n="k71">
-                        // Estudio Creativo Brutal<br>
-                        50% Humano // 50% Sintético<br>
-                        El caos digital se encuentra con el alma.<br>
-                        Jerez de la Frontera.<br>
-                        Est. 2024
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram del estudio MATHEWIACS" data-i18n-aria="a03"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <h4 data-i18n="k02">SERVICIOS</h4>
-                    <ul>
-                        <li><a href="servicios.html" data-i18n="k74">Arte Generativo con IA</a></li>
-                        <li><a href="servicios.html" data-i18n="k75">Branding Brutal</a></li>
-                        <li><a href="servicios.html" data-i18n="k76">Diseño UX/UI</a></li>
-                        <li><a href="servicios.html" data-i18n="k28">Desarrollo Web</a></li>
-                        <li><a href="servicios.html" data-i18n="k77">Consultoría IA</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4 data-i18n="k72">ESTUDIO</h4>
-                    <ul>
-                        <li><a href="equipo.html" data-i18n="k78">Sobre Nosotros</a></li>
-                        <li><a href="equipo.html" data-i18n="k10">Equipo</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="contacto.html" data-i18n="k79">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links">
-                    <h4 data-i18n="k73">RECURSOS</h4>
-                    <ul>
-                        <li><a href="#" data-i18n="k80">Casos de Éxito</a></li>
-                        <li><a href="#" data-i18n="k81">Guías de IA</a></li>
-                        <li><a href="#" data-i18n="k82">Tutoriales</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-            </div>
-
             <div class="footer-bottom">
                 <p>Mathew IA Creative Studio - 2026©</p><div class="footer-location-map"><svg viewBox="125 200 850 730" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estudio en Jerez de la Frontera" data-i18n-aria="a06"><defs><filter id="fm-neon" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/><feComposite in="SourceGraphic" operator="over"/></filter></defs><path class="fm-land" d="M162 288 L182 268 220 258 225 242 250 231 270 235 287 249 348 251 370 244 422 259 453 267 494 260 517 259 548 273 561 262 606 273 624 268 649 278 646 290 682 302 704 313 716 309 733 320 775 320 772 310 796 313 817 321 820 338 834 333 855 343 877 338 893 341 915 332 933 349 923 357 Q940 382 910 403 L882 421 873 433 820 449 794 465 782 477 791 482 779 493 762 519 736 557 Q715 589 722 605 L735 632 751 639 748 654 727 668 718 687 708 692 704 710 695 728 698 741 682 741 665 743 647 756 629 771 624 790 608 813 595 804 581 805 573 815 550 813 528 816 507 815 479 814 449 815 439 825 417 832 396 852 380 863 369 873 354 862 335 849 321 827 319 813 293 784 266 770 256 772 250 740 266 708 282 702 286 688 278 691 265 672 273 651 286 628 289 620 278 614 270 593 258 573 258 567 289 568 297 539 291 530 302 519 305 508 302 497 304 469 300 458 313 442 336 424 343 415 331 405 326 405 325 391 320 382 297 378 284 386 278 390 260 386 245 384 228 390 224 387 231 372 223 363 201 369 182 382 183 369 196 355 187 354 186 347 196 340 184 335 190 325 177 333 174 327 181 316 171 315 181 305 168 305 169 298 163 301 Z"/><g><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/></g><path class="fm-pin" transform="translate(340 814) scale(.55) translate(-362 -815)" fill-rule="evenodd" d="M362 691 C338 691 321 710 321 734 C321 762 362 815 362 815 C362 815 403 762 403 734 C403 710 386 691 362 691 Z M362 709 A23 23 0 1 1 362 755 A23 23 0 1 1 362 709 Z"/></svg></div>
                 <div class="footer-social-bottom">
@@ -1248,22 +1131,9 @@
                         "k36": "Training",
                         "k37": "Workshops",
                         "k38": "AI Strategy",
-                        "k71": "// Brutal Creative Studio<br>50% Human // 50% Synthetic<br>Digital chaos meets soul.<br>Jerez de la Frontera.<br>Est. 2024",
-                        "k72": "STUDIO",
-                        "k73": "RESOURCES",
-                        "k74": "Generative AI Art",
-                        "k75": "Brutal Branding",
-                        "k76": "UX/UI Design",
-                        "k77": "AI Consulting",
-                        "k78": "About Us",
-                        "k79": "Contact",
-                        "k80": "Success Stories",
-                        "k81": "AI Guides",
-                        "k82": "Tutorials",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ArtificialIntelligence<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>GraphicDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>WebDesign<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MixedReality<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Video<span class=\"hero-yellow\">][</span>Music<span class=\"hero-yellow\">];</span>",
                         "a01": "Select language",
                         "a02": "Available languages",
-                        "a03": "Instagram of the MATHEWIACS studio",
                         "a04": "GitHub of the MATHEWIACS studio",
                         "a05": "Send email",
                         "a06": "Studio in Jerez de la Frontera",
@@ -1309,22 +1179,9 @@
                         "k36": "Formation",
                         "k37": "Ateliers",
                         "k38": "Stratégie IA",
-                        "k71": "// Studio créatif brutal<br>50 % Humain // 50 % Synthétique<br>Le chaos numérique rencontre l’âme.<br>Jerez de la Frontera.<br>Est. 2024",
-                        "k72": "STUDIO",
-                        "k73": "RESSOURCES",
-                        "k74": "Art génératif par IA",
-                        "k75": "Branding brutal",
-                        "k76": "Design UX/UI",
-                        "k77": "Conseil en IA",
-                        "k78": "À propos de nous",
-                        "k79": "Contact",
-                        "k80": "Cas de réussite",
-                        "k81": "Guides de l’IA",
-                        "k82": "Tutoriels",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>IntelligenceArtificielle<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignGraphique<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignWeb<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>RéalitéMixte<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Vidéo<span class=\"hero-yellow\">][</span>Musique<span class=\"hero-yellow\">];</span>",
                         "a01": "Sélectionner la langue",
                         "a02": "Langues disponibles",
-                        "a03": "Instagram du studio MATHEWIACS",
                         "a04": "GitHub du studio MATHEWIACS",
                         "a05": "Envoyer un e-mail",
                         "a06": "Studio à Jerez de la Frontera",
@@ -1370,22 +1227,9 @@
                         "k36": "Formazione",
                         "k37": "Workshop",
                         "k38": "Strategia IA",
-                        "k71": "// Studio creativo brutale<br>50% Umano // 50% Sintetico<br>Il caos digitale incontra l’anima.<br>Jerez de la Frontera.<br>Est. 2024",
-                        "k72": "STUDIO",
-                        "k73": "RISORSE",
-                        "k74": "Arte generativa con IA",
-                        "k75": "Branding brutale",
-                        "k76": "Design UX/UI",
-                        "k77": "Consulenza IA",
-                        "k78": "Chi siamo",
-                        "k79": "Contatti",
-                        "k80": "Casi di successo",
-                        "k81": "Guide sull’IA",
-                        "k82": "Tutorial",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>IntelligenzaArtificiale<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignGrafico<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>WebDesign<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>RealtàMista<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Video<span class=\"hero-yellow\">][</span>Musica<span class=\"hero-yellow\">];</span>",
                         "a01": "Seleziona la lingua",
                         "a02": "Lingue disponibili",
-                        "a03": "Instagram dello studio MATHEWIACS",
                         "a04": "GitHub dello studio MATHEWIACS",
                         "a05": "Invia email",
                         "a06": "Studio a Jerez de la Frontera",
