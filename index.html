@@ -1201,6 +1201,90 @@
             border: 2px solid var(--neon-pink);
         }
 
+        /* ===== Ficha de THEO (mascota, ancho completo) ===== */
+        .team-card.theo {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 180px 1fr;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 2.5rem;
+            text-align: left;
+        }
+
+        .team-card.theo:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+        }
+
+        .team-card.theo .team-role {
+            color: var(--neon-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .team-card.theo .team-bio { margin-bottom: 0; }
+
+        .theo-avatar {
+            width: 180px;
+            height: 180px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--neon-cyan);
+            background: var(--void);
+            font-family: 'Syncopate', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--neon-cyan);
+        }
+
+        /* X X: 5 colores, cambia cada 2 s y vuelve al primero */
+        .theo-avatar span {
+            text-shadow: 0 0 8px currentColor;
+            animation: theo-x-colors 10s steps(1, end) infinite;
+        }
+
+        @keyframes theo-x-colors {
+            0%   { color: #00f5ff; } /* cyan */
+            20%  { color: #ff006e; } /* rosa */
+            40%  { color: #ffea00; } /* amarillo */
+            60%  { color: #bd00ff; } /* violeta */
+            80%  { color: #5cffb1; } /* menta */
+        }
+
+        .theo-status {
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .theo-status .dot { background: var(--neon-cyan); }
+
+        .theo-traits {
+            list-style: none;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.9;
+            color: var(--ash);
+        }
+
+        .theo-traits li::before {
+            content: '// ';
+            color: var(--neon-cyan);
+        }
+
+        @media (max-width: 992px) {
+            .team-card.theo {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 1.75rem;
+                padding: 3rem 2.5rem;
+                text-align: center;
+            }
+            .theo-avatar { order: -1; }
+        }
+
         /* ===== Efecto escáner + glitch (foto de Lara) ===== */
         .scan-photo {
             position: relative;
@@ -1305,6 +1389,7 @@
             .scan-line,
             .scan-glitch { animation: none; }
             .scan-line { top: 50%; }
+            .theo-avatar span { animation: none; }
             .fm-wave { animation: none; opacity: 0.2; stroke-width: 3; }
             .fm-wave:nth-child(2) { transform: scale(0.65); }
             .fm-wave:nth-child(3) { transform: scale(0.35); }
@@ -1543,6 +1628,36 @@
                     </div>
                     <div class="coming-soon-brutal">
                         <i class="fas fa-eye"></i> PRÓXIMAMENTE
+                    </div>
+                </div>
+
+                <div class="team-card theo">
+                    <div class="theo-col">
+                        <h3>THEO</h3>
+                        <p class="team-role">MASCOTA DEL ESTUDIO // ROBOT // SINTÉTICO</p>
+                        <p class="team-bio">
+                            Robot mascota oficial del estudio. Verde menta, adorable y con tres rueditas que lo llevan a todos lados. Divertido, curioso y neurodivergente: su cabeza va a mil y esa es su superpotencia.
+                        </p>
+                    </div>
+
+                    <div class="theo-avatar" role="img" aria-label="Avatar de Theo, pendiente de renderizar"><span aria-hidden="true">X X</span></div>
+
+                    <div class="theo-col">
+                        <div class="team-status theo-status">
+                            <i class="fas fa-flask"></i>
+                            PLANEANDO EL SIGUIENTE PASO
+                            <span class="loading-dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </span>
+                        </div>
+                        <ul class="theo-traits">
+                            <li>Siempre buscando algo que hacer</li>
+                            <li>Experimentos en el laboratorio</li>
+                            <li>Planeando el siguiente paso</li>
+                            <li>Llega a todos lados sobre tres ruedas</li>
+                        </ul>
                     </div>
                 </div>
             </div>
