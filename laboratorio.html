@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="description" content="Mathew IA Creative Studio.">
+    <meta name="description" content="Laboratorio de MATHEWIACS: experimentos con inteligencia artificial, diseño, sonido y movimiento.">
     <meta name="robots" content="index, follow">
-    <title>Mathew IA Creative Studio</title>
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="MATHEWIACS | Laboratorio">
+    <meta property="og:description" content="Experimentos con inteligencia artificial, diseño, sonido y movimiento.">
+    <meta name="twitter:card" content="summary">
+    <title>MATHEWIACS | Laboratorio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --void: #0a0a0a;
@@ -42,9 +47,6 @@
             color: var(--smoke);
             line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -73,7 +75,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 0, 110, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 0, 110, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -93,7 +95,6 @@
             pointer-events: none;
         }
 
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -145,10 +146,6 @@
             2.8% { opacity: 0; transform: translateX(-1px); }
             3.6% { opacity: 0.75; transform: translateX(-2px); }
             4.4%, 100% { opacity: 0; transform: translateX(0); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .navbar-brand::after { animation: none; }
         }
 
         .navbar > .container {
@@ -230,6 +227,12 @@
             line-height: 1;
             text-align: left;
             cursor: pointer;
+        }
+
+        .language-select:focus-visible,
+        .language-option:focus-within {
+            outline: 1px solid var(--neon-cyan);
+            outline-offset: 2px;
         }
 
         .selected-language { font-size: 0; }
@@ -327,7 +330,9 @@
             text-decoration: none;
         }
 
-        .nav-link:focus { outline: none; }
+        .nav-link:focus {
+            outline: none;
+        }
 
         .nav-index {
             font-size: 12px;
@@ -336,6 +341,9 @@
         }
 
         .nav-label { white-space: nowrap; }
+
+        .nav-link::before,
+        .nav-link::after { content: none; }
 
         .nav-link .nav-mark,
         .nav-link .nav-separator {
@@ -362,27 +370,261 @@
             outline-offset: 4px;
         }
 
-        /* ===== MAIN VACÍO ===== */
-        main {
-            flex: 1;
-            min-height: calc(100vh - 77px);
+        .section-label {
+            display: inline-block;
+            background: var(--neon-purple);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
+        /* ===== Laboratorio ===== */
+        .lab {
+            padding: 140px 0 120px;
+            background: var(--concrete);
+            position: relative;
+            border-bottom: 1px solid var(--steel);
+            min-height: 100vh;
+        }
+
+        .lab-header { margin-bottom: 3.5rem; }
+
+        .lab-header h2 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-header p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* ===== Carrusel de experimentos ===== */
+        .carousel-lab {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel-viewport {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--steel);
             background: var(--void);
-            padding: 0 0 2.5rem;
-            margin-top: auto;
+            touch-action: pan-y;
         }
 
-        .footer-bottom {
+        .carousel-viewport:hover,
+        .carousel-viewport:focus-within {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .carousel-viewport { transition: border-color 0.4s, box-shadow 0.4s; }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+
+        .experiment-slide {
+            position: relative;
+            flex: 0 0 100%;
+            aspect-ratio: 16 / 3;
+            min-height: 240px;
+            overflow: hidden;
+        }
+
+        .experiment-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        .experiment-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.55) 38%, rgba(10, 10, 10, 0) 70%);
+            pointer-events: none;
+        }
+
+        .experiment-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 0.9rem 2rem 1.5rem 5.5rem;
+            max-width: 900px;
+        }
+
+        .experiment-tag {
+            display: inline-block;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.3rem 0.9rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            background: rgba(10, 10, 10, 0.6);
+        }
+
+        .experiment-slide:nth-child(2) .experiment-tag { border-color: var(--neon-pink); color: var(--neon-pink); }
+        .experiment-slide:nth-child(3) .experiment-tag { border-color: var(--neon-purple); color: var(--neon-purple); }
+        .experiment-slide:nth-child(4) .experiment-tag { border-color: var(--neon-yellow); color: var(--neon-yellow); }
+
+        .experiment-info h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .experiment-info p {
+            font-family: 'Space Mono', monospace;
+            color: var(--smoke);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            width: 52px;
+            height: 52px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.75);
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-arrow.prev { left: 1rem; }
+        .carousel-arrow.next { right: 1rem; }
+
+        .carousel-arrow:hover,
+        .carousel-arrow:focus-visible {
+            background: var(--neon-cyan);
+            color: var(--void);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+            outline: none;
+        }
+
+        .carousel-progress {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.12);
+            z-index: 4;
+        }
+
+        .carousel-progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-neon);
+        }
+
+        .carousel-controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--steel);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .carousel-counter {
+            color: var(--ash);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .carousel-counter strong { color: var(--neon-yellow); font-weight: 700; }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .carousel-dot {
+            width: 44px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+        .carousel-dot.active {
+            border-color: var(--neon-yellow);
+            color: var(--neon-yellow);
+            box-shadow: 0 0 16px rgba(255, 234, 0, 0.3);
+        }
+
+        .carousel-dot:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        .carousel-toggle {
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            width: 44px;
+            height: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-toggle:hover { border-color: var(--neon-pink); color: var(--neon-pink); }
+
+        footer {
+            background: var(--void);
+            padding: 2.5rem 0;
+            border-top: 2px solid var(--neon-pink);
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+            align-items: center;
+            gap: 24px;
             font-family: 'Space Mono', monospace;
             color: var(--ash);
             font-size: 0.85rem;
@@ -392,9 +634,12 @@
             margin: 0;
         }
 
+        .footer-bottom > p { justify-self: start; }
+
         .footer-social-bottom {
             display: flex;
             gap: 0.55rem;
+            justify-self: end;
         }
 
         .footer-social-bottom a {
@@ -417,6 +662,12 @@
             box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
         }
 
+        @media (max-width: 992px) {
+            .lab-header h2 { font-size: 2.6rem; }
+            .experiment-info { padding: 0.9rem 1.5rem 1.4rem 4.5rem; }
+            .experiment-info h3 { font-size: 1.2rem; }
+        }
+
         @media (max-width: 768px) {
             .navbar > .container { flex-wrap: wrap; }
             .navbar-brand { font-size: 1.1rem; }
@@ -431,12 +682,89 @@
                 gap: 0.25rem 0.5rem;
             }
             .nav-link { margin-left: 0; font-size: 0.75rem; }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .lab-header h2 { font-size: 2rem; }
+            .experiment-slide { aspect-ratio: auto; min-height: 200px; }
+            .experiment-info { padding: 0.8rem 1rem 1.2rem 3.8rem; }
+            .experiment-info h3 { font-size: 1rem; }
+            .experiment-info p { font-size: 0.72rem; line-height: 1.5; }
+            .carousel-arrow { width: 40px; height: 40px; }
+            .carousel-counter { display: none; }
+            .carousel-controls { justify-content: center; flex-wrap: wrap; }
         }
-    </style>
+
+        /* ===== Mapa animado del footer ===== */
+        .footer-location-map {
+            width: 150px;
+            justify-self: center;
+            color: var(--neon-yellow);
+            line-height: 0;
+        }
+
+        .footer-location-map svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .fm-land {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linejoin: round;
+            filter: url(#fm-neon);
+        }
+
+        .fm-pin {
+            fill: currentColor;
+            filter: url(#fm-neon);
+        }
+
+        .fm-wave {
+            fill: none;
+            stroke: currentColor;
+            transform-box: view-box;
+            transform-origin: 340px 814px;
+            animation: fm-ripple 3.6s linear infinite;
+            filter: url(#fm-neon);
+        }
+
+        .fm-wave:nth-child(2) { animation-delay: -0.72s; }
+        .fm-wave:nth-child(3) { animation-delay: -1.44s; }
+        .fm-wave:nth-child(4) { animation-delay: -2.16s; }
+        .fm-wave:nth-child(5) { animation-delay: -2.88s; }
+
+        @keyframes fm-ripple {
+            0%   { transform: scale(0.06); opacity: 1;    stroke-width: 10; }
+            20%  { opacity: 0.8;  stroke-width: 8; }
+            45%  { opacity: 0.5;  stroke-width: 6; }
+            70%  { opacity: 0.25; stroke-width: 4; }
+            90%  { opacity: 0.07; stroke-width: 3; }
+            100% { transform: scale(1); opacity: 0; stroke-width: 2; }
+        }
+
+        @media (max-width: 991px) {
+            .footer-bottom { grid-template-columns: 1fr 120px 1fr; gap: 16px; }
+            .footer-location-map { width: 120px; }
+            .footer-social-bottom { flex-wrap: wrap; justify-content: flex-end; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-bottom { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+            .footer-location-map { grid-column: 1 / -1; grid-row: 1; width: 125px; }
+            .footer-bottom > p { grid-column: 1; grid-row: 2; font-size: 0.7rem; }
+            .footer-social-bottom { grid-column: 2; grid-row: 2; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .navbar-brand::after { animation: none; }
+            .carousel-track { transition: none; }
+            .fm-wave { animation: none; opacity: 0.2; stroke-width: 3; }
+            .fm-wave:nth-child(2) { transform: scale(0.65); }
+            .fm-wave:nth-child(3) { transform: scale(0.35); }
+            .fm-wave:nth-child(n+4) { display: none; }
+        }
+</style>
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -444,14 +772,14 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html#inicio" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
+            <a class="navbar-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
             <div class="header-actions">
-                <a class="header-contact" href="contacto.html">CONTACTO</a>
+                <a class="header-contact" href="contacto.html" data-i18n="k06">CONTACTO</a>
                 <details class="language-picker">
-                    <summary class="language-select" aria-label="Seleccionar idioma">
+                    <summary class="language-select" aria-label="Seleccionar idioma" data-i18n-aria="a01">
                         <span class="selected-language" aria-hidden="true"></span>
                     </summary>
-                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles">
+                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles" data-i18n-aria="a02">
                         <label class="language-option" lang="es"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="es" checked><span>ES</span></label>
                         <label class="language-option" lang="en"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="en"><span>EN</span></label>
                         <label class="language-option" lang="fr"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="fr"><span>FR</span></label>
@@ -462,46 +790,383 @@
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#inicio"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="index.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k01">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicios.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="servicios.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k02">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k03">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="laboratorio.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link active" href="laboratorio.html" aria-current="page"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k04">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k05">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <main>
-        <!-- Aquí va el contenido de cada página -->
-    </main>
+    <section class="lab" id="laboratorio">
+        <div class="container">
+            <div class="lab-header">
+                <span class="section-label" data-i18n="l01">[LABORATORIO]</span>
+                <h2 data-i18n="l02">EXPERIMENTOS DESTACADOS</h2>
+                <p data-i18n="l03">
+                    // Aquí probamos, rompemos y volvemos a montar.<br>
+                    // Prototipos con IA, sonido, movimiento e interfaces.<br>
+                    // Lo que sale bien, se convierte en proyecto.<br>
+                    // _
+                </p>
+            </div>
+
+            <div class="carousel-lab" id="carouselLab" role="region" aria-roledescription="carrusel" aria-label="Experimentos destacados" data-i18n-aria="l04">
+                <div class="carousel-viewport" id="carouselViewport">
+                    <div class="carousel-track" id="carouselTrack" aria-live="off">
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-1/1600/900" alt="Imagen genérica del experimento 01" data-i18n-alt="l05" loading="eager">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 01</span>
+                                <h3 data-i18n="l06">RETRATOS SINTÉTICOS</h3>
+                                <p data-i18n="l07">Pruebas de consistencia facial con IA generativa: mismo rostro, distintos peinados, luces y maquillajes.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-2/1600/900" alt="Imagen genérica del experimento 02" data-i18n-alt="l08" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 02</span>
+                                <h3 data-i18n="l09">PAISAJES SONOROS</h3>
+                                <p data-i18n="l10">Identidad acústica para espacios de lujo: texturas, ambientes y música generada para habitar un lugar.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-3/1600/900" alt="Imagen genérica del experimento 03" data-i18n-alt="l11" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 03</span>
+                                <h3 data-i18n="l12">MUNDOS EN MOVIMIENTO</h3>
+                                <p data-i18n="l13">Vídeo realista con IA: personajes que caminan, hablan y sincronizan sus labios con la voz.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-4/1600/900" alt="Imagen genérica del experimento 04" data-i18n-alt="l14" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 04</span>
+                                <h3 data-i18n="l15">INTERFACES VIVAS</h3>
+                                <p data-i18n="l16">UX/UI experimental: catálogos interactivos y webs que reaccionan, se animan y se dejan tocar.</p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <button class="carousel-arrow prev" id="carouselPrev" type="button" aria-label="Experimento anterior" data-i18n-aria="l17"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <button class="carousel-arrow next" id="carouselNext" type="button" aria-label="Experimento siguiente" data-i18n-aria="l18"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+
+                    <div class="carousel-progress" aria-hidden="true"><span id="carouselProgress"></span></div>
+                </div>
+
+                <div class="carousel-controls">
+                    <span class="carousel-counter"><strong id="carouselCurrent">01</strong> / 04</span>
+                    <div class="carousel-dots" id="carouselDots">
+                        <button class="carousel-dot active" type="button" aria-label="Ver experimento 1" data-i18n-aria="l19" data-index="0">01</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 2" data-i18n-aria="l19" data-index="1">02</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 3" data-i18n-aria="l19" data-index="2">03</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 4" data-i18n-aria="l19" data-index="3">04</button>
+                    </div>
+                    <button class="carousel-toggle" id="carouselToggle" type="button" aria-label="Pausar carrusel" data-i18n-aria="l21"><i class="fas fa-pause" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>Mathew IA Creative Studio - 2026©</p>
+                <p>Mathew IA Creative Studio - 2026©</p><div class="footer-location-map"><svg viewBox="125 200 850 730" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estudio en Jerez de la Frontera" data-i18n-aria="a06"><defs><filter id="fm-neon" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/><feComposite in="SourceGraphic" operator="over"/></filter></defs><path class="fm-land" d="M162 288 L182 268 220 258 225 242 250 231 270 235 287 249 348 251 370 244 422 259 453 267 494 260 517 259 548 273 561 262 606 273 624 268 649 278 646 290 682 302 704 313 716 309 733 320 775 320 772 310 796 313 817 321 820 338 834 333 855 343 877 338 893 341 915 332 933 349 923 357 Q940 382 910 403 L882 421 873 433 820 449 794 465 782 477 791 482 779 493 762 519 736 557 Q715 589 722 605 L735 632 751 639 748 654 727 668 718 687 708 692 704 710 695 728 698 741 682 741 665 743 647 756 629 771 624 790 608 813 595 804 581 805 573 815 550 813 528 816 507 815 479 814 449 815 439 825 417 832 396 852 380 863 369 873 354 862 335 849 321 827 319 813 293 784 266 770 256 772 250 740 266 708 282 702 286 688 278 691 265 672 273 651 286 628 289 620 278 614 270 593 258 573 258 567 289 568 297 539 291 530 302 519 305 508 302 497 304 469 300 458 313 442 336 424 343 415 331 405 326 405 325 391 320 382 297 378 284 386 278 390 260 386 245 384 228 390 224 387 231 372 223 363 201 369 182 382 183 369 196 355 187 354 186 347 196 340 184 335 190 325 177 333 174 327 181 316 171 315 181 305 168 305 169 298 163 301 Z"/><g><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/></g><path class="fm-pin" transform="translate(340 814) scale(.55) translate(-362 -815)" fill-rule="evenodd" d="M362 691 C338 691 321 710 321 734 C321 762 362 815 362 815 C362 815 403 762 403 734 C403 710 386 691 362 691 Z M362 709 A23 23 0 1 1 362 755 A23 23 0 1 1 362 709 Z"/></svg></div>
                 <div class="footer-social-bottom">
-                    <a href="contacto.html" aria-label="Enviar correo"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="contacto.html" aria-label="Enviar correo" data-i18n-aria="a05"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS" data-i18n-aria="a04"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        /* ===== Carrusel de experimentos ===== */
+        (function () {
+            const INTERVAL = 9000; // 9 segundos
+            const track = document.getElementById('carouselTrack');
+            const viewport = document.getElementById('carouselViewport');
+            const slides = track.children;
+            const total = slides.length;
+            const dots = document.querySelectorAll('.carousel-dot');
+            const progress = document.getElementById('carouselProgress');
+            const current = document.getElementById('carouselCurrent');
+            const toggleBtn = document.getElementById('carouselToggle');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let index = 0;
+            let elapsed = 0;
+            let lastTime = null;
+            let hoverPaused = false;
+            let userPaused = reduceMotion;
+            let rafId = null;
+
+            function goTo(i) {
+                index = (i + total) % total;
+                track.style.transform = 'translateX(-' + (index * 100) + '%)';
+                dots.forEach((d, n) => d.classList.toggle('active', n === index));
+                dots.forEach((d, n) => {
+                    if (n === index) d.setAttribute('aria-current', 'true');
+                    else d.removeAttribute('aria-current');
+                });
+                current.textContent = String(index + 1).padStart(2, '0');
+                elapsed = 0;
+                progress.style.width = '0%';
+            }
+
+            function tick(now) {
+                if (lastTime === null) lastTime = now;
+                const dt = now - lastTime;
+                lastTime = now;
+                if (!hoverPaused && !userPaused && !document.hidden) {
+                    elapsed += dt;
+                    progress.style.width = Math.min(elapsed / INTERVAL * 100, 100) + '%';
+                    if (elapsed >= INTERVAL) goTo(index + 1);
+                }
+                rafId = requestAnimationFrame(tick);
+            }
+
+            document.getElementById('carouselPrev').addEventListener('click', () => goTo(index - 1));
+            document.getElementById('carouselNext').addEventListener('click', () => goTo(index + 1));
+            dots.forEach(dot => dot.addEventListener('click', () => goTo(Number(dot.dataset.index))));
+
+            viewport.addEventListener('mouseenter', () => { hoverPaused = true; });
+            viewport.addEventListener('mouseleave', () => { hoverPaused = false; });
+
+            function updateToggle() {
+                const icon = toggleBtn.querySelector('i');
+                icon.className = userPaused ? 'fas fa-play' : 'fas fa-pause';
+            }
+            toggleBtn.addEventListener('click', () => {
+                userPaused = !userPaused;
+                updateToggle();
+            });
+
+            /* Teclado: flechas izquierda/derecha */
+            document.getElementById('carouselLab').addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') goTo(index - 1);
+                if (e.key === 'ArrowRight') goTo(index + 1);
+            });
+
+            /* Táctil: deslizar */
+            let startX = null;
+            viewport.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                hoverPaused = true;
+            }, { passive: true });
+            viewport.addEventListener('touchend', (e) => {
+                if (startX !== null) {
+                    const diff = e.changedTouches[0].clientX - startX;
+                    if (Math.abs(diff) > 50) goTo(diff < 0 ? index + 1 : index - 1);
+                }
+                startX = null;
+                hoverPaused = false;
+            });
+
+            updateToggle();
+            goTo(0);
+            rafId = requestAnimationFrame(tick);
+        })();
+
+        /* ===== Idiomas (ES / EN / FR / IT) ===== */
+        const I18N = {
+            "en": {
+                "k01": "HOME",
+                "k02": "SERVICES",
+                "k03": "PROJECTS",
+                "k04": "LAB",
+                "k05": "TEAM",
+                "k06": "CONTACT",
+                "l01": "[LAB]",
+                "l02": "FEATURED EXPERIMENTS",
+                "l03": "// This is where we test, break and rebuild.<br>// AI prototypes, sound, motion and interfaces.<br>// What works becomes a project.<br>// _",
+                "l04": "Featured experiments",
+                "l05": "Generic image for experiment 01",
+                "l06": "SYNTHETIC PORTRAITS",
+                "l07": "Facial consistency tests with generative AI: same face, different hairstyles, lights and makeup.",
+                "l08": "Generic image for experiment 02",
+                "l09": "SOUNDSCAPES",
+                "l10": "Acoustic identity for luxury spaces: textures, ambiences and generated music to inhabit a place.",
+                "l11": "Generic image for experiment 03",
+                "l12": "WORLDS IN MOTION",
+                "l13": "Realistic AI video: characters that walk, talk and lip-sync to a voice.",
+                "l14": "Generic image for experiment 04",
+                "l15": "LIVING INTERFACES",
+                "l16": "Experimental UX/UI: interactive catalogues and websites that react, animate and invite touch.",
+                "l17": "Previous experiment",
+                "l18": "Next experiment",
+                "l19": "View experiment",
+                "l20": "EXPERIMENT",
+                "l21": "Pause or play carousel",
+                "a01": "Select language",
+                "a02": "Available languages",
+                "a04": "GitHub of the MATHEWIACS studio",
+                "a05": "Send email",
+                "a06": "Studio in Jerez de la Frontera",
+                "meta_title": "MATHEWIACS | Lab",
+                "meta_desc": "MATHEWIACS lab: experiments with artificial intelligence, design, sound and motion."
+            },
+            "fr": {
+                "k01": "ACCUEIL",
+                "k02": "SERVICES",
+                "k03": "PROJETS",
+                "k04": "LABORATOIRE",
+                "k05": "ÉQUIPE",
+                "k06": "CONTACT",
+                "l01": "[LABORATOIRE]",
+                "l02": "EXPÉRIENCES EN VEDETTE",
+                "l03": "// Ici, on teste, on casse et on reconstruit.<br>// Prototypes IA, son, mouvement et interfaces.<br>// Ce qui marche devient un projet.<br>// _",
+                "l04": "Expériences en vedette",
+                "l05": "Image générique de l’expérience 01",
+                "l06": "PORTRAITS SYNTHÉTIQUES",
+                "l07": "Tests de cohérence faciale avec l’IA générative : même visage, coiffures, lumières et maquillages différents.",
+                "l08": "Image générique de l’expérience 02",
+                "l09": "PAYSAGES SONORES",
+                "l10": "Identité acoustique pour espaces de luxe : textures, ambiances et musique générée pour habiter un lieu.",
+                "l11": "Image générique de l’expérience 03",
+                "l12": "MONDES EN MOUVEMENT",
+                "l13": "Vidéo réaliste par IA : des personnages qui marchent, parlent et synchronisent leurs lèvres avec la voix.",
+                "l14": "Image générique de l’expérience 04",
+                "l15": "INTERFACES VIVANTES",
+                "l16": "UX/UI expérimentale : catalogues interactifs et sites qui réagissent, s’animent et se laissent toucher.",
+                "l17": "Expérience précédente",
+                "l18": "Expérience suivante",
+                "l19": "Voir l’expérience",
+                "l20": "EXPÉRIENCE",
+                "l21": "Mettre en pause ou lire le carrousel",
+                "a01": "Sélectionner la langue",
+                "a02": "Langues disponibles",
+                "a04": "GitHub du studio MATHEWIACS",
+                "a05": "Envoyer un e-mail",
+                "a06": "Studio à Jerez de la Frontera",
+                "meta_title": "MATHEWIACS | Laboratoire",
+                "meta_desc": "Laboratoire MATHEWIACS : expériences avec l’intelligence artificielle, le design, le son et le mouvement."
+            },
+            "it": {
+                "k01": "HOME",
+                "k02": "SERVIZI",
+                "k03": "PROGETTI",
+                "k04": "LABORATORIO",
+                "k05": "TEAM",
+                "k06": "CONTATTI",
+                "l01": "[LABORATORIO]",
+                "l02": "ESPERIMENTI IN EVIDENZA",
+                "l03": "// Qui proviamo, rompiamo e rimontiamo.<br>// Prototipi IA, suono, movimento e interfacce.<br>// Ciò che funziona diventa un progetto.<br>// _",
+                "l04": "Esperimenti in evidenza",
+                "l05": "Immagine generica dell’esperimento 01",
+                "l06": "RITRATTI SINTETICI",
+                "l07": "Test di coerenza facciale con IA generativa: stesso volto, acconciature, luci e trucchi diversi.",
+                "l08": "Immagine generica dell’esperimento 02",
+                "l09": "PAESAGGI SONORI",
+                "l10": "Identità acustica per spazi di lusso: texture, atmosfere e musica generata per abitare un luogo.",
+                "l11": "Immagine generica dell’esperimento 03",
+                "l12": "MONDI IN MOVIMENTO",
+                "l13": "Video realistico con IA: personaggi che camminano, parlano e sincronizzano le labbra con la voce.",
+                "l14": "Immagine generica dell’esperimento 04",
+                "l15": "INTERFACCE VIVE",
+                "l16": "UX/UI sperimentale: cataloghi interattivi e siti che reagiscono, si animano e si lasciano toccare.",
+                "l17": "Esperimento precedente",
+                "l18": "Esperimento successivo",
+                "l19": "Vedi l’esperimento",
+                "l20": "ESPERIMENTO",
+                "l21": "Metti in pausa o riproduci il carosello",
+                "a01": "Seleziona la lingua",
+                "a02": "Lingue disponibili",
+                "a04": "GitHub dello studio MATHEWIACS",
+                "a05": "Invia email",
+                "a06": "Studio a Jerez de la Frontera",
+                "meta_title": "MATHEWIACS | Laboratorio",
+                "meta_desc": "Laboratorio MATHEWIACS: esperimenti con intelligenza artificiale, design, suono e movimento."
+            }
+        };
+
+        const LANG_STORAGE_KEY = 'mathewiacs-lang';
+        const LOCALES = { es: 'es_ES', en: 'en_GB', fr: 'fr_FR', it: 'it_IT' };
+        const ATTR_MARKERS = [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt']];
+
+        const textOriginals = new Map();
+        const attrOriginals = new Map();
+        document.querySelectorAll('[data-i18n]').forEach(el => textOriginals.set(el, el.innerHTML));
+        ATTR_MARKERS.forEach(([marker, attr]) => {
+            document.querySelectorAll('[' + marker + ']').forEach(el => attrOriginals.set(el, el.getAttribute(attr)));
+        });
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        const metaLocale = document.querySelector('meta[property="og:locale"]');
+        const originalTitle = document.title;
+        const originalDescription = metaDescription ? metaDescription.getAttribute('content') : '';
+
+        function applyLanguage(lang) {
+            const dict = I18N[lang];
+            if (lang !== 'es' && !dict) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const value = lang === 'es' ? textOriginals.get(el) : dict[el.dataset.i18n];
+                if (value !== undefined) el.innerHTML = value;
+            });
+
+            ATTR_MARKERS.forEach(([marker, attr]) => {
+                document.querySelectorAll('[' + marker + ']').forEach(el => {
+                    let value = lang === 'es' ? attrOriginals.get(el) : dict[el.getAttribute(marker)];
+                    /* Puntos del carrusel: añadir el número al texto */
+                    if (value !== undefined && el.classList.contains('carousel-dot')) {
+                        const n = Number(el.dataset.index) + 1;
+                        value = lang === 'es' ? attrOriginals.get(el) : value + ' ' + n;
+                    }
+                    if (value !== undefined) el.setAttribute(attr, value);
+                });
+            });
+
+            document.title = lang === 'es' ? originalTitle : dict.meta_title;
+            if (metaDescription) metaDescription.setAttribute('content', lang === 'es' ? originalDescription : dict.meta_desc);
+            if (metaLocale) metaLocale.setAttribute('content', LOCALES[lang]);
+            document.documentElement.lang = lang;
+        }
+
+        document.querySelectorAll('input[name="language"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                applyLanguage(radio.value);
+                try { localStorage.setItem(LANG_STORAGE_KEY, radio.value); } catch (e) {}
+            });
+        });
+
+        let savedLanguage = null;
+        try { savedLanguage = localStorage.getItem(LANG_STORAGE_KEY); } catch (e) {}
+        if (savedLanguage && savedLanguage !== 'es' && I18N[savedLanguage]) {
+            const savedRadio = document.querySelector('input[name="language"][value="' + savedLanguage + '"]');
+            if (savedRadio) savedRadio.checked = true;
+            applyLanguage(savedLanguage);
+        }
+    </script>
 </body>
 </html>
