@@ -4,12 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="description" content="Mathew IA Creative Studio.">
-    <meta name="robots" content="index, follow">
-    <title>Mathew IA Creative Studio</title>
+    <title>Servicios de diseño web, branding y IA | MATHEWIACS</title>
+    <meta name="description" content="Servicios de MATHEWIACS desde Jerez de la Frontera: diseño web, branding, diseño gráfico, UX/UI y arte con IA. Esta sección está en construcción.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="author" content="MATHEWIACS">
+    <meta name="geo.region" content="ES-CA">
+    <meta name="geo.placename" content="Jerez de la Frontera">
+    <link rel="canonical" href="https://mathewiacs.com/servicios.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MATHEWIACS">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:url" content="https://mathewiacs.com/servicios.html">
+    <meta property="og:title" content="Servicios de diseño web, branding y IA | MATHEWIACS">
+    <meta property="og:description" content="Servicios de MATHEWIACS desde Jerez de la Frontera: diseño web, branding, diseño gráfico, UX/UI y arte con IA. Esta sección está en construcción.">
+    <meta property="og:image" content="https://mathewiacs.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MATHEWIACS – estudio creativo de diseño web, branding e IA en Jerez de la Frontera">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Servicios de diseño web, branding y IA | MATHEWIACS">
+    <meta name="twitter:description" content="Servicios de MATHEWIACS desde Jerez de la Frontera: diseño web, branding, diseño gráfico, UX/UI y arte con IA. Esta sección está en construcción.">
+    <meta name="twitter:image" content="https://mathewiacs.com/og-image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://mathewiacs.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Servicios",
+          "item": "https://mathewiacs.com/servicios.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mathewiacs.com/servicios.html#webpage",
+      "url": "https://mathewiacs.com/servicios.html",
+      "name": "Servicios de diseño web, branding y IA | MATHEWIACS",
+      "description": "Servicios de MATHEWIACS desde Jerez de la Frontera: diseño web, branding, diseño gráfico, UX/UI y arte con IA. Esta sección está en construcción.",
+      "inLanguage": "es-ES",
+      "isPartOf": {
+        "@id": "https://mathewiacs.com/#website"
+      },
+      "about": {
+        "@id": "https://mathewiacs.com/#organization"
+      }
+    }
+  ]
+}
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <style>
         :root {
             --void: #0a0a0a;
@@ -42,9 +102,6 @@
             color: var(--smoke);
             line-height: 1.6;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -73,7 +130,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(255, 0, 110, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 0, 110, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -93,7 +150,6 @@
             pointer-events: none;
         }
 
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -145,10 +201,6 @@
             2.8% { opacity: 0; transform: translateX(-1px); }
             3.6% { opacity: 0.75; transform: translateX(-2px); }
             4.4%, 100% { opacity: 0; transform: translateX(0); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .navbar-brand::after { animation: none; }
         }
 
         .navbar > .container {
@@ -230,6 +282,12 @@
             line-height: 1;
             text-align: left;
             cursor: pointer;
+        }
+
+        .language-select:focus-visible,
+        .language-option:focus-within {
+            outline: 1px solid var(--neon-cyan);
+            outline-offset: 2px;
         }
 
         .selected-language { font-size: 0; }
@@ -327,7 +385,9 @@
             text-decoration: none;
         }
 
-        .nav-link:focus { outline: none; }
+        .nav-link:focus {
+            outline: none;
+        }
 
         .nav-index {
             font-size: 12px;
@@ -336,6 +396,9 @@
         }
 
         .nav-label { white-space: nowrap; }
+
+        .nav-link::before,
+        .nav-link::after { content: none; }
 
         .nav-link .nav-mark,
         .nav-link .nav-separator {
@@ -362,27 +425,261 @@
             outline-offset: 4px;
         }
 
-        /* ===== MAIN VACÍO ===== */
-        main {
-            flex: 1;
-            min-height: calc(100vh - 77px);
+        .section-label {
+            display: inline-block;
+            background: var(--neon-purple);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
+        /* ===== Laboratorio ===== */
+        .lab {
+            padding: 140px 0 120px;
+            background: var(--concrete);
+            position: relative;
+            border-bottom: 1px solid var(--steel);
+            min-height: 100vh;
+        }
+
+        .lab-header { margin-bottom: 3.5rem; }
+
+        .lab-header h2 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .lab-header p {
+            font-family: 'Space Mono', monospace;
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        /* ===== Carrusel de experimentos ===== */
+        .carousel-lab {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .carousel-viewport {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--steel);
             background: var(--void);
-            padding: 0 0 2.5rem;
-            margin-top: auto;
+            touch-action: pan-y;
         }
 
-        .footer-bottom {
+        .carousel-viewport:hover,
+        .carousel-viewport:focus-within {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.2);
+        }
+
+        .carousel-viewport { transition: border-color 0.4s, box-shadow 0.4s; }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+
+        .experiment-slide {
+            position: relative;
+            flex: 0 0 100%;
+            aspect-ratio: 16 / 3;
+            min-height: 240px;
+            overflow: hidden;
+        }
+
+        .experiment-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        .experiment-slide::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.55) 38%, rgba(10, 10, 10, 0) 70%);
+            pointer-events: none;
+        }
+
+        .experiment-info {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+            padding: 0.9rem 2rem 1.5rem 5.5rem;
+            max-width: 900px;
+        }
+
+        .experiment-tag {
+            display: inline-block;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.3rem 0.9rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            background: rgba(10, 10, 10, 0.6);
+        }
+
+        .experiment-slide:nth-child(2) .experiment-tag { border-color: var(--neon-pink); color: var(--neon-pink); }
+        .experiment-slide:nth-child(3) .experiment-tag { border-color: var(--neon-purple); color: var(--neon-purple); }
+        .experiment-slide:nth-child(4) .experiment-tag { border-color: var(--neon-yellow); color: var(--neon-yellow); }
+
+        .experiment-info h3 {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .experiment-info p {
+            font-family: 'Space Mono', monospace;
+            color: var(--smoke);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            width: 52px;
+            height: 52px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(10, 10, 10, 0.75);
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-arrow.prev { left: 1rem; }
+        .carousel-arrow.next { right: 1rem; }
+
+        .carousel-arrow:hover,
+        .carousel-arrow:focus-visible {
+            background: var(--neon-cyan);
+            color: var(--void);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.5);
+            outline: none;
+        }
+
+        .carousel-progress {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.12);
+            z-index: 4;
+        }
+
+        .carousel-progress span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background: var(--gradient-neon);
+        }
+
+        .carousel-controls {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 2rem;
-            flex-wrap: wrap;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--steel);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .carousel-counter {
+            color: var(--ash);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .carousel-counter strong { color: var(--neon-yellow); font-weight: 700; }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .carousel-dot {
+            width: 44px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot:hover { border-color: var(--neon-cyan); color: var(--neon-cyan); }
+
+        .carousel-dot.active {
+            border-color: var(--neon-yellow);
+            color: var(--neon-yellow);
+            box-shadow: 0 0 16px rgba(255, 234, 0, 0.3);
+        }
+
+        .carousel-dot:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 2px;
+        }
+
+        .carousel-toggle {
+            background: transparent;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+            width: 44px;
+            height: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-toggle:hover { border-color: var(--neon-pink); color: var(--neon-pink); }
+
+        footer {
+            background: var(--void);
+            padding: 2.5rem 0;
+            border-top: 2px solid var(--neon-pink);
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+            align-items: center;
+            gap: 24px;
             font-family: 'Space Mono', monospace;
             color: var(--ash);
             font-size: 0.85rem;
@@ -392,9 +689,12 @@
             margin: 0;
         }
 
+        .footer-bottom > p { justify-self: start; }
+
         .footer-social-bottom {
             display: flex;
             gap: 0.55rem;
+            justify-self: end;
         }
 
         .footer-social-bottom a {
@@ -417,6 +717,12 @@
             box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
         }
 
+        @media (max-width: 992px) {
+            .lab-header h2 { font-size: 2.6rem; }
+            .experiment-info { padding: 0.9rem 1.5rem 1.4rem 4.5rem; }
+            .experiment-info h3 { font-size: 1.2rem; }
+        }
+
         @media (max-width: 768px) {
             .navbar > .container { flex-wrap: wrap; }
             .navbar-brand { font-size: 1.1rem; }
@@ -431,10 +737,151 @@
                 gap: 0.25rem 0.5rem;
             }
             .nav-link { margin-left: 0; font-size: 0.75rem; }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .lab-header h2 { font-size: 2rem; }
+            .experiment-slide { aspect-ratio: auto; min-height: 200px; }
+            .experiment-info { padding: 0.8rem 1rem 1.2rem 3.8rem; }
+            .experiment-info h3 { font-size: 1rem; }
+            .experiment-info p { font-size: 0.72rem; line-height: 1.5; }
+            .carousel-arrow { width: 40px; height: 40px; }
+            .carousel-counter { display: none; }
+            .carousel-controls { justify-content: center; flex-wrap: wrap; }
+        }
+
+        /* ===== Mapa animado del footer ===== */
+        .footer-location-map {
+            width: 150px;
+            justify-self: center;
+            color: var(--neon-yellow);
+            line-height: 0;
+        }
+
+        .footer-location-map svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            overflow: visible;
+        }
+
+        .fm-land {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3.5;
+            stroke-linejoin: round;
+            filter: url(#fm-neon);
+        }
+
+        .fm-pin {
+            fill: currentColor;
+            filter: url(#fm-neon);
+        }
+
+        .fm-wave {
+            fill: none;
+            stroke: currentColor;
+            transform-box: view-box;
+            transform-origin: 340px 814px;
+            animation: fm-ripple 3.6s linear infinite;
+            filter: url(#fm-neon);
+        }
+
+        .fm-wave:nth-child(2) { animation-delay: -0.72s; }
+        .fm-wave:nth-child(3) { animation-delay: -1.44s; }
+        .fm-wave:nth-child(4) { animation-delay: -2.16s; }
+        .fm-wave:nth-child(5) { animation-delay: -2.88s; }
+
+        @keyframes fm-ripple {
+            0%   { transform: scale(0.06); opacity: 1;    stroke-width: 10; }
+            20%  { opacity: 0.8;  stroke-width: 8; }
+            45%  { opacity: 0.5;  stroke-width: 6; }
+            70%  { opacity: 0.25; stroke-width: 4; }
+            90%  { opacity: 0.07; stroke-width: 3; }
+            100% { transform: scale(1); opacity: 0; stroke-width: 2; }
+        }
+
+        @media (max-width: 991px) {
+            .footer-bottom { grid-template-columns: 1fr 120px 1fr; gap: 16px; }
+            .footer-location-map { width: 120px; }
+            .footer-social-bottom { flex-wrap: wrap; justify-content: flex-end; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-bottom { grid-template-columns: 1fr 1fr; gap: 22px 12px; }
+            .footer-location-map { grid-column: 1 / -1; grid-row: 1; width: 125px; }
+            .footer-bottom > p { grid-column: 1; grid-row: 2; font-size: 0.7rem; }
+            .footer-social-bottom { grid-column: 2; grid-row: 2; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .navbar-brand::after { animation: none; }
+            .carousel-track { transition: none; }
+            .fm-wave { animation: none; opacity: 0.2; stroke-width: 3; }
+            .fm-wave:nth-child(2) { transform: scale(0.65); }
+            .fm-wave:nth-child(3) { transform: scale(0.35); }
+            .fm-wave:nth-child(n+4) { display: none; }
+        }
+
+        /* ===== Página en construcción ===== */
+        .build { padding: 80px 0 110px; background: var(--concrete); position: relative; border-bottom: 1px solid var(--steel); min-height: calc(100vh - 120px); display: flex; align-items: center; }
+        .build > .container { position: relative; z-index: 1; }
+        .build-card { position: relative; max-width: 1080px; border: 2px solid var(--neon-yellow); background: rgba(10,10,10,.82); box-shadow: 0 0 40px rgba(255,234,0,.18); }
+        .hazard { height: 16px; background: repeating-linear-gradient(-45deg, var(--neon-yellow) 0 14px, #0a0a0a 14px 28px); }
+        .build-body { padding: 2.5rem 2.5rem 2.75rem; }
+        .build-status { display: inline-flex; align-items: center; gap: .7rem; font-family: 'Space Mono', monospace; font-weight: 700; letter-spacing: 2px; color: var(--neon-yellow); font-size: .95rem; margin-bottom: 1.25rem; }
+        .blink-dot { width: 10px; height: 10px; background: var(--neon-yellow); box-shadow: 0 0 12px var(--neon-yellow); animation: blinkDot 1.2s steps(2, jump-none) infinite; }
+        @keyframes blinkDot { 50% { opacity: .15; } }
+        .build h1 { font-family: 'Syncopate', sans-serif; font-weight: 700; font-size: clamp(2rem, 6.2vw, 3.9rem); line-height: 1.05; color: var(--white); margin: 0 0 1.5rem; text-transform: uppercase; overflow-wrap: anywhere; }
+        .build-lead { font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.7; color: var(--smoke); max-width: 680px; margin-bottom: 1rem; }
+        .build-note { font-family: 'Space Mono', monospace; font-size: .92rem; line-height: 1.8; color: var(--ash); max-width: 680px; margin-bottom: 1.75rem; }
+        .build-bar { position: relative; height: 8px; background: var(--steel); overflow: hidden; margin-bottom: 2rem; }
+        .build-bar span { position: absolute; inset: 0 auto 0 0; width: 35%; background: var(--gradient-neon); animation: buildBar 2.4s ease-in-out infinite alternate; }
+        @keyframes buildBar { from { transform: translateX(0); } to { transform: translateX(185%); } }
+        .build-sub { font-family: 'Space Mono', monospace; font-size: .8rem; letter-spacing: 2px; color: var(--neon-cyan); margin-bottom: .9rem; }
+        .build-chips { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 2.25rem; padding: 0; }
+        .build-chips li { font-family: 'Space Mono', monospace; font-size: .8rem; color: var(--white); border: 1px solid var(--steel); background: var(--void); padding: .45rem .8rem; }
+        .build-chips li::before { content: '['; color: var(--neon-pink); }
+        .build-chips li::after { content: ']'; color: var(--neon-pink); }
+        .build-actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+        .build-btn { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.4rem; font-family: 'Space Mono', monospace; font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; border: 2px solid var(--neon-yellow); color: var(--void); background: var(--neon-yellow); transition: transform .2s, box-shadow .2s, background .2s, color .2s; }
+        .build-btn:hover { transform: translateY(-3px); box-shadow: 0 0 24px rgba(255,234,0,.5); color: var(--void); }
+        .build-btn.outline { background: transparent; color: var(--neon-yellow); }
+        .build-btn.outline:hover { background: var(--neon-yellow); color: var(--void); }
+        .build-btn:focus-visible { outline: 2px solid var(--neon-cyan); outline-offset: 4px; }
+
+        .build-card { overflow: hidden; }
+        .build-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; }
+        .silks { position: relative; min-height: 420px; border-left: 1px solid var(--steel); overflow: hidden;
+                 background: radial-gradient(ellipse at 50% 0%, rgba(189,0,255,.22), transparent 60%), #070707; }
+        .silks canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block;
+                 filter: drop-shadow(0 0 5px rgba(255,0,110,.55)) drop-shadow(0 0 12px rgba(0,245,255,.35)); }
+        .silks-tag { position: absolute; left: 12px; bottom: 10px; font-family: 'Space Mono', monospace; font-size: .68rem; letter-spacing: 1px; color: var(--ash); }
+        @media (max-width: 900px) {
+            .build-grid { grid-template-columns: 1fr; }
+            .silks { order: -1; min-height: 230px; border-left: 0; border-bottom: 1px solid var(--steel); }
+        }
+        @media (max-width: 768px) {
+            .build { padding: 40px 0 70px; min-height: auto; }
+            .build-body { padding: 1.6rem 1.25rem 1.9rem; }
+            .build-lead { font-size: 1rem; }
+            .build-btn { width: 100%; justify-content: center; }
+        }
+        @media (prefers-reduced-motion: reduce) { .blink-dot, .build-bar span { animation: none; } }
+    
+        /* ===== Fix header: ya no tapa el contenido (sticky + compacto) ===== */
+        html { scroll-padding-top: 120px; }
+        .navbar { position: sticky !important; top: 0; left: 0; right: 0; }
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 96px; }
+            .navbar { padding: .6rem 0 !important; }
+            .navbar > .container { gap: .45rem .6rem; width: calc(100% - 1.5rem) !important; }
+            .navbar .navbar-brand { font-size: .95rem !important; letter-spacing: 1px; }
+            .navbar .header-contact, .navbar .language-select { font-size: .72rem; letter-spacing: 1px; }
+            .navbar .header-contact { padding: 0 .55rem; }
+            .navbar .language-select { width: 52px; padding-left: 1.4rem; }
+            .navbar .language-picker::before { left: .6rem; }
+            .navbar > .container > .navbar-collapse { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+            .navbar .navbar-collapse::-webkit-scrollbar { display: none; }
+            .navbar .navbar-nav { flex-wrap: nowrap !important; justify-content: flex-start !important; width: max-content; min-width: 100%; gap: .7rem !important; }
+            .navbar .navbar-nav .nav-link { font-size: .68rem !important; flex: 0 0 auto; white-space: nowrap; }
         }
     </style>
 </head>
@@ -444,14 +891,14 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="index.html#inicio" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
+            <a class="navbar-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
             <div class="header-actions">
-                <a class="header-contact" href="contacto.html">CONTACTO</a>
+                <a class="header-contact" href="contacto.html" data-i18n="k06">CONTACTO</a>
                 <details class="language-picker">
-                    <summary class="language-select" aria-label="Seleccionar idioma">
+                    <summary class="language-select" aria-label="Seleccionar idioma" data-i18n-aria="a01">
                         <span class="selected-language" aria-hidden="true"></span>
                     </summary>
-                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles">
+                    <div class="language-options" role="radiogroup" aria-label="Idiomas disponibles" data-i18n-aria="a02">
                         <label class="language-option" lang="es"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="es" checked><span>ES</span></label>
                         <label class="language-option" lang="en"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="en"><span>EN</span></label>
                         <label class="language-option" lang="fr"><input type="radio" name="language" onclick="this.closest('details').removeAttribute('open')" value="fr"><span>FR</span></label>
@@ -462,19 +909,19 @@
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#inicio"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="index.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">01</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k01">INICIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicios.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link active" href="servicios.html" aria-current="page"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">02</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k02">SERVICIOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="proyectos.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">03</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k03">PROYECTOS</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="laboratorio.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="laboratorio.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">04</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k04">LABORATORIO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
+                        <a class="nav-link" href="equipo.html"><span class="nav-mark" aria-hidden="true">[</span><span class="nav-index" aria-hidden="true">05</span><span class="nav-separator" aria-hidden="true">//</span><span class="nav-label" data-i18n="k05">EQUIPO</span><span class="nav-mark" aria-hidden="true">]</span></a>
                     </li>
                 </ul>
             </div>
@@ -482,26 +929,337 @@
     </nav>
 
     <main>
-        <!-- Aquí va el contenido de cada página -->
+    <section class="build" id="construccion">
+        <div class="container">
+            <span class="section-label" data-i18n="c01">[SERVICIOS]</span>
+            <div class="build-card">
+                <div class="hazard" aria-hidden="true"></div>
+                <div class="build-grid">
+                <div class="build-body">
+                    <p class="build-status"><span class="blink-dot" aria-hidden="true"></span><span data-i18n="c02">// EN CONSTRUCCIÓN</span></p>
+                    <h1 data-i18n="c03">SERVICIOS</h1>
+                    <p class="build-lead" data-i18n="c04">Estamos preparando el catálogo completo de servicios de MATHEWIACS: diseño web, branding, diseño gráfico, UX/UI y arte con inteligencia artificial.</p>
+                    <p class="build-note" data-i18n="c05">No es un fallo: esta página está en proceso. Vuelve pronto o cuéntanos qué necesitas y te respondemos directamente.</p>
+                    <div class="build-bar" role="img" aria-label="Sección en construcción" data-i18n-aria="c09"><span></span></div>
+                    <p class="build-sub" data-i18n="c06">// PRÓXIMAMENTE EN ESTA SECCIÓN</p>
+                    <ul class="build-chips"><li data-i18n="c10">Diseño web</li><li data-i18n="c11">Branding</li><li data-i18n="c12">Diseño gráfico</li><li data-i18n="c13">UX/UI</li><li data-i18n="c14">Arte con IA</li></ul>
+                    <div class="build-actions">
+                        <a class="build-btn" href="contacto.html"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="c07">Hablemos de tu proyecto</span></a>
+                        <a class="build-btn outline" href="laboratorio.html"><i class="fas fa-flask" aria-hidden="true"></i> <span data-i18n="c08">Ver el laboratorio</span></a>
+                        <a class="build-btn outline" href="index.html"><i class="fas fa-house" aria-hidden="true"></i> <span data-i18n="c0a">Volver al inicio</span></a>
+                    </div>
+                </div>
+                <div class="silks" aria-hidden="true">
+                    <canvas id="silks"></canvas>
+                    <span class="silks-tag">silk.weave(2); // en proceso</span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>Mathew IA Creative Studio - 2026©</p>
+                <p>Mathew IA Creative Studio - 2026©</p><div class="footer-location-map"><svg viewBox="125 200 850 730" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estudio en Jerez de la Frontera" data-i18n-aria="a06"><defs><filter id="fm-neon" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/><feComposite in="SourceGraphic" operator="over"/></filter></defs><path class="fm-land" d="M162 288 L182 268 220 258 225 242 250 231 270 235 287 249 348 251 370 244 422 259 453 267 494 260 517 259 548 273 561 262 606 273 624 268 649 278 646 290 682 302 704 313 716 309 733 320 775 320 772 310 796 313 817 321 820 338 834 333 855 343 877 338 893 341 915 332 933 349 923 357 Q940 382 910 403 L882 421 873 433 820 449 794 465 782 477 791 482 779 493 762 519 736 557 Q715 589 722 605 L735 632 751 639 748 654 727 668 718 687 708 692 704 710 695 728 698 741 682 741 665 743 647 756 629 771 624 790 608 813 595 804 581 805 573 815 550 813 528 816 507 815 479 814 449 815 439 825 417 832 396 852 380 863 369 873 354 862 335 849 321 827 319 813 293 784 266 770 256 772 250 740 266 708 282 702 286 688 278 691 265 672 273 651 286 628 289 620 278 614 270 593 258 573 258 567 289 568 297 539 291 530 302 519 305 508 302 497 304 469 300 458 313 442 336 424 343 415 331 405 326 405 325 391 320 382 297 378 284 386 278 390 260 386 245 384 228 390 224 387 231 372 223 363 201 369 182 382 183 369 196 355 187 354 186 347 196 340 184 335 190 325 177 333 174 327 181 316 171 315 181 305 168 305 169 298 163 301 Z"/><g><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/></g><path class="fm-pin" transform="translate(340 814) scale(.55) translate(-362 -815)" fill-rule="evenodd" d="M362 691 C338 691 321 710 321 734 C321 762 362 815 362 815 C362 815 403 762 403 734 C403 710 386 691 362 691 Z M362 709 A23 23 0 1 1 362 755 A23 23 0 1 1 362 709 Z"/></svg></div>
                 <div class="footer-social-bottom">
-                    <a href="contacto.html" aria-label="Enviar correo"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="contacto.html" aria-label="Enviar correo" data-i18n-aria="a05"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS" data-i18n-aria="a04"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        /* ===== Idiomas (ES / EN / FR / IT) ===== */
+        const I18N = {
+            "en": {
+                "k01": "HOME",
+                "k02": "SERVICES",
+                "k03": "PROJECTS",
+                "k04": "LAB",
+                "k05": "TEAM",
+                "k06": "CONTACT",
+                "a01": "Select language",
+                "a02": "Available languages",
+                "a04": "GitHub of the MATHEWIACS studio",
+                "a05": "Send email",
+                "a06": "Studio in Jerez de la Frontera",
+                "c01": "[SERVICES]",
+                "c02": "// UNDER CONSTRUCTION",
+                "c03": "SERVICES",
+                "c04": "We are preparing the full catalogue of MATHEWIACS services: web design, branding, graphic design, UX/UI and artificial intelligence art.",
+                "c05": "This is not an error: this page is a work in progress. Come back soon or tell us what you need and we will reply directly.",
+                "c06": "// COMING SOON TO THIS SECTION",
+                "c07": "Let’s talk about your project",
+                "c08": "Visit the lab",
+                "c0a": "Back to home",
+                "c09": "Section under construction",
+                "c10": "Web design",
+                "c11": "Branding",
+                "c12": "Graphic design",
+                "c13": "UX/UI",
+                "c14": "AI art",
+                "meta_title": "Web Design, Branding & AI Services | MATHEWIACS",
+                "meta_desc": "MATHEWIACS services from Jerez de la Frontera: web design, branding, graphic design, UX/UI and AI art. This section is under construction."
+            },
+            "fr": {
+                "k01": "ACCUEIL",
+                "k02": "SERVICES",
+                "k03": "PROJETS",
+                "k04": "LABORATOIRE",
+                "k05": "ÉQUIPE",
+                "k06": "CONTACT",
+                "a01": "Sélectionner la langue",
+                "a02": "Langues disponibles",
+                "a04": "GitHub du studio MATHEWIACS",
+                "a05": "Envoyer un e-mail",
+                "a06": "Studio à Jerez de la Frontera",
+                "c01": "[SERVICES]",
+                "c02": "// EN CONSTRUCTION",
+                "c03": "SERVICES",
+                "c04": "Nous préparons le catalogue complet des services MATHEWIACS : design web, branding, design graphique, UX/UI et art par intelligence artificielle.",
+                "c05": "Ce n’est pas une erreur : cette page est en cours de réalisation. Revenez bientôt ou dites-nous ce dont vous avez besoin et nous vous répondrons directement.",
+                "c06": "// BIENTÔT DANS CETTE SECTION",
+                "c07": "Parlons de votre projet",
+                "c08": "Voir le laboratoire",
+                "c0a": "Retour à l’accueil",
+                "c09": "Section en construction",
+                "c10": "Design web",
+                "c11": "Branding",
+                "c12": "Design graphique",
+                "c13": "UX/UI",
+                "c14": "Art IA",
+                "meta_title": "Services de design web, branding et IA | MATHEWIACS",
+                "meta_desc": "Services MATHEWIACS depuis Jerez de la Frontera : design web, branding, design graphique, UX/UI et art IA. Cette section est en construction."
+            },
+            "it": {
+                "k01": "HOME",
+                "k02": "SERVIZI",
+                "k03": "PROGETTI",
+                "k04": "LABORATORIO",
+                "k05": "TEAM",
+                "k06": "CONTATTI",
+                "a01": "Seleziona la lingua",
+                "a02": "Lingue disponibili",
+                "a04": "GitHub dello studio MATHEWIACS",
+                "a05": "Invia email",
+                "a06": "Studio a Jerez de la Frontera",
+                "c01": "[SERVIZI]",
+                "c02": "// IN COSTRUZIONE",
+                "c03": "SERVIZI",
+                "c04": "Stiamo preparando il catalogo completo dei servizi MATHEWIACS: web design, branding, grafica, UX/UI e arte con intelligenza artificiale.",
+                "c05": "Non è un errore: questa pagina è in lavorazione. Torna presto o raccontaci di cosa hai bisogno e ti risponderemo direttamente.",
+                "c06": "// PRESTO IN QUESTA SEZIONE",
+                "c07": "Parliamo del tuo progetto",
+                "c08": "Vai al laboratorio",
+                "c0a": "Torna alla home",
+                "c09": "Sezione in costruzione",
+                "c10": "Web design",
+                "c11": "Branding",
+                "c12": "Grafica",
+                "c13": "UX/UI",
+                "c14": "Arte con IA",
+                "meta_title": "Servizi di web design, branding e IA | MATHEWIACS",
+                "meta_desc": "Servizi MATHEWIACS da Jerez de la Frontera: web design, branding, grafica, UX/UI e arte con IA. Questa sezione è in costruzione."
+            }
+        };
+
+        const LANG_STORAGE_KEY = 'mathewiacs-lang';
+        const LOCALES = { es: 'es_ES', en: 'en_GB', fr: 'fr_FR', it: 'it_IT' };
+        const ATTR_MARKERS = [['data-i18n-aria', 'aria-label'], ['data-i18n-alt', 'alt']];
+
+        const textOriginals = new Map();
+        const attrOriginals = new Map();
+        document.querySelectorAll('[data-i18n]').forEach(el => textOriginals.set(el, el.innerHTML));
+        ATTR_MARKERS.forEach(([marker, attr]) => {
+            document.querySelectorAll('[' + marker + ']').forEach(el => attrOriginals.set(el, el.getAttribute(attr)));
+        });
+
+        const metaDescription = document.querySelector('meta[name="description"]');
+        const metaLocale = document.querySelector('meta[property="og:locale"]');
+        const originalTitle = document.title;
+        const originalDescription = metaDescription ? metaDescription.getAttribute('content') : '';
+
+        function applyLanguage(lang) {
+            const dict = I18N[lang];
+            if (lang !== 'es' && !dict) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const value = lang === 'es' ? textOriginals.get(el) : dict[el.dataset.i18n];
+                if (value !== undefined) el.innerHTML = value;
+            });
+
+            ATTR_MARKERS.forEach(([marker, attr]) => {
+                document.querySelectorAll('[' + marker + ']').forEach(el => {
+                    let value = lang === 'es' ? attrOriginals.get(el) : dict[el.getAttribute(marker)];
+                    /* Puntos del carrusel: añadir el número al texto */
+                    if (value !== undefined && el.classList.contains('carousel-dot')) {
+                        const n = Number(el.dataset.index) + 1;
+                        value = lang === 'es' ? attrOriginals.get(el) : value + ' ' + n;
+                    }
+                    if (value !== undefined) el.setAttribute(attr, value);
+                });
+            });
+
+            document.title = lang === 'es' ? originalTitle : dict.meta_title;
+            if (metaDescription) metaDescription.setAttribute('content', lang === 'es' ? originalDescription : dict.meta_desc);
+            if (metaLocale) metaLocale.setAttribute('content', LOCALES[lang]);
+            document.documentElement.lang = lang;
+        }
+
+        document.querySelectorAll('input[name="language"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                applyLanguage(radio.value);
+                try { localStorage.setItem(LANG_STORAGE_KEY, radio.value); } catch (e) {}
+            });
+        });
+
+        let savedLanguage = null;
+        try { savedLanguage = localStorage.getItem(LANG_STORAGE_KEY); } catch (e) {}
+        if (savedLanguage && savedLanguage !== 'es' && I18N[savedLanguage]) {
+            const savedRadio = document.querySelector('input[name="language"][value="' + savedLanguage + '"]');
+            if (savedRadio) savedRadio.checked = true;
+            applyLanguage(savedLanguage);
+        }
+    
+        /* Centra el enlace activo en la barra de navegación móvil */
+        (function () {
+            const nc = document.querySelector('.navbar-collapse');
+            const al = document.querySelector('.nav-link.active, .nav-link[aria-current="page"]');
+            if (nc && al && nc.scrollWidth > nc.clientWidth) {
+                nc.scrollLeft = al.getBoundingClientRect().left - nc.getBoundingClientRect().left + nc.scrollLeft - (nc.clientWidth - al.offsetWidth) / 2;
+            }
+        })();
+    
+        /* ===== Telas aéreas (acrobacia) en neón + código ===== */
+        (function () {
+            const cv = document.getElementById('silks');
+            if (!cv) return;
+            const ctx = cv.getContext('2d');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let W = 0, H = 0;
+            function size() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                W = cv.clientWidth; H = cv.clientHeight;
+                cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            }
+            size();
+            window.addEventListener('resize', () => { size(); if (reduce) draw(6000); });
+            const GL = '01{}[]<>/;=+#'.split('');
+            const R = [
+                { c1: [255, 0, 110], c2: [189, 0, 255], sg: 1, ph: 0 },
+                { c1: [0, 245, 255], c2: [60, 120, 255], sg: -1, ph: 2.1 }
+            ];
+            const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t];
+            const rgba = (c, a) => 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + a + ')';
+            const sm = (e0, e1, x) => { x = Math.max(0, Math.min(1, (x - e0) / (e1 - e0))); return x * x * (3 - 2 * x); };
+
+            function pos(r, y, t) {
+                const u = y / H;
+                const amp = Math.min(W * 0.27, 72) * (0.12 + 0.88 * sm(0, 0.38, u));
+                const th = 0.021 * y * (H / 420) - t * 0.0011;
+                const x = W / 2 + r.sg * amp * Math.sin(th);
+                const z = r.sg * Math.cos(th);
+                const tw = Math.cos(0.016 * y * (H / 420) - t * 0.0016 + r.ph);
+                const wmax = Math.min(W * 0.17, 46) * (0.45 + 0.55 * sm(0, 0.3, u));
+                const w = wmax * (0.14 + 0.86 * Math.abs(tw));
+                return { x, z, w, tw };
+            }
+
+            function draw(t) {
+                ctx.clearRect(0, 0, W, H);
+                const ease = reduce ? 1 : 1 - Math.pow(1 - Math.min(1, t / 3200), 3);
+                const yMax = H * ease;
+
+                /* lluvia de código tenue */
+                ctx.font = '11px "Space Mono", monospace';
+                ctx.textAlign = 'center'; ctx.fillStyle = 'rgba(0,245,255,.13)';
+                for (let c = 0; c < 9; c++) {
+                    const cx = (c + 0.5) * W / 9;
+                    for (let k = 0; k < 14; k++) {
+                        const y = ((k * 22 + t * (0.012 + (c % 3) * 0.006) + c * 37) % (H + 30)) - 10;
+                        ctx.fillText(GL[(c * 5 + k * 3 + ((t / 400) | 0)) % GL.length], cx, y);
+                    }
+                }
+
+                const items = [], SEG = 70, step = H / SEG;
+                R.forEach((r, ri) => {
+                    let prev = pos(r, 0, t);
+                    for (let i = 1; i <= SEG; i++) {
+                        const y = i * step;
+                        if (y > yMax) break;
+                        const cur = pos(r, y, t);
+                        items.push({ k: 0, r, ri, y0: y - step, y1: y, a: prev, b: cur, z: (prev.z + cur.z) / 2, u: i / SEG });
+                        prev = cur;
+                    }
+                    for (let j = 0; j < 16; j++) {
+                        const y = ((j * 26 + t * 0.035 + ri * 13) % (H + 20)) - 5;
+                        if (y < 8 || y > yMax) continue;
+                        const p = pos(r, y, t);
+                        items.push({ k: 1, r, ri, y, p, z: p.z, ch: GL[(j * 7 + ri * 3 + ((t / 300) | 0)) % GL.length], u: y / H });
+                    }
+                });
+                items.sort((a, b) => a.z - b.z);
+
+                for (const it of items) {
+                    if (it.k === 0) {
+                        const { a, b, r, u } = it;
+                        const col = mix(r.c1, r.c2, u);
+                        const face = (Math.abs(a.tw) + Math.abs(b.tw)) / 2;
+                        ctx.beginPath();
+                        ctx.moveTo(a.x - a.w / 2, it.y0 - 0.6); ctx.lineTo(a.x + a.w / 2, it.y0 - 0.6);
+                        ctx.lineTo(b.x + b.w / 2, it.y1 + 0.6); ctx.lineTo(b.x - b.w / 2, it.y1 + 0.6);
+                        ctx.closePath();
+                        ctx.fillStyle = rgba(col, 0.2 + 0.28 * face + 0.1 * Math.max(0, it.z));
+                        ctx.fill();
+                        ctx.lineWidth = 1.6; ctx.strokeStyle = rgba(mix(col, [255, 255, 255], 0.35), 0.95);
+                        ctx.beginPath();
+                        ctx.moveTo(a.x - a.w / 2, it.y0); ctx.lineTo(b.x - b.w / 2, it.y1);
+                        ctx.moveTo(a.x + a.w / 2, it.y0); ctx.lineTo(b.x + b.w / 2, it.y1);
+                        ctx.stroke();
+                    } else if (it.p.w > 13) {
+                        const col = mix(it.r.c1, [255, 255, 255], 0.55);
+                        ctx.save();
+                        ctx.translate(it.p.x, it.y);
+                        ctx.scale(Math.max(0.2, Math.abs(it.p.tw)), 1);
+                        ctx.font = 'bold 13px "Space Mono", monospace';
+                        ctx.textAlign = 'center';
+                        ctx.fillStyle = rgba(col, 0.9);
+                        ctx.fillText(it.ch, 0, 4);
+                        ctx.restore();
+                    }
+                }
+
+                /* anclaje superior */
+                ctx.fillStyle = '#ffea00'; ctx.shadowColor = '#ffea00'; ctx.shadowBlur = 10;
+                ctx.beginPath(); ctx.arc(W / 2, 6, 4, 0, 6.2832); ctx.fill();
+                ctx.shadowBlur = 0;
+                ctx.strokeStyle = 'rgba(255,234,0,.7)'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.arc(W / 2, 6, 8, 0, 6.2832); ctx.stroke();
+            }
+
+            if (reduce) { draw(6000); return; }
+            let t0 = null;
+            function loop(ts) { if (t0 === null) t0 = ts; draw(ts - t0); requestAnimationFrame(loop); }
+            requestAnimationFrame(loop);
+        })();
+    </script>
 </body>
 </html>
