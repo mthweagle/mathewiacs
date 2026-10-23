@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="assets/css/equipo.css">
 <link rel="stylesheet" href="assets/css/theo-chatbot.css">
     <style>#cursor-fx{position:fixed;inset:0;width:100%;height:100%;z-index:9998;pointer-events:none}</style>
+<style>
+/* Footer MATHEWIACS actualizado: marca con glitch, redes centradas y crédito a la derecha */
+footer .footer-bottom{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
+footer .footer-bottom .footer-brand{justify-self:start;margin:0;padding:0}
+footer .footer-bottom .footer-social-bottom{justify-self:center;margin:0}
+footer .footer-bottom .footer-copy{justify-self:end;text-align:right;margin:0}
+@media (max-width:768px){footer .footer-bottom{grid-template-columns:1fr;justify-items:center;text-align:center}footer .footer-bottom .footer-brand,footer .footer-bottom .footer-social-bottom,footer .footer-bottom .footer-copy{justify-self:center;text-align:center}}
+</style>
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -240,7 +248,7 @@
     <footer>
         <div class="container">
             <div class="footer-bottom">
-                <p>Mathew IA Creative Studio - 2026©</p><div class="footer-location-map"><svg viewBox="125 200 850 730" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Estudio en Jerez de la Frontera" data-i18n-aria="a06"><defs><filter id="fm-neon" x="-25%" y="-25%" width="150%" height="150%"><feGaussianBlur stdDeviation="6"/><feComposite in="SourceGraphic" operator="over"/></filter></defs><path class="fm-land" d="M162 288 L182 268 220 258 225 242 250 231 270 235 287 249 348 251 370 244 422 259 453 267 494 260 517 259 548 273 561 262 606 273 624 268 649 278 646 290 682 302 704 313 716 309 733 320 775 320 772 310 796 313 817 321 820 338 834 333 855 343 877 338 893 341 915 332 933 349 923 357 Q940 382 910 403 L882 421 873 433 820 449 794 465 782 477 791 482 779 493 762 519 736 557 Q715 589 722 605 L735 632 751 639 748 654 727 668 718 687 708 692 704 710 695 728 698 741 682 741 665 743 647 756 629 771 624 790 608 813 595 804 581 805 573 815 550 813 528 816 507 815 479 814 449 815 439 825 417 832 396 852 380 863 369 873 354 862 335 849 321 827 319 813 293 784 266 770 256 772 250 740 266 708 282 702 286 688 278 691 265 672 273 651 286 628 289 620 278 614 270 593 258 573 258 567 289 568 297 539 291 530 302 519 305 508 302 497 304 469 300 458 313 442 336 424 343 415 331 405 326 405 325 391 320 382 297 378 284 386 278 390 260 386 245 384 228 390 224 387 231 372 223 363 201 369 182 382 183 369 196 355 187 354 186 347 196 340 184 335 190 325 177 333 174 327 181 316 171 315 181 305 168 305 169 298 163 301 Z"/><g><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/><circle class="fm-wave" cx="340" cy="814" r="55"/></g><path class="fm-pin" transform="translate(340 814) scale(.55) translate(-362 -815)" fill-rule="evenodd" d="M362 691 C338 691 321 710 321 734 C321 762 362 815 362 815 C362 815 403 762 403 734 C403 710 386 691 362 691 Z M362 709 A23 23 0 1 1 362 755 A23 23 0 1 1 362 709 Z"/></svg></div>
+                <a class="navbar-brand footer-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
                 <div class="footer-social-bottom">
                     <a href="contacto.html" aria-label="Enviar correo" data-i18n-aria="a05"><i class="fas fa-envelope" aria-hidden="true"></i></a>
                     <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
@@ -250,6 +258,7 @@
                     <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
                     <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS" data-i18n-aria="a04"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
+                <p class="footer-copy">Mathew IA Creative Studio - 2026©</p>
             </div>
         </div>
     </footer>
