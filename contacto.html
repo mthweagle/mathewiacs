@@ -98,12 +98,17 @@
                     <label for="message">MENSAJE</label>
                     <textarea class="field" id="message" name="message" placeholder="Cuéntanos un poco más..." required></textarea>
                 </div>
-                <button class="submit" type="submit">ENVIAR
-                    <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19c4.2-2.4 6.2-7.2 6.4-14.4C11.2 4.8 6.4 7 4 11l8 8Z" />
-                        <path d="m7.2 16.8-3.3.9.9-3.3M12 19l-.8 2.2M16.1 8.3h.01" />
+                <button class="submit" type="submit" aria-label="Enviar mensaje" title="Enviar mensaje">
+                    <svg class="rocket" aria-hidden="true" viewBox="0 0 48 48" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="miter" stroke-linecap="butt">
+                        <g transform="rotate(45 24 24)">
+                            <path class="rocket-echo" d="M27.5 1 35.5 13V31H19.5V13Z" stroke-width="1.2" opacity=".3" />
+                            <path d="M24 2 32 14V32H16V14Z" />
+                            <path d="M24 15.5 28 19.5 24 23.5 20 19.5Z" />
+                            <path d="M16 24 8 35 16 32" />
+                            <path d="M32 24 40 35 32 32" />
+                            <path class="rocket-fire" d="M20 36.5V42M24 36.5V46M28 36.5V42" />
+                        </g>
                     </svg>
-                    MENSAJE
                 </button>
                 <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
             </form>
