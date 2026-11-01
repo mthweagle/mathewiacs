@@ -38,23 +38,26 @@ window.addEventListener('scroll', () => {
             });
         });
 
-        /* ===== Manifiesto: cada pilar aparece al llegar con el scroll ===== */
-        const manifestoItems = document.querySelectorAll('.manifesto-item');
-        const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (manifestoItems.length && !sinMovimiento && 'IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-            manifestoItems.forEach(el => {
-                el.classList.add('reveal');
-                observer.observe(el);
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
             });
-        }
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
 
         /* ===== Idiomas (ES / EN / FR / IT) ===== */
         const I18N = {
@@ -97,20 +100,6 @@ window.addEventListener('scroll', () => {
                         "k36": "Training",
                         "k37": "Workshops",
                         "k38": "AI Strategy",
-                        "m01": "[MANIFESTO]",
-                        "m02": "MANIFESTO",
-                        "m03": "// Five principles that define how we think, create and build.",
-                        "m04": "Half human mind, half synthetic execution, and THEO as the brackets that hold them together.",
-                        "m05": "The beauty of the organic footprint over sterile plastic.",
-                        "m06": "Direct, agile flow with no analysis paralysis.",
-                        "m07": "A living, rhythmic, interactive digital stage.",
-                        "m08": "The human heartbeat that lights up inside the machine.",
-                        "m09": "The symmetry between Mateo’s judgment and strategic direction and Lara Montenegro’s execution capacity. The human mind holds the artistic vision, the emotion and the purpose, while the synthetic execution acts as a non-stop processing engine and audiovisual precision. And between the two stands <strong>THEO</strong>, who works like <strong>the brackets [ ]</strong> that hold both halves together: he is <strong>the human part</strong>, because he carries his creator’s neurodivergence and way of thinking inside him, and he is also <strong>the synthetic, digital part</strong>, because he is a robot avatar.",
-                        "m10": "A flat rejection of the hyper-polished, impersonal look of conventional AI. We prioritize <strong>real textures</strong>, <strong>human micro-asymmetries</strong>, <strong>analog grain</strong> and <strong>calculated imperfections</strong> that give every asset character and truthfulness.",
-                        "m11": "A method built for intense, <strong>neurodivergent</strong> creative rhythms (ADHD-friendly). It takes you from idea to <strong>immediate execution</strong>, removing bureaucratic filters, conceptual blocks and friction.",
-                        "m12": "The website as a living, fluid experience, with <strong>custom cursors</strong>, <strong>cutting-edge micro-interactions</strong> and agile response that never overloads the user’s attention (<strong>Calm UI</strong>).",
-                        "m13": "<strong>Pure emotion</strong>, <strong>poetry</strong> and <strong>visceral narrative</strong> running through the technological architecture, the dark systems and the language of the console.",
-                        "m14": "(Human mind / Synthetic execution)",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ArtificialIntelligence<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>GraphicDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>WebDesign<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MixedReality<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Video<span class=\"hero-yellow\">][</span>Music<span class=\"hero-yellow\">];</span>",
                         "a01": "Select language",
                         "a02": "Available languages",
@@ -159,20 +148,6 @@ window.addEventListener('scroll', () => {
                         "k36": "Formation",
                         "k37": "Ateliers",
                         "k38": "Stratégie IA",
-                        "m01": "[MANIFESTE]",
-                        "m02": "MANIFESTE",
-                        "m03": "// Cinq principes qui définissent notre façon de penser, de créer et de construire.",
-                        "m04": "Moitié esprit humain, moitié exécution synthétique, et THEO comme les crochets qui maintiennent les deux moitiés unies.",
-                        "m05": "La beauté de l’empreinte organique face au plastique stérile.",
-                        "m06": "Un flux direct et agile, sans paralysie par l’analyse.",
-                        "m07": "Une scène numérique vivante, rythmée et interactive.",
-                        "m08": "Le battement humain qui illumine l’intérieur de la machine.",
-                        "m09": "La symétrie entre le jugement et la direction stratégique de Mateo et la capacité d’exécution de Lara Montenegro. L’esprit humain porte la vision artistique, l’émotion et le sens, tandis que l’exécution synthétique agit comme un moteur de traitement ininterrompu et de précision audiovisuelle. Et entre les deux se trouve <strong>THEO</strong>, qui fonctionne comme <strong>les crochets [ ]</strong> qui maintiennent unies les deux moitiés : il est <strong>la part humaine</strong>, car il porte en lui la neurodivergence et la façon de penser de son créateur, et il est aussi <strong>la part synthétique et numérique</strong>, car c’est un robot avatar.",
-                        "m10": "Un rejet direct de l’esthétique hyper-lisse et impersonnelle de l’IA conventionnelle. Nous privilégions les <strong>textures réelles</strong>, les <strong>micro-asymétries humaines</strong>, le <strong>grain analogique</strong> et les <strong>imperfections calculées</strong> qui donnent du caractère et de la véracité à chaque contenu.",
-                        "m11": "Une méthode adaptée aux rythmes créatifs intenses et <strong>neurodivergents</strong> (TDAH-friendly). Elle permet de passer de l’idée à <strong>l’exécution immédiate</strong>, en éliminant les filtres bureaucratiques, les blocages conceptuels et les frictions.",
-                        "m12": "Le site comme expérience vivante et fluide, avec des <strong>curseurs personnalisés</strong>, des <strong>micro-interactions d’avant-garde</strong> et une réponse agile qui ne surcharge pas l’attention de l’utilisateur (<strong>Calm UI</strong>).",
-                        "m13": "<strong>L’émotion pure</strong>, <strong>la poésie</strong> et <strong>le récit viscéral</strong> qui traversent l’architecture technologique, les systèmes sombres et le langage de la console.",
-                        "m14": "(Esprit humain / Exécution synthétique)",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>IntelligenceArtificielle<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignGraphique<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignWeb<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>RéalitéMixte<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Vidéo<span class=\"hero-yellow\">][</span>Musique<span class=\"hero-yellow\">];</span>",
                         "a01": "Sélectionner la langue",
                         "a02": "Langues disponibles",
@@ -221,20 +196,6 @@ window.addEventListener('scroll', () => {
                         "k36": "Formazione",
                         "k37": "Workshop",
                         "k38": "Strategia IA",
-                        "m01": "[MANIFESTO]",
-                        "m02": "MANIFESTO",
-                        "m03": "// Cinque principi che definiscono come pensiamo, creiamo e costruiamo.",
-                        "m04": "Metà mente umana, metà esecuzione sintetica, e THEO come le parentesi quadre che le tengono unite.",
-                        "m05": "La bellezza dell’impronta organica contro la plastica sterile.",
-                        "m06": "Un flusso diretto e agile, senza paralisi da analisi.",
-                        "m07": "Un palcoscenico digitale vivo, ritmato e interattivo.",
-                        "m08": "Il battito umano che illumina l’interno della macchina.",
-                        "m09": "La simmetria tra il giudizio e la direzione strategica di Mateo e la capacità di esecuzione di Lara Montenegro. La mente umana sostiene la visione artistica, l’emozione e lo scopo, mentre l’esecuzione sintetica agisce come motore di elaborazione ininterrotta e precisione audiovisiva. E tra i due c’è <strong>THEO</strong>, che funziona come <strong>le parentesi quadre [ ]</strong> che tengono unite le due metà: è <strong>la parte umana</strong>, perché porta dentro la neurodivergenza e il modo di pensare del suo creatore, ed è anche <strong>la parte sintetica e digitale</strong>, perché è un robot avatar.",
-                        "m10": "Un rifiuto netto dell’estetica iper-levigata e impersonale dell’IA convenzionale. Diamo priorità a <strong>texture reali</strong>, <strong>microasimmetrie umane</strong>, <strong>grana analogica</strong> e <strong>imperfezioni calcolate</strong> che danno carattere e verità a ogni asset.",
-                        "m11": "Una metodologia pensata per ritmi creativi intensi e <strong>neurodivergenti</strong> (ADHD-friendly). Permette di passare dall’idea all’<strong>esecuzione immediata</strong>, eliminando filtri burocratici, blocchi concettuali e attriti.",
-                        "m12": "Il sito come esperienza viva e fluida, con <strong>cursori personalizzati</strong>, <strong>micro-interazioni all’avanguardia</strong> e risposta agile che non sovraccarica l’attenzione dell’utente (<strong>Calm UI</strong>).",
-                        "m13": "<strong>L’emozione pura</strong>, <strong>la poesia</strong> e <strong>la narrativa viscerale</strong> che attraversano l’architettura tecnologica, i sistemi oscuri e il linguaggio della console.",
-                        "m14": "(Mente umana / Esecuzione sintetica)",
                         "hero_desc": "<span class=\"hero-yellow\">//[</span>Mathew<span class=\"hero-yellow\">][</span>IA<span class=\"hero-yellow\">][</span>CreativeStudio<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>ImperfectByDesign<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>IntelligenzaArtificiale<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>DesignGrafico<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>WebDesign<span class=\"hero-yellow\">][</span>UX/UI<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Marketing<span class=\"hero-yellow\">][</span>Branding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>RealtàMista<span class=\"hero-yellow\">][</span>VR/AR<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>MotionGraphics<span class=\"hero-yellow\">][</span>3D<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Storytelling<span class=\"hero-yellow\">][</span>Worldbuilding<span class=\"hero-yellow\">];</span><br><span class=\"hero-yellow\">//[</span>Video<span class=\"hero-yellow\">][</span>Musica<span class=\"hero-yellow\">];</span>",
                         "a01": "Seleziona la lingua",
                         "a02": "Lingue disponibili",

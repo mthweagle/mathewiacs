@@ -36,7 +36,8 @@ mathewiacs/
 │   │   ├── contacto.js       ← formulario y menú traducible
 │   │   └── theo-chatbot.js   ← chatbot THEO
 │   └── img/
-│       ├── theo-640.webp     ← THEO (chatbot y tarjeta del equipo)
+│       ├── theo-640.webp     ← THEO en tres cuartos (chatbot)
+│       ├── theo-frontal.webp ← THEO de frente (tarjeta del equipo)
 │       ├── team-mateo.webp
 │       └── team-lara.webp
 ├── favicon.svg               ← icono de la pestaña
@@ -108,7 +109,7 @@ THEO es el chatbot mascota: un robot verde menta con ruedas que responde en el c
 - Es un chatbot **por reglas**: busca palabras clave en la pregunta y contesta con textos escritos de antemano. No usa ninguna API externa.
 - Las respuestas están en la lista `TEMAS` de `assets/js/theo-chatbot.js`.
 - `conocimiento.md` es el documento donde se escribe, con palabras normales, lo que THEO debe saber. Sirve de base para actualizar sus respuestas.
-- La imagen es `assets/img/theo-640.webp`. Las posiciones de la pantalla (donde se dibuja el texto) están calibradas para esa imagen cuadrada: **si la cambias, mantén la proporción 1:1** o habrá que reajustarlas en `global.css`.
+- La imagen del chat es `assets/img/theo-640.webp` (tres cuartos). En la tarjeta del Equipo se usa `theo-frontal.webp`, de frente, como las fotos de Mateo y Lara. Las posiciones de la pantalla (donde se dibuja el texto) están calibradas para esa imagen cuadrada: **si la cambias, mantén la proporción 1:1** o habrá que reajustarlas en `global.css`.
 
 ---
 
