@@ -709,6 +709,113 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--neon-cyan);
 }
 
+/* ---------- MANIFIESTO ---------- */
+.manifesto {
+    padding: 140px 0;
+    position: relative;
+}
+
+.manifesto-list {
+    list-style: none;
+    border-top: 1px solid var(--steel);
+}
+
+.manifesto-item {
+    --accent: var(--neon-cyan);
+    position: relative;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 2rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--steel);
+}
+
+.manifesto-item:nth-child(2) { --accent: var(--neon-pink); }
+.manifesto-item:nth-child(3) { --accent: var(--neon-purple); }
+.manifesto-item:nth-child(4) { --accent: var(--neon-yellow); }
+
+.manifesto-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--gradient-neon);
+    transition: height 0.4s;
+}
+
+.manifesto-item:hover::before { height: 100%; }
+
+.manifesto-number {
+    padding-left: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+    transition: text-shadow 0.4s;
+}
+
+.manifesto-item:hover .manifesto-number {
+    text-shadow: 0 0 22px var(--accent);
+}
+
+.manifesto-body h3 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--white);
+    margin-bottom: 0.75rem;
+}
+
+/* Corchetes de 50/50: la forma de THEO sosteniendo las dos mitades */
+.manifesto-bracket {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    margin: 0 0.15em;
+}
+
+.manifesto-sub {
+    font-family: var(--font-mono);
+    font-size: 0.5em;
+    font-weight: 400;
+    color: var(--ash);
+    letter-spacing: 1px;
+}
+
+.manifesto-concept {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.manifesto-concept::before { content: '// '; }
+
+.manifesto-text {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--ash);
+    max-width: 760px;
+}
+
+@media (max-width: 768px) {
+    .manifesto { padding: 90px 0; }
+    .manifesto-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 2.25rem 0;
+    }
+    .manifesto-number { font-size: 2.5rem; padding-left: 1rem; }
+    .manifesto-body { padding-left: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .manifesto-item::before,
+    .manifesto-number { transition: none; }
+}
+
 /* ---------- FOOTER ---------- */
 footer {
     background: var(--void);
@@ -1813,7 +1920,8 @@ body.page-contacto {
 
 /* ---------------------------------------------------------
    4. CURSOR CONSTELACIÓN
-   El script sigue en el HTML; esto solo coloca el lienzo.
+   El script vive en assets/js/cursor.js; esto solo coloca el lienzo.
+   La lluvia binaria vive en assets/js/lluvia.js.
    --------------------------------------------------------- */
 #rain-fx {
     position: fixed;
@@ -1823,6 +1931,12 @@ body.page-contacto {
     z-index: 0;
     pointer-events: none;
     opacity: .6;
+}
+
+/* Footer de las páginas con lluvia: queda por encima del fondo animado */
+.footer-sobre-lluvia {
+    position: relative;
+    z-index: 1;
 }
 
 #cursor-fx {
