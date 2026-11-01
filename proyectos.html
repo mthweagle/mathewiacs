@@ -70,47 +70,12 @@
         </div>
     </nav>
 
-    <main class="hero page-sec" id="inicio">
+    <main class="hero page-sec uc-main" id="inicio">
         <div class="container">
-            <div class="case-study">
-                <div class="case-tag">CASO DE ESTUDIO B2B // SALUD SOCIAL &amp; EMPATÍA</div>
-                <h1 class="case-title">Proyecto Rubén: Avatar Sintético para Prevención en Salud Sexual y Reducción de Daños</h1>
-                <p class="case-subtitle">Acompañamiento digital cercano y sin juicio moralizante a través de IA Generativa y Consistencia Biométrica.</p>
-
-                <div class="case-sections">
-                    <section class="case-section">
-                        <div class="case-number">01</div>
-                        <div class="case-content">
-                            <h2 class="case-heading">El Desafío <span>(Problem)</span></h2>
-                            <p class="case-text">La prevención en salud sexual masculina (VIH, chemsex y reducción de daños) se enfrenta a fuertes barreras de estigma, miedo al rechazo y discursos institucionales fríos. Existía la necesidad de crear una figura de referencia accesible a las 4:00 AM: un “colega de barrio” empático capaz de informar, resolver dudas sin juzgar y derivar a servicios sanitarios oficiales.</p>
-                        </div>
-                    </section>
-
-                    <section class="case-section">
-                        <div class="case-number">02</div>
-                        <div class="case-content">
-                            <h2 class="case-heading">La Solución <span>(Solution)</span></h2>
-                            <p class="case-text">Diseño y desarrollo integral de Rubén, un avatar sintético hiperrealista con identidad propia (pelo platino, bigote de herradura y piercing septum). A través de una estricta Ficha Maestra de más del 90% de coherencia facial y un Armario Cápsula e-commerce aislado, Rubén cobra vida en escenarios cotidianos (calle, transporte, descanso) reforzando siempre mensajes implícitos de autocuidado y hábitos saludables.</p>
-                        </div>
-                    </section>
-
-                    <section class="case-section">
-                        <div class="case-number">03</div>
-                        <div class="case-content">
-                            <h2 class="case-heading">Impacto y Resultados <span>(Results)</span></h2>
-                            <p class="case-text">Demostración de capacidad técnica B2B para mantener personajes virtuales hiperrealistas sostenidos en el tiempo sin distorsión anatómica, creando un activo de alto valor pedagógico y social aplicable a ONGs, instituciones de salud y campañas de concienciación pública.</p>
-                        </div>
-                    </section>
-                </div>
-
-                <div class="case-specs">
-                    <h2 class="case-heading">Ficha Técnica / Tags</h2>
-                    <ul class="spec-list">
-                        <li><span>Ecosistema:</span> ChatGPT / Midjourney / ComfyUI / ElevenLabs</li>
-                        <li><span>Metodología:</span> Ficha Maestra Biométrica &amp; Armario Cápsula</li>
-                        <li><span>Dirección Creativa:</span> Mathew IA Creative Studio (50/50 Humano-Sintético)</li>
-                    </ul>
-                </div>
+            <div class="hero-content">
+                <h1>
+                    <span class="hero-word" data-text="EN CONSTRUCCIÓN">EN CONSTRUCCIÓN</span>
+                </h1>
             </div>
         </div>
     </main>
@@ -134,7 +99,133 @@
     </footer>
 
     <script src="assets/js/index.js"></script>
-<div id="theo-widget"><div class="theo-robot"><img alt="THEO, robot verde menta con ruedas y pantalla LED" class="theo-image" decoding="async" loading="lazy" fetchpriority="low" height="640" width="640" src="assets/img/theo-640.webp"/><button aria-controls="theo-face" aria-expanded="false" aria-label="Abrir conversación con THEO" class="theo-trigger" type="button"></button><span aria-hidden="true" class="theo-hint">¿Hablamos?</span><section aria-hidden="true" aria-label="Chat con THEO" class="theo-face" id="theo-face" role="region"><header class="theo-head"><span>THEO <span class="theo-status" id="theo-status">● EN LÍNEA</span></span><button aria-label="Cerrar conversación" class="theo-close" type="button">×</button></header><div aria-label="Mensajes" aria-live="polite" aria-relevant="additions" class="theo-messages" role="log"></div><form autocomplete="off" class="theo-form"><label class="theo-sr" for="theo-input">Tu mensaje</label><input class="theo-input" id="theo-input" maxlength="500" placeholder="Escribe aquí…" required=""/><button aria-label="Enviar mensaje" class="theo-send" type="submit">➤</button></form></section></div></div>
+<div id="theo-widget"><div class="theo-robot"><img alt="THEO, robot verde menta con ruedas y pantalla LED" class="theo-image" decoding="async" loading="lazy" fetchpriority="low" height="640" src="assets/img/theo-640.webp" width="640"/><button aria-controls="theo-face" aria-expanded="false" aria-label="Abrir conversación con THEO" class="theo-trigger" type="button"></button><span aria-hidden="true" class="theo-hint">¿Hablamos?</span><section aria-hidden="true" aria-label="Chat con THEO" class="theo-face" id="theo-face" role="region"><header class="theo-head"><span>THEO <span class="theo-status" id="theo-status">● EN LÍNEA</span></span><button aria-label="Cerrar conversación" class="theo-close" type="button">×</button></header><div aria-label="Mensajes" aria-live="polite" aria-relevant="additions" class="theo-messages" role="log"></div><form autocomplete="off" class="theo-form"><label class="theo-sr" for="theo-input">Tu mensaje</label><input class="theo-input" id="theo-input" maxlength="500" placeholder="Escribe aquí…" required=""/><button aria-label="Enviar mensaje" class="theo-send" type="submit">➤</button></form></section></div></div>
 <script src="assets/js/theo-chatbot.js" defer></script>
+
+
+    <canvas id="rain-fx" aria-hidden="true"></canvas>
+    <script>
+    /* Lluvia binaria: 0 y 1 en los colores corporativos (variables de index.css) */
+    (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var cv = document.getElementById('rain-fx');
+        var ctx = cv.getContext('2d');
+        var W, H, dpr, cols = [], F = 16;
+        var cs = getComputedStyle(document.documentElement);
+        function col(name, fallback) { return (cs.getPropertyValue(name) || fallback).trim() || fallback; }
+        var COLORS = [col('--neon-cyan', '#00f5ff'), col('--neon-purple', '#bd00ff'), col('--neon-pink', '#ff006e')];
+
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            W = window.innerWidth; H = window.innerHeight;
+            cv.width = W * dpr; cv.height = H * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            cols = [];
+            for (var i = 0; i < Math.ceil(W / F); i++) cols.push(Math.random() * H / F | 0);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        var last = 0;
+        function loop(t) {
+            if (t - last > 45) {
+                last = t;
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.fillStyle = 'rgba(0,0,0,0.12)';
+                ctx.fillRect(0, 0, W, H);
+                ctx.globalCompositeOperation = 'source-over';
+                ctx.font = F + 'px "Space Mono", monospace';
+                for (var i = 0; i < cols.length; i++) {
+                    ctx.fillStyle = COLORS[i % 3];
+                    ctx.fillText(Math.random() < 0.5 ? '0' : '1', i * F, cols[i] * F);
+                    cols[i] = (cols[i] * F > H && Math.random() > 0.975) ? 0 : cols[i] + 1;
+                }
+            }
+            requestAnimationFrame(loop);
+        }
+        requestAnimationFrame(loop);
+    })();
+    </script>
+
+    <canvas id="cursor-fx" aria-hidden="true"></canvas>
+    <script>
+    /* Cursor Constelación: solo aparece mientras mueves el ratón y se apaga al parar */
+    (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var cv = document.getElementById('cursor-fx');
+        var ctx = cv.getContext('2d');
+        var W, H, dpr;
+        function resize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            W = window.innerWidth; H = window.innerHeight;
+            cv.width = W * dpr; cv.height = H * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        /* Colores corporativos: se leen de las variables de global.css */
+        var cs = getComputedStyle(document.documentElement);
+        function hex(name, fallback) {
+            var h = (cs.getPropertyValue(name) || fallback).trim().replace('#', '');
+            if (h.length !== 6) h = fallback.replace('#', '');
+            return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); });
+        }
+        var COLORS = [hex('--neon-cyan', '#00f5ff'), hex('--neon-purple', '#bd00ff'), hex('--neon-pink', '#ff006e')];
+
+        var rnd = function (a, b) { return a + Math.random() * (b - a); };
+        var pick = function () { return COLORS[(Math.random() * COLORS.length) | 0]; };
+        var light = function (c, k) { return [c[0] + (255 - c[0]) * k, c[1] + (255 - c[1]) * k, c[2] + (255 - c[2]) * k]; };
+        var rgba = function (c, a) { return 'rgba(' + (c[0] | 0) + ',' + (c[1] | 0) + ',' + (c[2] | 0) + ',' + Math.max(0, a) + ')'; };
+        function glow(x, y, R, c, a) {
+            var g = ctx.createRadialGradient(x, y, 0, x, y, R);
+            g.addColorStop(0, rgba(light(c, .8), a));
+            g.addColorStop(.3, rgba(c, a * .7));
+            g.addColorStop(1, rgba(c, 0));
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(x, y, R, 0, 6.2832); ctx.fill();
+        }
+
+        var ps = [], LINK = 70, lastX = -1, lastY = -1, running = false, prev = 0;
+
+        window.addEventListener('pointermove', function (e) {
+            if (e.pointerType === 'touch') return;
+            var x = e.clientX, y = e.clientY;
+            if (lastX < 0) { lastX = x; lastY = y; return; }
+            if (Math.hypot(x - lastX, y - lastY) < 5) return; // solo si el cursor se mueve de verdad
+            lastX = x; lastY = y;
+            for (var i = 0; i < 2; i++) ps.push({ x: x + rnd(-30, 30), y: y + rnd(-30, 30), vx: rnd(-.3, .3), vy: rnd(-.3, .3), life: 0, ttl: rnd(1100, 1800), col: pick() });
+            if (ps.length > 70) ps.splice(0, ps.length - 70);
+            if (!running) { running = true; prev = performance.now(); requestAnimationFrame(loop); }
+        }, { passive: true });
+        document.addEventListener('pointerleave', function () { lastX = -1; });
+
+        function loop(now) {
+            var dt = Math.min(48, now - prev); prev = now;
+            var k = dt / 16;
+            ctx.clearRect(0, 0, W, H);
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.lineWidth = 1;
+            for (var i = ps.length - 1; i >= 0; i--) {
+                var p = ps[i]; p.life += dt;
+                if (p.life >= p.ttl) { ps.splice(i, 1); continue; }
+                p.x += p.vx * k; p.y += p.vy * k;
+            }
+            for (var a = 0; a < ps.length; a++) {
+                var A = ps[a], la = 1 - A.life / A.ttl;
+                for (var b = a + 1; b < ps.length; b++) {
+                    var B = ps[b], d = Math.hypot(A.x - B.x, A.y - B.y);
+                    if (d > LINK) continue;
+                    ctx.strokeStyle = rgba(A.col, (1 - d / LINK) * Math.min(la, 1 - B.life / B.ttl) * .7);
+                    ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+                }
+                glow(A.x, A.y, 5, A.col, la);
+            }
+            ctx.globalCompositeOperation = 'source-over';
+            if (ps.length) requestAnimationFrame(loop);
+            else { running = false; ctx.clearRect(0, 0, W, H); }
+        }
+    })();
+    </script>
 </body>
 </html>

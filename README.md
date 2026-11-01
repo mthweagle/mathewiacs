@@ -13,9 +13,9 @@ El estudio se basa en un modelo **50 % criterio humano · 50 % precisión sinté
 | Página | Archivo | Qué contiene |
 |---|---|---|
 | Inicio | `index.html` | Presentación del estudio y resumen de servicios |
-| Servicios | `servicios.html` | Página «EN CONSTRUCCIÓN» (el resumen de servicios está en Inicio) |
-| Proyectos | `proyectos.html` | Casos de estudio (hoy: Proyecto Rubén) |
-| Laboratorio | `laboratorio.html` | Carrusel de experimentos con IA, sonido, movimiento e interfaces |
+| Servicios | `servicios.html` | En construcción (el resumen de servicios está en Inicio) |
+| Proyectos | `proyectos.html` | En construcción |
+| Laboratorio | `laboratorio.html` | En construcción |
 | Equipo | `equipo.html` | Mateo, Lara Montenegro y THEO |
 | Contacto | `contacto.html` | Formulario y datos de contacto |
 
@@ -31,8 +31,7 @@ mathewiacs/
 │   ├── css/
 │   │   └── global.css        ← TODO el estilo de la web, en un único archivo
 │   ├── js/
-│   │   ├── index.js          ← lógica de inicio, servicios y proyectos
-│   │   ├── laboratorio.js    ← carrusel de experimentos
+│   │   ├── index.js          ← lógica de inicio y de las páginas en construcción
 │   │   ├── equipo.js         ← página de equipo
 │   │   ├── contacto.js       ← formulario y menú traducible
 │   │   └── theo-chatbot.js   ← chatbot THEO
@@ -66,7 +65,7 @@ Web estática, sin pasos de compilación: **HTML + CSS + JavaScript puro**.
 Todas las páginas cargan únicamente `assets/css/global.css`. Dentro está ordenado por secciones:
 
 1. **Variables** (colores, tipografías, capas)
-2. **Estilos de la web**: base, cabecera, hero, botones, servicios, footer, Equipo, Laboratorio, páginas internas, Contacto y responsive
+2. **Estilos de la web**: base, cabecera, hero, botones, servicios, footer, Equipo, páginas en construcción, Contacto y responsive
 3. **THEO**: widget del chatbot
 4. **Cursor constelación** y lluvia de fondo
 5. **Footer**: marca, redes y crédito
@@ -97,7 +96,7 @@ Se cambian en un solo sitio, el bloque `:root` al principio de `global.css`.
 La web está en **español, inglés, francés e italiano**. El selector está en la cabecera y la elección se recuerda en el navegador (`localStorage`, clave `mathewiacs-lang`).
 
 - Los textos traducibles llevan `data-i18n="..."` (y `data-i18n-aria` / `data-i18n-alt` para atributos).
-- Los diccionarios están dentro de cada archivo JS de página (`index.js`, `equipo.js`, `laboratorio.js`).
+- Los diccionarios están dentro de cada archivo JS de página (`index.js` y `equipo.js`).
 - En **Contacto** se traducen la cabecera y el footer; el contenido propio de esa página está en español.
 
 ---
@@ -125,7 +124,7 @@ THEO es el chatbot mascota: un robot verde menta con ruedas que responde en el c
 3. Añade el enlace en el menú de **todas** las páginas.
 4. Añade la página en `sitemap.xml`.
 
-**Cambiar las imágenes del Laboratorio.** Ahora son imágenes de relleno de `picsum.photos`. Sustitúyelas por las tuyas (mejor en formato `.webp`) en `laboratorio.html`.
+**Rellenar una página en construcción** (Servicios, Proyectos o Laboratorio). Hoy las tres muestran solo el aviso «EN CONSTRUCCIÓN». Cuando el contenido esté decidido, se sustituye el bloque `<main>` de esa página por la estructura nueva.
 
 ---
 
@@ -159,8 +158,7 @@ También sirve la extensión *Live Server* de Visual Studio Code. Abrir los arch
 
 - **Formulario de contacto**: todavía no envía mensajes (la interfaz está lista, falta conectarlo a un servicio de envío).
 - **Redes**: LinkedIn, YouTube, TikTok y Spotify están en el footer pero aún sin enlace (`#`).
-- **Servicios**: sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real.
-- **Laboratorio**: sustituir las imágenes de relleno por las reales.
+- **Servicios, Proyectos y Laboratorio**: definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real.
 
 ---
 
