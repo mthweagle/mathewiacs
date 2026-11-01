@@ -713,7 +713,34 @@ h1, h2, h3, h4, h5, h6 {
 .manifesto {
     padding: 140px 0;
     position: relative;
+    overflow: hidden;
 }
+
+/* Resplandores de neón de fondo */
+.manifesto::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 12% 14%, rgba(255, 0, 110, 0.12), transparent 38%),
+        radial-gradient(circle at 90% 52%, rgba(0, 245, 255, 0.10), transparent 40%),
+        radial-gradient(circle at 28% 94%, rgba(189, 0, 255, 0.12), transparent 36%);
+}
+
+.manifesto .container { position: relative; }
+
+/* Título con degradado de marca */
+.manifesto .section-header h2 {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.manifesto .section-header p { color: var(--smoke); }
 
 .manifesto-list {
     list-style: none;
@@ -724,10 +751,11 @@ h1, h2, h3, h4, h5, h6 {
     --accent: var(--neon-cyan);
     position: relative;
     display: grid;
-    grid-template-columns: 150px minmax(0, 1fr);
+    grid-template-columns: 170px minmax(0, 1fr);
     gap: 2rem;
-    padding: 3rem 0;
+    padding: 3.25rem 0;
     border-bottom: 1px solid var(--steel);
+    transition: background 0.5s;
 }
 
 .manifesto-item:nth-child(2) { --accent: var(--neon-pink); }
@@ -739,41 +767,72 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 3px;
+    width: 4px;
     height: 0;
     background: var(--gradient-neon);
-    transition: height 0.4s;
+    transition: height 0.5s;
 }
 
 .manifesto-item:hover::before { height: 100%; }
 
+.manifesto-item:hover {
+    background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 10%, transparent), transparent 65%);
+}
+
+/* Número en contorno de neón; se rellena al pasar el ratón */
 .manifesto-number {
     padding-left: 1.5rem;
     font-family: var(--font-mono);
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: 700;
     line-height: 1;
-    color: var(--accent);
-    transition: text-shadow 0.4s;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+    text-shadow: 0 0 24px color-mix(in srgb, var(--accent) 45%, transparent);
+    transition: color 0.4s, text-shadow 0.4s;
 }
 
 .manifesto-item:hover .manifesto-number {
-    text-shadow: 0 0 22px var(--accent);
+    color: var(--accent);
+    text-shadow: 0 0 30px var(--accent);
 }
 
 .manifesto-body h3 {
-    font-size: clamp(1.3rem, 3vw, 2rem);
+    position: relative;
+    display: inline-block;
+    font-size: clamp(1.5rem, 3.2vw, 2.3rem);
     color: var(--white);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.4rem;
 }
+
+/* Subrayado de neón que se dibuja al pasar el ratón */
+.manifesto-body h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    transition: width 0.5s;
+}
+
+.manifesto-item:hover .manifesto-body h3::after { width: 100%; }
 
 /* Corchetes de 50/50: la forma de THEO sosteniendo las dos mitades */
 .manifesto-bracket {
+    display: inline-block;
     color: var(--accent);
     font-family: var(--font-mono);
     font-weight: 700;
     margin: 0 0.15em;
+    transition: transform 0.4s;
 }
+
+.manifesto-item:hover .manifesto-bracket:first-child { transform: translateX(-0.2em); }
+.manifesto-item:hover .manifesto-bracket:nth-of-type(2) { transform: translateX(0.2em); }
 
 .manifesto-sub {
     font-family: var(--font-mono);
@@ -785,19 +844,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .manifesto-concept {
     font-family: var(--font-mono);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     color: var(--accent);
-    margin-bottom: 1rem;
+    text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 40%, transparent);
+    margin-bottom: 1.1rem;
 }
 
 .manifesto-concept::before { content: '// '; }
 
 .manifesto-text {
     font-family: var(--font-mono);
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--ash);
-    max-width: 760px;
+    font-size: 0.92rem;
+    line-height: 1.9;
+    color: var(--smoke);
+    max-width: 780px;
+}
+
+/* Palabras clave resaltadas con el color del pilar */
+.manifesto-text strong {
+    color: var(--accent);
+    font-weight: 700;
+    text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* Aparición al hacer scroll (la clase la añade el JS) */
+.manifesto-item.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.7s ease, transform 0.7s ease, background 0.5s;
+}
+
+.manifesto-item.reveal.is-visible {
+    opacity: 1;
+    transform: none;
 }
 
 @media (max-width: 768px) {
@@ -805,15 +884,19 @@ h1, h2, h3, h4, h5, h6 {
     .manifesto-item {
         grid-template-columns: 1fr;
         gap: 1rem;
-        padding: 2.25rem 0;
+        padding: 2.5rem 0;
     }
-    .manifesto-number { font-size: 2.5rem; padding-left: 1rem; }
+    .manifesto-number { font-size: 3rem; padding-left: 1rem; }
     .manifesto-body { padding-left: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .manifesto-item,
     .manifesto-item::before,
-    .manifesto-number { transition: none; }
+    .manifesto-item.reveal,
+    .manifesto-number,
+    .manifesto-bracket,
+    .manifesto-body h3::after { transition: none; }
 }
 
 /* ---------- FOOTER ---------- */
