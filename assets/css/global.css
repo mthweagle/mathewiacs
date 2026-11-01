@@ -8,7 +8,7 @@
    2. Base, cabecera, hero, botones, servicios, footer
       y responsive (antes index.css, mismo orden)
    3. THEO · widget del chatbot (antes theo-chatbot.css)
-   4. Cursor constelación
+   4. Cursor constelación y lluvia de fondo
    5. Footer: marca · redes · crédito
    6. Mejoras de rendimiento y accesibilidad
    ========================================================= */
@@ -1405,6 +1405,36 @@ padding-bottom: 2px;
 
 
 /* ---------------------------------------------------------
+   PÁGINAS INTERNAS (servicios, proyectos)
+   Lluvia de fondo, secciones sobre ella y bloque "en construcción".
+   --------------------------------------------------------- */
+.page-sec{position:relative;z-index:1}
+.page-intro{padding-top:140px}
+.uc-main{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 16px 60px}
+.uc-main{background:transparent}
+.uc-main h1{font-size:clamp(1.3rem,5vw,3.4rem);line-height:1.1}
+.uc-main .hero-word,.uc-main .hero-bracket{font-size:inherit}
+.uc-main .hero-word{word-break:break-word}
+
+/* Caso de estudio B2B */
+.case-study{max-width:1000px;margin:0 auto;padding:20px 0 80px;text-align:left}
+.case-tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;color:#b8b8b8;border:1px solid rgba(255,255,255,.18);display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.04);text-transform:uppercase;line-height:1.4}
+.case-title{font-family:var(--font-display);font-size:clamp(1.45rem,4vw,3rem);line-height:1.15;margin:24px 0 16px;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+.case-subtitle{font-family:var(--font-body);font-size:clamp(1rem,2vw,1.25rem);color:#a9a9a9;max-width:820px;line-height:1.7;margin:0}
+.case-sections{margin-top:48px;display:grid;gap:24px}
+.case-section{display:grid;grid-template-columns:80px 1fr;gap:20px;padding:28px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+.case-number{font-family:var(--font-display);font-size:2rem;color:rgba(255,255,255,.28);line-height:1}
+.case-heading{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.12em;color:#fff;text-transform:uppercase;margin-bottom:12px}
+.case-heading span{color:#8f8f8f;font-weight:400}
+.case-text{font-family:var(--font-body);color:#c9c9c9;line-height:1.8;margin:0}
+.case-specs{margin-top:40px;padding:28px;border:1px solid rgba(255,255,255,.1);border-radius:18px;background:rgba(255,255,255,.03)}
+.spec-list{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.spec-list li{font-family:var(--font-body);color:#c9c9c9;line-height:1.6}
+.spec-list span{font-family:var(--font-mono);color:#fff;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-right:8px}
+@media (max-width:576px){.case-section{grid-template-columns:1fr}.case-number{font-size:1.5rem}.case-study{padding-bottom:50px}}
+
+
+/* ---------------------------------------------------------
    3. THEO · widget del chatbot
    Las coordenadas de .theo-face están calibradas sobre la
    imagen cuadrada de THEO: no cambies su proporción 1:1.
@@ -1434,6 +1464,16 @@ padding-bottom: 2px;
    4. CURSOR CONSTELACIÓN
    El script sigue en el HTML; esto solo coloca el lienzo.
    --------------------------------------------------------- */
+#rain-fx {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: .6;
+}
+
 #cursor-fx {
     position: fixed;
     inset: 0;
