@@ -70,17 +70,82 @@
         </div>
     </nav>
 
-    <main class="hero page-sec uc-main" id="inicio">
+    <section class="lab" id="laboratorio">
         <div class="container">
-            <div class="hero-content">
-                <h1>
-                    <span class="hero-word" data-text="EN CONSTRUCCIÓN">EN CONSTRUCCIÓN</span>
-                </h1>
+            <div class="lab-header">
+                <span class="section-label" data-i18n="l01">[LABORATORIO]</span>
+                <h2 data-i18n="l02">EXPERIMENTOS DESTACADOS</h2>
+                <p data-i18n="l03">
+                    // Aquí probamos, rompemos y volvemos a montar.<br>
+                    // Prototipos con IA, sonido, movimiento e interfaces.<br>
+                    // Lo que sale bien, se convierte en proyecto.<br>
+                    // _
+                </p>
+            </div>
+
+            <div class="carousel-lab" id="carouselLab" role="region" aria-roledescription="carrusel" aria-label="Experimentos destacados" data-i18n-aria="l04">
+                <div class="carousel-viewport" id="carouselViewport">
+                    <div class="carousel-track" id="carouselTrack" aria-live="off">
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-1/1600/900" alt="Imagen genérica del experimento 01" data-i18n-alt="l05" loading="eager">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 01</span>
+                                <h3 data-i18n="l06">RETRATOS SINTÉTICOS</h3>
+                                <p data-i18n="l07">Pruebas de consistencia facial con IA generativa: mismo rostro, distintos peinados, luces y maquillajes.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-2/1600/900" alt="Imagen genérica del experimento 02" data-i18n-alt="l08" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 02</span>
+                                <h3 data-i18n="l09">PAISAJES SONOROS</h3>
+                                <p data-i18n="l10">Identidad acústica para espacios de lujo: texturas, ambientes y música generada para habitar un lugar.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-3/1600/900" alt="Imagen genérica del experimento 03" data-i18n-alt="l11" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 03</span>
+                                <h3 data-i18n="l12">MUNDOS EN MOVIMIENTO</h3>
+                                <p data-i18n="l13">Vídeo realista con IA: personajes que caminan, hablan y sincronizan sus labios con la voz.</p>
+                            </div>
+                        </article>
+
+                        <article class="experiment-slide" aria-roledescription="diapositiva">
+                            <img src="https://picsum.photos/seed/mathewiacs-lab-4/1600/900" alt="Imagen genérica del experimento 04" data-i18n-alt="l14" loading="lazy">
+                            <div class="experiment-info">
+                                <span class="experiment-tag"><span data-i18n="l20">EXPERIMENTO</span> 04</span>
+                                <h3 data-i18n="l15">INTERFACES VIVAS</h3>
+                                <p data-i18n="l16">UX/UI experimental: catálogos interactivos y webs que reaccionan, se animan y se dejan tocar.</p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <button class="carousel-arrow prev" id="carouselPrev" type="button" aria-label="Experimento anterior" data-i18n-aria="l17"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <button class="carousel-arrow next" id="carouselNext" type="button" aria-label="Experimento siguiente" data-i18n-aria="l18"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+
+                    <div class="carousel-progress" aria-hidden="true"><span id="carouselProgress"></span></div>
+                </div>
+
+                <div class="carousel-controls">
+                    <span class="carousel-counter"><strong id="carouselCurrent">01</strong> / 04</span>
+                    <div class="carousel-dots" id="carouselDots">
+                        <button class="carousel-dot active" type="button" aria-label="Ver experimento 1" data-i18n-aria="l19" data-index="0">01</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 2" data-i18n-aria="l19" data-index="1">02</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 3" data-i18n-aria="l19" data-index="2">03</button>
+                        <button class="carousel-dot" type="button" aria-label="Ver experimento 4" data-i18n-aria="l19" data-index="3">04</button>
+                    </div>
+                    <button class="carousel-toggle" id="carouselToggle" type="button" aria-label="Pausar carrusel" data-i18n-aria="l21"><i class="fas fa-pause" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer style="position:relative;z-index:1">
+    <footer>
         <div class="container">
             <div class="footer-bottom">
                 <a class="navbar-brand footer-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
@@ -98,54 +163,10 @@
         </div>
     </footer>
 
-    <script src="assets/js/index.js"></script>
+    <script src="assets/js/laboratorio.js"></script>
 <div id="theo-widget"><div class="theo-robot"><img alt="THEO, robot verde menta con ruedas y pantalla LED" class="theo-image" decoding="async" loading="lazy" fetchpriority="low" height="640" src="assets/img/theo-640.webp" width="640"/><button aria-controls="theo-face" aria-expanded="false" aria-label="Abrir conversación con THEO" class="theo-trigger" type="button"></button><span aria-hidden="true" class="theo-hint">¿Hablamos?</span><section aria-hidden="true" aria-label="Chat con THEO" class="theo-face" id="theo-face" role="region"><header class="theo-head"><span>THEO <span class="theo-status" id="theo-status">● EN LÍNEA</span></span><button aria-label="Cerrar conversación" class="theo-close" type="button">×</button></header><div aria-label="Mensajes" aria-live="polite" aria-relevant="additions" class="theo-messages" role="log"></div><form autocomplete="off" class="theo-form"><label class="theo-sr" for="theo-input">Tu mensaje</label><input class="theo-input" id="theo-input" maxlength="500" placeholder="Escribe aquí…" required=""/><button aria-label="Enviar mensaje" class="theo-send" type="submit">➤</button></form></section></div></div>
 <script src="assets/js/theo-chatbot.js" defer></script>
 
-
-    <canvas id="rain-fx" aria-hidden="true"></canvas>
-    <script>
-    /* Lluvia binaria: 0 y 1 en los colores corporativos (variables de index.css) */
-    (function () {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var cv = document.getElementById('rain-fx');
-        var ctx = cv.getContext('2d');
-        var W, H, dpr, cols = [], F = 16;
-        var cs = getComputedStyle(document.documentElement);
-        function col(name, fallback) { return (cs.getPropertyValue(name) || fallback).trim() || fallback; }
-        var COLORS = [col('--neon-cyan', '#00f5ff'), col('--neon-purple', '#bd00ff'), col('--neon-pink', '#ff006e')];
-
-        function resize() {
-            dpr = Math.min(window.devicePixelRatio || 1, 2);
-            W = window.innerWidth; H = window.innerHeight;
-            cv.width = W * dpr; cv.height = H * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            cols = [];
-            for (var i = 0; i < Math.ceil(W / F); i++) cols.push(Math.random() * H / F | 0);
-        }
-        window.addEventListener('resize', resize);
-        resize();
-
-        var last = 0;
-        function loop(t) {
-            if (t - last > 45) {
-                last = t;
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.fillStyle = 'rgba(0,0,0,0.12)';
-                ctx.fillRect(0, 0, W, H);
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.font = F + 'px "Space Mono", monospace';
-                for (var i = 0; i < cols.length; i++) {
-                    ctx.fillStyle = COLORS[i % 3];
-                    ctx.fillText(Math.random() < 0.5 ? '0' : '1', i * F, cols[i] * F);
-                    cols[i] = (cols[i] * F > H && Math.random() > 0.975) ? 0 : cols[i] + 1;
-                }
-            }
-            requestAnimationFrame(loop);
-        }
-        requestAnimationFrame(loop);
-    })();
-    </script>
 
     <canvas id="cursor-fx" aria-hidden="true"></canvas>
     <script>
