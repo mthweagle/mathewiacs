@@ -26,8 +26,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <!-- global.css: hoja de estilos única de toda la web -->
     <link rel="stylesheet" href="assets/css/global.css">
-    
-
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -103,111 +101,6 @@
         </div>
     </section>
 
-    <section class="services" id="servicios">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-i18n="k11">[SERVICIOS]</span>
-                <h2 data-i18n="k12">QUÉ HACEMOS</h2>
-                <p data-i18n="k13">
-                    // No hacemos webs corporativas aburridas.<br>
-                    Creamos experiencias digitales que golpean fuerte.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 data-i18n="k14">ARTE GENERATIVO CON IA</h3>
-                    <p data-i18n="k15">
-                        Midjourney, DALL-E 3, Stable Diffusion. Dirección artística humana. Sin prompts basura.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">Midjourney</span>
-                        <span class="service-tag">DALL-E</span>
-                        <span class="service-tag" data-i18n="k16">Dirección de Arte</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 data-i18n="k17">BRANDING BRUTAL</h3>
-                    <p data-i18n="k18">
-                        Identidades visuales que no piden permiso. Logos, branding, packaging con actitud.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">Branding</span>
-                        <span class="service-tag" data-i18n="k19">Diseño de Logo</span>
-                        <span class="service-tag" data-i18n="k20">Identidad Visual</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 data-i18n="k21">DISEÑO UX/UI</h3>
-                    <p data-i18n="k22">
-                        Interfaces que funcionan y se sienten bien. Research, wireframes, prototipos, UI.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag" data-i18n="k23">Investigación UX</span>
-                        <span class="service-tag" data-i18n="k24">Diseño UI</span>
-                        <span class="service-tag" data-i18n="k25">Prototipado</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile"></i>
-                    </div>
-                    <h3 data-i18n="k26">DESARROLLO WEB Y APP</h3>
-                    <p data-i18n="k27">
-                        Código limpio. Rendimiento brutal. HTML, CSS, JS, React. Sin frameworks pesados.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag" data-i18n="k28">Desarrollo Web</span>
-                        <span class="service-tag">React</span>
-                        <span class="service-tag" data-i18n="k29">Rendimiento</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <h3 data-i18n="k30">CONTENIDO MULTIMEDIA</h3>
-                    <p data-i18n="k31">
-                        Motion graphics, vídeo, música. Contenido que conecta emocional y visualmente.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag">Motion</span>
-                        <span class="service-tag" data-i18n="k32">Vídeo</span>
-                        <span class="service-tag" data-i18n="k33">Música</span>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3 data-i18n="k34">CONSULTORÍA IA</h3>
-                    <p data-i18n="k35">
-                        Te enseñamos a usar IA sin perder el alma. Workshops, formación, optimización.
-                    </p>
-                    <div class="service-tags">
-                        <span class="service-tag" data-i18n="k36">Formación</span>
-                        <span class="service-tag" data-i18n="k37">Talleres</span>
-                        <span class="service-tag" data-i18n="k38">Estrategia IA</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
             <div class="footer-bottom">
@@ -276,7 +169,7 @@
             if (e.pointerType === 'touch') return;
             var x = e.clientX, y = e.clientY;
             if (lastX < 0) { lastX = x; lastY = y; return; }
-            if (Math.hypot(x - lastX, y - lastY) < 5) return; // solo si el cursor se mueve de verdad
+            if (Math.hypot(x - lastX, y - lastY) < 5) return;
             lastX = x; lastY = y;
             for (var i = 0; i < 2; i++) ps.push({ x: x + rnd(-30, 30), y: y + rnd(-30, 30), vx: rnd(-.3, .3), vy: rnd(-.3, .3), life: 0, ttl: rnd(1100, 1800), col: pick() });
             if (ps.length > 70) ps.splice(0, ps.length - 70);
