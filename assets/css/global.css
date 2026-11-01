@@ -1,7 +1,7 @@
 /* =========================================================
    MATHEWIACS · global.css  (v3 · hoja ÚNICA)
    Aquí vive TODO el estilo de la web. Ya no existen
-   index.css ni theo-chatbot.css.
+   index.css, equipo.css ni theo-chatbot.css.
 
    ÍNDICE
    1. Variables
@@ -857,6 +857,521 @@ footer {
     .fm-wave:nth-child(n+4) { display: none; }
 }
 
+
+/* ---------- PÁGINA EQUIPO ---------- */
+.team {
+    padding: 140px 0;
+    background: var(--concrete);
+    position: relative;
+    border-top: 1px solid var(--steel);
+    border-bottom: 1px solid var(--steel);
+}
+
+.team-header { margin-bottom: 5rem; }
+
+.team-header h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.team-header p {
+    font-family: var(--font-mono);
+    color: var(--ash);
+    font-size: 1rem;
+    max-width: 700px;
+    line-height: 1.8;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.team-card {
+    background: var(--void);
+    border: 1px solid var(--steel);
+    padding: 3rem 2.5rem;
+    text-align: center;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-neon);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+}
+
+.team-card:hover::before { transform: scaleX(1); }
+
+.team-card:hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 40px rgba(255, 0, 110, 0.2);
+    transform: translateY(-10px);
+}
+
+.team-card.lara:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 40px rgba(189, 0, 255, 0.25);
+}
+
+.team-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: var(--white);
+}
+
+.team-role {
+    font-family: var(--font-mono);
+    color: var(--neon-pink);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.team-card.lara .team-role { color: var(--neon-purple); }
+
+.team-bio {
+    font-family: var(--font-mono);
+    color: var(--ash);
+    margin-bottom: 2rem;
+    line-height: 1.9;
+    font-size: 0.9rem;
+}
+
+.team-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: transparent;
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 0.6rem 1.3rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+}
+
+.team-status .loading-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.team-status .dot {
+    width: 6px;
+    height: 6px;
+    background: var(--neon-purple);
+    animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.team-status .dot:nth-child(2) { animation-delay: 0.2s; }
+.team-status .dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.team-social a {
+    width: 45px;
+    height: 45px;
+    background: transparent;
+    border: 1px solid var(--steel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ash);
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.team-social a:hover {
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+}
+
+.team-card.lara .team-social a:hover {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+    box-shadow: 0 0 20px rgba(189, 0, 255, 0.4);
+}
+
+.coming-soon-brutal {
+    display: inline-block;
+    margin-top: 1.5rem;
+    background: transparent;
+    border: 1px solid var(--neon-purple);
+    color: var(--neon-purple);
+    padding: 0.6rem 1.5rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.coming-soon-brutal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(189, 0, 255, 0.2), transparent);
+    animation: shimmer 2.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.lara-section {
+    padding: 140px 0;
+    background: var(--void);
+    display: none;
+}
+
+.lara-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.talents-header { margin-bottom: 5rem; }
+
+.talents-header h2 {
+    font-size: 3.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+}
+
+.talents-header p {
+    font-family: var(--font-mono);
+    color: var(--ash);
+    font-size: 1rem;
+    max-width: 750px;
+    line-height: 1.9;
+}
+
+.talents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.talent-card {
+    background: var(--concrete);
+    border: 1px solid var(--steel);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.4s;
+}
+
+.talent-card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+    transform: translateY(-8px);
+}
+
+.talent-card:nth-child(2):hover {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 30px rgba(255, 0, 110, 0.2);
+}
+
+.talent-card:nth-child(3):hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 30px rgba(189, 0, 255, 0.2);
+}
+
+.talent-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--void);
+    border: 2px solid var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    color: var(--neon-cyan);
+    margin: 0 auto 1.5rem;
+}
+
+.talent-card:nth-child(2) .talent-icon { border-color: var(--neon-pink); color: var(--neon-pink); }
+.talent-card:nth-child(3) .talent-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
+
+.talent-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.talent-card p {
+    font-family: var(--font-mono);
+    color: var(--ash);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.talent-card.berlin {
+    grid-column: span 1;
+    background: linear-gradient(135deg, rgba(189, 0, 255, 0.1) 0%, rgba(0, 245, 255, 0.1) 100%);
+    border: 1px solid var(--neon-purple);
+}
+
+.talent-card.berlin .talent-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
+
+.talent-card.berlin:hover {
+    border-color: var(--neon-purple);
+    box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
+}
+
+@media (max-width: 992px) {
+    .talents-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .team-grid { grid-template-columns: 1fr; max-width: 450px; }
+}
+
+/* ===== Fotos del equipo (recuadro cuadrado exacto) ===== */
+.team-photo-container {
+    width: 180px;
+    height: 180px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 2rem;
+}
+
+.team-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border: 2px solid var(--neon-pink);
+}
+
+/* ===== Ficha de THEO (mascota, ancho completo) ===== */
+.team-card.theo {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 180px 1fr;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    text-align: left;
+}
+
+.team-card.theo:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.2);
+}
+
+.team-card.theo .team-role {
+    color: var(--neon-cyan);
+    margin-bottom: 1rem;
+}
+
+.team-card.theo .team-bio { margin-bottom: 0; }
+
+.theo-avatar {
+    width: 180px;
+    height: 180px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--neon-cyan);
+    background: var(--void);
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--neon-cyan);
+}
+
+/* X X: 5 colores, cambia cada 2 s y vuelve al primero */
+.theo-avatar span {
+    text-shadow: 0 0 8px currentColor;
+    animation: theo-x-colors 10s steps(1, end) infinite;
+}
+
+@keyframes theo-x-colors {
+    0%   { color: #00f5ff; } /* cyan */
+    20%  { color: #ff006e; } /* rosa */
+    40%  { color: #ffea00; } /* amarillo */
+    60%  { color: #bd00ff; } /* violeta */
+    80%  { color: #5cffb1; } /* menta */
+}
+
+.theo-status {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.theo-status .dot { background: var(--neon-cyan); }
+
+.theo-traits {
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--ash);
+}
+
+.theo-traits li::before {
+    content: '// ';
+    color: var(--neon-cyan);
+}
+
+@media (max-width: 992px) {
+    .team-card.theo {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 1.75rem;
+        padding: 3rem 2.5rem;
+        text-align: center;
+    }
+    .theo-avatar { order: -1; }
+}
+
+/* ===== Efecto escáner + glitch (foto de Lara) ===== */
+.scan-photo {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--neon-purple);
+}
+
+.scan-photo .team-photo-lara {
+    border: 0;
+    animation: lara-img-glitch 6s steps(1, end) infinite;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #bd00ff;
+    box-shadow:
+        0 0 8px 1px #bd00ff,
+        0 0 20px 4px rgba(189, 0, 255, 0.55);
+    z-index: 2;
+    pointer-events: none;
+    animation:
+        lara-scan 6s ease-in-out infinite,
+        lara-line-glitch 6s steps(1, end) infinite;
+}
+
+/* reflejo de luz alrededor de la línea */
+.scan-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -26px;
+    height: 54px;
+    background: linear-gradient(
+        to bottom,
+        rgba(189, 0, 255, 0) 0%,
+        rgba(189, 0, 255, 0.30) 50%,
+        rgba(189, 0, 255, 0) 100%
+    );
+    mix-blend-mode: screen;
+}
+
+.scan-glitch {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 0;
+    mix-blend-mode: screen;
+    background:
+        linear-gradient(90deg, rgba(0, 245, 255, 0.55), rgba(0, 245, 255, 0.55)) 0 18% / 100% 6px no-repeat,
+        linear-gradient(90deg, rgba(255, 0, 110, 0.50), rgba(255, 0, 110, 0.50)) 0 47% / 100% 4px no-repeat,
+        linear-gradient(90deg, rgba(189, 0, 255, 0.60), rgba(189, 0, 255, 0.60)) 0 72% / 100% 8px no-repeat;
+    animation: lara-bars-glitch 6s steps(1, end) infinite;
+}
+
+/* de arriba a abajo (3 s) y de abajo a arriba (3 s) */
+@keyframes lara-scan {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(174px); }
+    100% { transform: translateY(0); }
+}
+
+/* glitch cada 6 s, dura ~0,5 s */
+@keyframes lara-img-glitch {
+    0%, 60%   { transform: none; filter: none; }
+    60.5%     { transform: translateX(-5px) skewX(-3deg); filter: hue-rotate(30deg) saturate(1.8); }
+    62%       { transform: none; filter: none; }
+    63.5%     { transform: translateX(6px); filter: hue-rotate(-40deg) contrast(1.4); }
+    65%       { transform: none; filter: none; }
+    66.5%     { transform: translateX(-2px); filter: brightness(1.5); }
+    68%, 100% { transform: none; filter: none; }
+}
+
+@keyframes lara-line-glitch {
+    0%, 60%   { translate: 0 0; opacity: 1; }
+    60.5%     { translate: -6px 0; opacity: 0.5; }
+    62%       { translate: 0 0; opacity: 1; }
+    63.5%     { translate: 7px 0; opacity: 0.3; }
+    65%       { translate: 0 0; opacity: 1; }
+    66.5%     { translate: -3px 0; opacity: 0.7; }
+    68%, 100% { translate: 0 0; opacity: 1; }
+}
+
+@keyframes lara-bars-glitch {
+    0%, 60%   { opacity: 0; transform: none; }
+    60.5%     { opacity: 1; transform: translateX(-4px); }
+    62%       { opacity: 0; }
+    63.5%     { opacity: 1; transform: translateX(5px); }
+    65%       { opacity: 0; }
+    66.5%     { opacity: 0.8; transform: translateX(-2px); }
+    68%, 100% { opacity: 0; transform: none; }
+}
+
+/* Equipo: sin movimiento si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+    .scan-photo .team-photo-lara,
+    .scan-line,
+    .scan-glitch { animation: none; }
+    .scan-line { top: 50%; }
+    .theo-avatar span { animation: none; }
+}
+
+/* THEO: fotografía en el avatar original */
+.theo-avatar img {display:block;width:100%;height:100%;object-fit:contain;object-position:center;}
 
 /* ---------- MÓVIL: cabecera compacta ---------- */
 /* ===== Móvil: cabecera compacta que no tapa el contenido ===== */
