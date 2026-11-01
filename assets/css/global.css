@@ -191,6 +191,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
 }
 
+.header-blog,
 .header-contact {
     display: inline-flex;
     align-items: center;
@@ -209,8 +210,20 @@ h1, h2, h3, h4, h5, h6 {
     transition: background 0.2s, color 0.2s;
 }
 
-.header-contact:hover {
+/* BLOG = magenta · CONTACTO = morado · selector de idioma = cian */
+.header-blog:hover,
+.header-blog[aria-current="page"] {
     background: var(--neon-pink);
+    color: var(--white);
+}
+
+.header-contact {
+    border-color: var(--neon-purple);
+    color: var(--neon-purple);
+}
+
+.header-contact:hover {
+    background: var(--neon-purple);
     color: var(--white);
 }
 
@@ -1386,6 +1399,7 @@ footer {
     .navbar > .container { gap: .35rem .6rem; width: calc(100% - 1.5rem) !important; }
     .navbar-brand { font-size: .95rem; letter-spacing: 1px; }
     .header-actions { gap: .5rem; }
+    .header-blog,
     .header-contact { font-size: .75rem; letter-spacing: 1px; padding: 0 .45rem; }
     .navbar > .container > .navbar-collapse { min-width: 0; overflow: hidden; }
     .navbar-nav {
@@ -1780,7 +1794,7 @@ body.page-contacto {
 
 /* El botón CONTACTO de la cabecera se marca cuando estás en esta página */
 .header-contact[aria-current="page"] {
-    background: var(--neon-pink);
+    background: var(--neon-purple);
     color: var(--white);
 }
 
@@ -1897,6 +1911,7 @@ img, video { max-width: 100%; }
 
 /* Foco visible con teclado en lo que no lo tenía */
 .navbar-brand:focus-visible,
+.header-blog:focus-visible,
 .header-contact:focus-visible,
 .footer-social-bottom a:focus-visible,
 .btn-brutal:focus-visible,
