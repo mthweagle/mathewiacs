@@ -148,9 +148,9 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
 }
 
-.navbar-brand .brand-main { color: var(--white); }
-.navbar-brand .brand-ia { color: var(--neon-cyan); }
-.navbar-brand .brand-cs { color: var(--neon-pink); }
+.navbar-brand .brand-main { color: var(--neon-pink); }
+.navbar-brand .brand-ia { color: var(--neon-purple); }
+.navbar-brand .brand-cs { color: var(--neon-cyan); }
 
 .navbar-brand::after {
     position: absolute;
