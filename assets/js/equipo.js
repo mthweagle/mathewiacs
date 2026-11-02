@@ -118,6 +118,7 @@ function showLara() {
                         "a07": "Theo’s avatar, pending render",
                         "a08": "Mateo, founder and creative director of MATHEWIACS, as an amigurumi doll",
                         "a09": "Lara Montenegro, synthetic co-creator of MATHEWIACS",
+                        "eq_h1": "Mathew IA Creative Studio team",
                         "meta_title": "MATHEWIACS | Team",
                         "meta_desc": "Meet the MATHEWIACS team: Mateo, Lara Montenegro and Theo. A 50% human, 50% synthetic creative studio."
             },
@@ -170,6 +171,7 @@ function showLara() {
                         "a07": "Avatar de Theo, rendu en attente",
                         "a08": "Mateo, fondateur et directeur créatif de MATHEWIACS, en version poupée amigurumi",
                         "a09": "Lara Montenegro, cocréatrice synthétique de MATHEWIACS",
+                        "eq_h1": "Équipe de Mathew IA Creative Studio",
                         "meta_title": "MATHEWIACS | Équipe",
                         "meta_desc": "Découvrez l’équipe MATHEWIACS : Mateo, Lara Montenegro et Theo. Un studio créatif 50 % humain, 50 % synthétique."
             },
@@ -222,6 +224,7 @@ function showLara() {
                         "a07": "Avatar di Theo, rendering in attesa",
                         "a08": "Mateo, fondatore e direttore creativo di MATHEWIACS, in versione bambola amigurumi",
                         "a09": "Lara Montenegro, cocreatrice sintetica di MATHEWIACS",
+                        "eq_h1": "Team di Mathew IA Creative Studio",
                         "meta_title": "MATHEWIACS | Team",
                         "meta_desc": "Scopri il team di MATHEWIACS: Mateo, Lara Montenegro e Theo. Uno studio creativo 50% umano, 50% sintetico."
             }

@@ -621,6 +621,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
 }
 
+.section-header h1,
 .section-header h2 {
     font-size: 3.5rem;
     color: var(--white);
@@ -685,6 +686,7 @@ h1, h2, h3, h4, h5, h6 {
 .service-card:nth-child(2) .service-icon { border-color: var(--neon-pink); color: var(--neon-pink); }
 .service-card:nth-child(3) .service-icon { border-color: var(--neon-purple); color: var(--neon-purple); }
 
+.service-card h2,
 .service-card h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
@@ -793,6 +795,7 @@ footer {
     .nav-link { margin-left: 0; font-size: 0.75rem; }
     .hero h1 { font-size: 2.5rem; }
     .hero-description { font-size: 1rem; }
+    .section-header h1,
     .section-header h2 { font-size: 2.3rem; }
 }
 
@@ -873,6 +876,16 @@ footer {
     .fm-wave:nth-child(n+4) { display: none; }
 }
 
+
+/* Frase inicial de Inicio (explica de un vistazo qué es el estudio) */
+.hero-lead {
+    max-width: 720px;
+    margin: 0 0 2.5rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--smoke);
+}
 
 /* ---------- PÁGINA EQUIPO ---------- */
 .team {

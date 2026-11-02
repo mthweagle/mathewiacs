@@ -13,9 +13,10 @@ El estudio se basa en un modelo **50 % criterio humano · 50 % precisión sinté
 | Página | Archivo | Qué contiene |
 |---|---|---|
 | Inicio | `index.html` | Presentación del estudio y resumen de servicios |
-| Servicios | `servicios.html` | En construcción (el resumen de servicios está en Inicio) |
-| Proyectos | `proyectos.html` | En construcción |
-| Laboratorio | `laboratorio.html` | En construcción |
+| Servicios | `servicios.html` | Los seis servicios del estudio |
+| Proyectos | `proyectos.html` | En construcción (`noindex`) |
+| Laboratorio | `laboratorio.html` | En construcción (`noindex`) |
+| Blog | `blog.html` | En construcción (`noindex`) |
 | Equipo | `equipo.html` | Mateo, Lara Montenegro y THEO |
 | Contacto | `contacto.html` | Formulario y datos de contacto |
 
@@ -125,7 +126,7 @@ THEO es el chatbot mascota: un robot verde menta con ruedas que responde en el c
 3. Añade el enlace en el menú de **todas** las páginas.
 4. Añade la página en `sitemap.xml`.
 
-**Rellenar una página en construcción** (Servicios, Proyectos o Laboratorio). Hoy las tres muestran solo el aviso «EN CONSTRUCCIÓN». Cuando el contenido esté decidido, se sustituye el bloque `<main>` de esa página por la estructura nueva.
+**Rellenar una página en construcción** (Proyectos, Laboratorio o Blog). Hoy las tres muestran solo el aviso «EN CONSTRUCCIÓN». Cuando el contenido esté decidido, se sustituye el bloque `<main>` de esa página por la estructura nueva.
 
 ---
 
@@ -148,7 +149,10 @@ También sirve la extensión *Live Server* de Visual Studio Code. Abrir los arch
 - Imágenes en **WebP** y con carga diferida; ninguna va incrustada en el HTML.
 - Una sola hoja de estilos, en lugar de varias.
 - Precarga de las conexiones a fuentes y librerías.
-- Cada página tiene título, descripción, URL canónica, favicon e imagen para compartir (Open Graph y Twitter).
+- Cada página tiene título (50–60 caracteres), descripción (145–155), URL canónica, favicon e imagen para compartir (Open Graph y Twitter).
+- **Datos estructurados (JSON-LD):** Inicio lleva `Organization` y `WebSite`; Equipo lleva `Person` (Mateo). Lara y THEO se describen como parte del estudio, pero no se marcan como personas, porque son una co-creadora sintética y una mascota.
+- Cada página tiene un único `<h1>`. En Inicio hay una frase inicial que explica qué es el estudio.
+- Las páginas en construcción (Proyectos, Laboratorio y Blog) llevan `noindex` y no están en `sitemap.xml`. **Cuando tengan contenido real, cambia `noindex, follow` por `index, follow` y añádelas al sitemap.**
 - `sitemap.xml` y `robots.txt` configurados.
 - Foco visible al navegar con teclado y animaciones desactivadas si el usuario pide «reducir movimiento».
 - El efecto de cursor se desactiva en pantallas táctiles, y la lluvia de fondo si se pide «reducir movimiento».
@@ -159,7 +163,7 @@ También sirve la extensión *Live Server* de Visual Studio Code. Abrir los arch
 
 - **Formulario de contacto**: todavía no envía mensajes (la interfaz está lista, falta conectarlo a un servicio de envío).
 - **Redes**: LinkedIn, YouTube, TikTok y Spotify están en el footer pero aún sin enlace (`#`).
-- **Servicios, Proyectos y Laboratorio**: definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real.
+- **Proyectos, Laboratorio y Blog**: definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real (y quitarles el `noindex`).
 
 ---
 
