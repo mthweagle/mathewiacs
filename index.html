@@ -70,66 +70,8 @@
     <!-- ==== HOJA DE ESTILOS ÚNICA ==== -->
     <link rel="stylesheet" href="assets/css/global.css">
 
-    <!-- ==== ESTILOS ESPECÍFICOS DE ESTA PÁGINA (SEO + FAQ) ==== -->
+    <!-- ==== ESTILO MÍNIMO PARA TEXTO SEMÁNTICO OCULTO (solo sr-only) ==== -->
     <style>
-        /* Sección FAQ visible para SEO y para usuarios */
-        .home-faq {
-            padding: 100px 0;
-            background: var(--void);
-            border-top: 1px solid var(--steel);
-            position: relative;
-            z-index: 1;
-        }
-        .home-faq .container {
-            max-width: 900px;
-        }
-        .home-faq-header {
-            margin-bottom: 3rem;
-            text-align: left;
-        }
-        .home-faq-header .section-label {
-            background: var(--neon-cyan);
-            color: var(--void);
-        }
-        .home-faq-header h2 {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-            color: var(--white);
-            margin-bottom: 1rem;
-        }
-        .home-faq-header p {
-            font-family: var(--font-mono);
-            color: var(--ash);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        .home-faq-item {
-            border-top: 1px solid var(--steel);
-            padding: 1.5rem 0;
-        }
-        .home-faq-item:last-child {
-            border-bottom: 1px solid var(--steel);
-        }
-        .home-faq-item h3 {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            color: var(--white);
-            margin-bottom: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: none;
-        }
-        .home-faq-item p {
-            font-family: var(--font-mono);
-            color: var(--smoke);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            margin: 0;
-        }
-        .home-faq-item a {
-            color: var(--neon-cyan);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-        /* Texto semántico para buscadores e IAs (visible para lectores de pantalla) */
         .sr-only {
             position: absolute !important;
             width: 1px !important;
@@ -140,17 +82,6 @@
             clip: rect(0, 0, 0, 0) !important;
             white-space: nowrap !important;
             border: 0 !important;
-        }
-        /* Core Web Vitals */
-        .home-faq {
-            content-visibility: auto;
-            contain-intrinsic-size: auto 800px;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .home-faq * {
-                animation: none !important;
-                transition: none !important;
-            }
         }
     </style>
 
@@ -351,7 +282,7 @@
 
     <main id="contenido-principal">
 
-        <!-- H2 oculto para reforzar palabras clave y contexto -->
+        <!-- H2 oculto para reforzar palabras clave y contexto (invisible, solo para SEO) -->
         <h2 class="sr-only">Estudio creativo digital en Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte con inteligencia artificial</h2>
 
         <section class="hero" id="inicio" aria-labelledby="hero-title">
@@ -387,47 +318,6 @@
                             <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="k10">Equipo</span>
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==== SECCIÓN FAQ (VISIBLE + SCHEMA + TEXTO AMPLIADO) ==== -->
-        <section class="home-faq" id="preguntas-frecuentes" aria-labelledby="faq-title">
-            <div class="container">
-                <div class="home-faq-header">
-                    <span class="section-label">[FAQ]</span>
-                    <h2 id="faq-title">Preguntas frecuentes</h2>
-                    <p>// Lo que más nos preguntan sobre Mathew IA Creative Studio y nuestro modelo 50 % humano, 50 % sintético.</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Qué es Mathew IA Creative Studio?</h3>
-                    <p>Mathew IA Creative Studio (MATHEWIACS) es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50 % criterio humano y 50 % precisión sintética, bajo la filosofía <em>Imperfect By Design</em>. El estudio es un espacio virtual creado por Mateo, donde trabajan junto a Lara Montenegro (avatar influencer IA) y THEO (mascota bot).</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Dónde está Mathew IA Creative Studio?</h3>
-                    <p>El estudio está en Jerez de la Frontera, pero trabaja con clientes de cualquier parte del mundo. Nuestra base está en Cádiz y nuestro alcance es global: trabajamos en remoto con marcas y pymes que quieren usar la inteligencia artificial sin perder su alma.</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Qué servicios ofrece Mathew IA Creative Studio?</h3>
-                    <p>Branding, diseño de logo, contenido audiovisual, diseño web, diseño gráfico, diseño instruccional, creación de avatares, storytelling, worldbuilding, motion graphics, 3D, realidad mixta (VR/AR) y consultoría de inteligencia artificial. <a href="servicios.html">Ver todos los servicios</a>.</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Quiénes forman el equipo de Mathew IA Creative Studio?</h3>
-                    <p>El equipo lo componen Mateo (fundador, director creativo y de arte), Lara Montenegro (avatar influencer IA, experta en programación, ingeniería de prompts y tendencias IA) y THEO (la mascota bot del estudio). <a href="equipo.html">Conocer al equipo</a>.</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Cómo puedo contactar con Mathew IA Creative Studio?</h3>
-                    <p>A través del <a href="contacto.html">formulario de contacto</a> o del <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer">Instagram del estudio</a>.</p>
-                </div>
-
-                <div class="home-faq-item">
-                    <h3>¿Cuándo se lanza la web completa?</h3>
-                    <p>El lanzamiento oficial de la web completa está previsto para el 1 de enero de 2027. Hasta entonces se publica por fases. Actualmente puedes explorar los servicios, el equipo y el proyecto coloRRate (un generador de paletas OKLCH).</p>
                 </div>
             </div>
         </section>
