@@ -17,7 +17,7 @@ Branding, logo, audiovisual, diseño web, diseño gráfico, diseño instrucciona
 El estudio hace diseño de marca, branding y estrategias de marketing, y además analiza y mejora la voz de marca de sus clientes.
 
 ## THEO
-THEO es la mascota robótica del estudio: un robot verde menta con tres ruedas, divertido y neurodivergente, siempre buscando cosas que hacer y haciendo experimentos en el laboratorio.
+THEO es la mascota robótica del estudio: un robot verde menta con cuatro ruedas, divertido y neurodivergente, siempre buscando cosas que hacer y haciendo experimentos en el laboratorio.
 Así se presenta THEO: "Soy THEO, la mascota bot de Mathew IA Creative Studio. Soy verde menta y estoy preparado para responder cualquier pregunta o duda que tengas."
 
 ## Mateo
