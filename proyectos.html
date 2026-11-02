@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="description" content="Proyectos de MATHEWIACS: branding, diseño web, UX/UI, arte generativo con IA y contenido multimedia.">
-    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="Explora coloRRate, el generador creativo de paletas OKLCH de MATHEWIACS. Branding, diseño web, UX/UI y arte generativo con IA.">
+    <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:title" content="MATHEWIACS | Proyectos">
-    <meta property="og:description" content="Branding, diseño web, UX/UI y arte generativo con IA.">
+    <meta property="og:title" content="Proyectos | coloRRate - MATHEWIACS">
+    <meta property="og:description" content="Descubre coloRRate, nuestro generador de paletas en espacio perceptual OKLCH.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://mathewiacs.com/proyectos.html">
     <meta property="og:url" content="https://mathewiacs.com/proyectos.html">
@@ -17,7 +17,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <title>MATHEWIACS | Proyectos</title>
+    <title>Proyectos | coloRRate - MATHEWIACS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -26,6 +26,59 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <!-- global.css: hoja de estilos única de toda la web -->
     <link rel="stylesheet" href="assets/css/global.css">
+    
+    <!-- Estilos específicos para la integración de coloRRate -->
+    <style>
+        .project-showcase {
+            padding: 140px 0 60px;
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+        }
+        .project-header {
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+        .project-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .project-header p {
+            font-family: var(--font-mono);
+            color: var(--ash);
+            font-size: 1rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 85vh; /* Altura adaptable */
+            min-height: 700px;
+            border: 1px solid var(--steel);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #06080e; /* Fondo base de coloRRate */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .project-showcase { padding-top: 100px; }
+            .iframe-wrapper {
+                height: 85vh;
+                min-height: 500px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="grid-bg"></div>
@@ -71,12 +124,20 @@
         </div>
     </nav>
 
-    <main class="hero page-sec uc-main" id="inicio">
+    <main class="project-showcase">
         <div class="container">
-            <div class="hero-content">
-                <h1>
-                    <span class="hero-word" data-text="EN CONSTRUCCIÓN">EN CONSTRUCCIÓN</span>
-                </h1>
+            <div class="project-header">
+                <span class="section-label" data-i18n="k_p1">[PROYECTO 01]</span>
+                <h1>coloRRate</h1>
+                <p data-i18n="k_p2">
+                    Generador creativo de paletas de color en espacio perceptual OKLCH.<br>
+                    Armonías, mesh gradients, mockups de UI y extracción de color desde fotografía.
+                </p>
+            </div>
+            
+            <!-- Integración de coloRRate mediante iframe para aislar estilos -->
+            <div class="iframe-wrapper">
+                <iframe src="colorrate.html" title="coloRRate - Generador de Paletas" loading="lazy" allow="clipboard-write; camera; microphone"></iframe>
             </div>
         </div>
     </main>
@@ -103,10 +164,9 @@
 <div id="theo-widget"><div class="theo-robot"><img alt="THEO, robot verde menta con ruedas y pantalla LED" class="theo-image" decoding="async" loading="lazy" fetchpriority="low" height="640" src="assets/img/theo-640.webp" width="640"/><button aria-controls="theo-face" aria-expanded="false" aria-label="Abrir conversación con THEO" class="theo-trigger" type="button"></button><span aria-hidden="true" class="theo-hint">¿Hablamos?</span><section aria-hidden="true" aria-label="Chat con THEO" class="theo-face" id="theo-face" role="region"><header class="theo-head"><span>THEO <span class="theo-status" id="theo-status">● EN LÍNEA</span></span><button aria-label="Cerrar conversación" class="theo-close" type="button">×</button></header><div aria-label="Mensajes" aria-live="polite" aria-relevant="additions" class="theo-messages" role="log"></div><form autocomplete="off" class="theo-form"><label class="theo-sr" for="theo-input">Tu mensaje</label><input class="theo-input" id="theo-input" maxlength="500" placeholder="Escribe aquí…" required=""/><button aria-label="Enviar mensaje" class="theo-send" type="submit">➤</button></form></section></div></div>
 <script src="assets/js/theo-chatbot.js" defer></script>
 
-
     <canvas id="rain-fx" aria-hidden="true"></canvas>
     <script>
-    /* Lluvia binaria: 0 y 1 en los colores corporativos (variables de index.css) */
+    /* Lluvia binaria */
     (function () {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         var cv = document.getElementById('rain-fx');
@@ -150,7 +210,7 @@
 
     <canvas id="cursor-fx" aria-hidden="true"></canvas>
     <script>
-    /* Cursor Constelación: solo aparece mientras mueves el ratón y se apaga al parar */
+    /* Cursor Constelación */
     (function () {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         var cv = document.getElementById('cursor-fx');
@@ -165,7 +225,6 @@
         window.addEventListener('resize', resize);
         resize();
 
-        /* Colores corporativos: se leen de las variables de global.css */
         var cs = getComputedStyle(document.documentElement);
         function hex(name, fallback) {
             var h = (cs.getPropertyValue(name) || fallback).trim().replace('#', '');
@@ -193,7 +252,7 @@
             if (e.pointerType === 'touch') return;
             var x = e.clientX, y = e.clientY;
             if (lastX < 0) { lastX = x; lastY = y; return; }
-            if (Math.hypot(x - lastX, y - lastY) < 5) return; // solo si el cursor se mueve de verdad
+            if (Math.hypot(x - lastX, y - lastY) < 5) return;
             lastX = x; lastY = y;
             for (var i = 0; i < 2; i++) ps.push({ x: x + rnd(-30, 30), y: y + rnd(-30, 30), vx: rnd(-.3, .3), vy: rnd(-.3, .3), life: 0, ttl: rnd(1100, 1800), col: pick() });
             if (ps.length > 70) ps.splice(0, ps.length - 70);
