@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a0a">
 
-    <!-- ==== SEO PRIMARIO ==== -->
-    <title>Mathew IA Creative Studio | Branding, diseño web y arte con IA en Jerez</title>
-    <meta name="description" content="Estudio creativo digital en Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con IA. Modelo 50% humano, 50% sintético. Lanzamiento oficial: 1 de enero de 2027.">
+    <!-- ==== SEO PRIMARIO (CORREGIDO) ==== -->
+    <title>Mathew IA Creative Studio | Branding, web y arte con IA</title>
+    <meta name="description" content="Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA. Modelo 50% humano, 50% sintético. Lanzamiento: 1 de enero de 2027.">
     <meta name="keywords" content="estudio creativo Jerez, agencia branding Jerez, diseño web Jerez, diseño gráfico Jerez, arte generativo IA, UX UI, inteligencia artificial, Mathew IA Creative Studio, MATHEWIACS">
     <meta name="author" content="Mateo — Mathew IA Creative Studio">
     <meta name="copyright" content="© 2026 Mathew IA Creative Studio. Todos los derechos reservados.">
@@ -29,15 +29,15 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="og-image.png">
 
-    <!-- ==== OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Telegram) ==== -->
+    <!-- ==== OPEN GRAPH ==== -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Mathew IA Creative Studio">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_GB">
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="og:locale:alternate" content="it_IT">
-    <meta property="og:title" content="Mathew IA Creative Studio | Branding, diseño web y arte con IA">
-    <meta property="og:description" content="Estudio creativo digital en Jerez de la Frontera. Branding, diseño web, UX/UI y arte generativo con IA. Modelo 50% humano, 50% sintético.">
+    <meta property="og:title" content="Mathew IA Creative Studio | Branding, web y arte con IA">
+    <meta property="og:description" content="Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA. Modelo 50% humano, 50% sintético.">
     <meta property="og:url" content="https://mathewiacs.com/">
     <meta property="og:image" content="https://mathewiacs.com/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -49,12 +49,12 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@MathewIACS">
     <meta name="twitter:creator" content="@MathewIACS">
-    <meta name="twitter:title" content="Mathew IA Creative Studio | Branding, diseño web y arte con IA">
-    <meta name="twitter:description" content="Estudio creativo digital en Jerez de la Frontera. Modelo 50% humano, 50% sintético.">
+    <meta name="twitter:title" content="Mathew IA Creative Studio | Branding, web y arte con IA">
+    <meta name="twitter:description" content="Estudio creativo digital en Jerez. Modelo 50% humano, 50% sintético.">
     <meta name="twitter:image" content="https://mathewiacs.com/og-image.png">
     <meta name="twitter:image:alt" content="Mathew IA Creative Studio — Estudio creativo digital con IA">
 
-    <!-- ==== PRECONNECTS Y PRECARGA ==== -->
+    <!-- ==== PRECONNECTS ==== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -141,12 +141,11 @@
             white-space: nowrap !important;
             border: 0 !important;
         }
-        /* Core Web Vitals: no renderizar secciones lejanas hasta que se acerquen */
+        /* Core Web Vitals */
         .home-faq {
             content-visibility: auto;
-            contain-intrinsic-size: auto 600px;
+            contain-intrinsic-size: auto 800px;
         }
-        /* Reducir el coste de las animaciones de fondo */
         @media (prefers-reduced-motion: reduce) {
             .home-faq * {
                 animation: none !important;
@@ -155,7 +154,7 @@
         }
     </style>
 
-    <!-- ==== JSON-LD EXTENDIDO (Organization + WebSite + WebPage + Person + Breadcrumb + FAQ) ==== -->
+    <!-- ==== JSON-LD EXTENDIDO (Schema.org) ==== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -164,7 +163,6 @@
           "@type": "Organization",
           "@id": "https://mathewiacs.com/#organization",
           "name": "Mathew IA Creative Studio",
-          "legalName": "Mathew IA Creative Studio",
           "alternateName": ["MATHEWIACS", "Mathew IA", "Mathew Creative Studio"],
           "url": "https://mathewiacs.com/",
           "logo": {
@@ -182,18 +180,12 @@
           "description": "Estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Modelo 50% criterio humano, 50% precisión sintética.",
           "slogan": "Imperfection By Design",
           "foundingDate": "2026",
-          "founder": {
-            "@id": "https://mathewiacs.com/equipo.html#mateo"
-          },
+          "founder": { "@id": "https://mathewiacs.com/equipo.html#mateo" },
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Jerez de la Frontera",
             "addressRegion": "Cádiz",
             "addressCountry": "ES"
-          },
-          "areaServed": {
-            "@type": "Place",
-            "name": "Worldwide"
           },
           "contactPoint": {
             "@type": "ContactPoint",
@@ -206,61 +198,31 @@
             "https://github.com/mthweagle"
           ],
           "knowsAbout": [
-            "Branding",
-            "Diseño gráfico",
-            "Diseño web",
-            "UX/UI",
-            "Diseño instruccional",
-            "Arte generativo con IA",
-            "Motion graphics",
-            "3D",
-            "Realidad mixta",
-            "Storytelling",
-            "Worldbuilding",
-            "Consultoría de IA"
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Servicios de Mathew IA Creative Studio",
-            "itemListElement": [
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Arte generativo con IA", "url": "https://mathewiacs.com/servicios.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding", "url": "https://mathewiacs.com/servicios.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diseño UX/UI", "url": "https://mathewiacs.com/servicios.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo web y app", "url": "https://mathewiacs.com/servicios.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Contenido multimedia", "url": "https://mathewiacs.com/servicios.html" } },
-              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultoría IA", "url": "https://mathewiacs.com/servicios.html" } }
-            ]
-          }
+            "Branding", "Diseño gráfico", "Diseño web", "UX/UI",
+            "Diseño instruccional", "Arte generativo con IA", "Motion graphics",
+            "3D", "Realidad mixta", "Storytelling", "Worldbuilding", "Consultoría de IA"
+          ]
         },
         {
           "@type": "WebSite",
           "@id": "https://mathewiacs.com/#website",
           "url": "https://mathewiacs.com/",
           "name": "MATHEWIACS",
-          "alternateName": "Mathew IA Creative Studio",
           "inLanguage": "es",
-          "publisher": { "@id": "https://mathewiacs.com/#organization" },
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://mathewiacs.com/?s={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-          }
+          "publisher": { "@id": "https://mathewiacs.com/#organization" }
         },
         {
           "@type": "WebPage",
           "@id": "https://mathewiacs.com/#webpage",
           "url": "https://mathewiacs.com/",
-          "name": "Mathew IA Creative Studio | Branding, diseño web y arte con IA",
+          "name": "Mathew IA Creative Studio | Branding, web y arte con IA",
           "isPartOf": { "@id": "https://mathewiacs.com/#website" },
           "about": { "@id": "https://mathewiacs.com/#organization" },
           "inLanguage": "es",
           "primaryImageOfPage": { "@id": "https://mathewiacs.com/og-image.png" },
           "datePublished": "2026-01-01",
           "dateModified": "2026-11-02",
-          "description": "Estudio creativo digital en Jerez de la Frontera: branding, diseño web, UX/UI y arte generativo con IA."
+          "description": "Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA."
         },
         {
           "@type": "Person",
@@ -269,15 +231,7 @@
           "jobTitle": "Fundador, director creativo y director de arte",
           "worksFor": { "@id": "https://mathewiacs.com/#organization" },
           "url": "https://mathewiacs.com/equipo.html",
-          "image": "https://mathewiacs.com/assets/img/team-mateo.webp",
-          "knowsAbout": ["Dirección creativa", "Dirección de arte", "UX/UI", "Branding", "Inteligencia artificial generativa", "Educación inclusiva", "Neurodivergencia"]
-        },
-        {
-          "@type": "BreadcrumbList",
-          "@id": "https://mathewiacs.com/#breadcrumb",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://mathewiacs.com/" }
-          ]
+          "image": "https://mathewiacs.com/assets/img/team-mateo.webp"
         },
         {
           "@type": "FAQPage",
@@ -338,6 +292,18 @@
     </script>
 </head>
 <body>
+
+    <!-- Microdata oculta para que los analizadores detecten Organization -->
+    <div itemscope itemtype="https://schema.org/Organization" class="sr-only">
+        <meta itemprop="name" content="Mathew IA Creative Studio">
+        <meta itemprop="alternateName" content="MATHEWIACS">
+        <meta itemprop="url" content="https://mathewiacs.com/">
+        <meta itemprop="logo" content="https://mathewiacs.com/favicon.svg">
+        <meta itemprop="description" content="Estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte con IA.">
+        <meta itemprop="sameAs" content="https://www.instagram.com/Mathew.IA.CreativeStudio">
+        <meta itemprop="sameAs" content="https://github.com/mthweagle">
+    </div>
+
     <div class="grid-bg"></div>
     <div class="noise"></div>
 
@@ -383,8 +349,10 @@
         </div>
     </nav>
 
-    <!-- ==== CONTENIDO PRINCIPAL SEMÁNTICO ==== -->
     <main id="contenido-principal">
+
+        <!-- H2 oculto para reforzar palabras clave y contexto -->
+        <h2 class="sr-only">Estudio creativo digital en Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte con inteligencia artificial</h2>
 
         <section class="hero" id="inicio" aria-labelledby="hero-title">
             <div class="container">
@@ -393,9 +361,6 @@
                         <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="HUMANO" data-i18n="k07">HUMANO</span><span class="hero-bracket" aria-hidden="true">]</span><br>
                         <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="SINTÉTICO" data-i18n="k08">SINTÉTICO</span><span class="hero-bracket" aria-hidden="true">]</span>
                     </h1>
-
-                    <!-- Refuerzo semántico del H1 para buscadores e IAs -->
-                    <h2 class="sr-only">Mathew IA Creative Studio: estudio creativo digital en Jerez de la Frontera</h2>
 
                     <p class="hero-description" data-i18n="hero_desc">
                         <span class="hero-yellow" aria-hidden="true">//[</span>Mathew<span class="hero-yellow" aria-hidden="true">][</span>IA<span class="hero-yellow" aria-hidden="true">][</span>CreativeStudio<span class="hero-yellow" aria-hidden="true">];</span><br>
@@ -411,7 +376,7 @@
                     </p>
 
                     <p class="hero-lead" data-i18n="hero_lead">
-                        <strong>Mathew IA Creative Studio</strong> es un estudio creativo digital de <strong>Jerez de la Frontera</strong>: <strong>branding</strong>, <strong>diseño web</strong>, <strong>UX/UI</strong> y <strong>arte generativo con IA</strong>, con un modelo de 50 % criterio humano y 50 % precisión sintética.
+                        Mathew IA Creative Studio es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte generativo con IA. Trabajamos con un modelo de 50 % criterio humano y 50 % precisión sintética: el humano dirige, la IA ejecuta y el humano cura. Nuestro enfoque, Imperfection By Design, busca darle una visión personal y profundamente humana a la inteligencia artificial.
                     </p>
 
                     <div class="hero-buttons">
@@ -426,23 +391,23 @@
             </div>
         </section>
 
-        <!-- ==== SECCIÓN FAQ (VISIBLE + SCHEMA) ==== -->
+        <!-- ==== SECCIÓN FAQ (VISIBLE + SCHEMA + TEXTO AMPLIADO) ==== -->
         <section class="home-faq" id="preguntas-frecuentes" aria-labelledby="faq-title">
             <div class="container">
                 <div class="home-faq-header">
                     <span class="section-label">[FAQ]</span>
                     <h2 id="faq-title">Preguntas frecuentes</h2>
-                    <p>// Lo que más nos preguntan sobre Mathew IA Creative Studio.</p>
+                    <p>// Lo que más nos preguntan sobre Mathew IA Creative Studio y nuestro modelo 50 % humano, 50 % sintético.</p>
                 </div>
 
                 <div class="home-faq-item">
                     <h3>¿Qué es Mathew IA Creative Studio?</h3>
-                    <p>Mathew IA Creative Studio (MATHEWIACS) es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50 % criterio humano y 50 % precisión sintética, bajo la filosofía <em>Imperfection By Design</em>.</p>
+                    <p>Mathew IA Creative Studio (MATHEWIACS) es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50 % criterio humano y 50 % precisión sintética, bajo la filosofía <em>Imperfection By Design</em>. El estudio es un espacio virtual creado por Mateo, donde trabajan junto a Lara Montenegro (avatar influencer IA) y THEO (mascota bot).</p>
                 </div>
 
                 <div class="home-faq-item">
                     <h3>¿Dónde está Mathew IA Creative Studio?</h3>
-                    <p>El estudio está en Jerez de la Frontera, pero trabaja con clientes de cualquier parte del mundo.</p>
+                    <p>El estudio está en Jerez de la Frontera, pero trabaja con clientes de cualquier parte del mundo. Nuestra base está en Cádiz y nuestro alcance es global: trabajamos en remoto con marcas y pymes que quieren usar la inteligencia artificial sin perder su alma.</p>
                 </div>
 
                 <div class="home-faq-item">
@@ -462,7 +427,7 @@
 
                 <div class="home-faq-item">
                     <h3>¿Cuándo se lanza la web completa?</h3>
-                    <p>El lanzamiento oficial de la web completa está previsto para el <strong>1 de enero de 2027</strong>. Hasta entonces se publica por fases.</p>
+                    <p>El lanzamiento oficial de la web completa está previsto para el 1 de enero de 2027. Hasta entonces se publica por fases. Actualmente puedes explorar los servicios, el equipo y el proyecto coloRRate (un generador de paletas OKLCH).</p>
                 </div>
             </div>
         </section>
@@ -476,13 +441,13 @@
                     <span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span>
                 </a>
                 <div class="footer-social-bottom">
-                    <a href="contacto.html" aria-label="Enviar correo" data-i18n-aria="a05"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram de MATHEWIACS"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="LinkedIn (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="YouTube (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="TikTok (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-tiktok" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="Spotify (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-spotify" aria-hidden="true"></i></a>
-                    <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS" data-i18n-aria="a04"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a href="contacto.html" aria-label="Enviar correo" data-i18n-aria="a05"><i class="fas fa-envelope" aria-hidden="true"></i><span class="sr-only">Enviar correo</span></a>
+                    <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram de MATHEWIACS"><i class="fab fa-instagram" aria-hidden="true"></i><span class="sr-only">Instagram</span></a>
+                    <a href="#" aria-label="LinkedIn (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span class="sr-only">LinkedIn (próximamente)</span></a>
+                    <a href="#" aria-label="YouTube (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-youtube" aria-hidden="true"></i><span class="sr-only">YouTube (próximamente)</span></a>
+                    <a href="#" aria-label="TikTok (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-tiktok" aria-hidden="true"></i><span class="sr-only">TikTok (próximamente)</span></a>
+                    <a href="#" aria-label="Spotify (próximamente)" aria-disabled="true" tabindex="-1" onclick="return false;"><i class="fab fa-spotify" aria-hidden="true"></i><span class="sr-only">Spotify (próximamente)</span></a>
+                    <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS" data-i18n-aria="a04"><i class="fab fa-github" aria-hidden="true"></i><span class="sr-only">GitHub</span></a>
                 </div>
                 <p class="footer-copy">Mathew IA Creative Studio - 2026©</p>
             </div>
