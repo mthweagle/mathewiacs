@@ -367,51 +367,9 @@
 <div id="theo-widget"><div class="theo-robot"><img alt="THEO, robot verde menta con ruedas y pantalla LED" class="theo-image" decoding="async" loading="lazy" fetchpriority="low" height="640" src="assets/img/theo-640.webp" width="640"/><button aria-controls="theo-face" aria-expanded="false" aria-label="Abrir conversación con THEO" class="theo-trigger" type="button"></button><span aria-hidden="true" class="theo-hint">¿Hablamos?</span><section aria-hidden="true" aria-label="Chat con THEO" class="theo-face" id="theo-face" role="region"><header class="theo-head"><span>THEO <span class="theo-status" id="theo-status">● EN LÍNEA</span></span><button aria-label="Cerrar conversación" class="theo-close" type="button">×</button></header><div aria-label="Mensajes" aria-live="polite" aria-relevant="additions" class="theo-messages" role="log"></div><form autocomplete="off" class="theo-form"><label class="theo-sr" for="theo-input">Tu mensaje</label><input class="theo-input" id="theo-input" maxlength="500" placeholder="Escribe aquí…" required=""/><button aria-label="Enviar mensaje" class="theo-send" type="submit">➤</button></form></section></div></div>
 <script src="assets/js/theo-chatbot.js" defer></script>
 
-    <canvas id="rain-fx" aria-hidden="true"></canvas>
-    <script>
-    /* Lluvia binaria */
-    (function () {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        var cv = document.getElementById('rain-fx');
-        var ctx = cv.getContext('2d');
-        var W, H, dpr, cols = [], F = 16;
-        var cs = getComputedStyle(document.documentElement);
-        function col(name, fallback) { return (cs.getPropertyValue(name) || fallback).trim() || fallback; }
-        var COLORS = [col('--neon-cyan', '#00f5ff'), col('--neon-purple', '#bd00ff'), col('--neon-pink', '#ff006e')];
-        function resize() {
-            dpr = Math.min(window.devicePixelRatio || 1, 2);
-            W = window.innerWidth; H = window.innerHeight;
-            cv.width = W * dpr; cv.height = H * dpr;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            cols = [];
-            for (var i = 0; i < Math.ceil(W / F); i++) cols.push(Math.random() * H / F | 0);
-        }
-        window.addEventListener('resize', resize);
-        resize();
-        var last = 0;
-        function loop(t) {
-            if (t - last > 45) {
-                last = t;
-                ctx.globalCompositeOperation = 'destination-out';
-                ctx.fillStyle = 'rgba(0,0,0,0.12)';
-                ctx.fillRect(0, 0, W, H);
-                ctx.globalCompositeOperation = 'source-over';
-                ctx.font = F + 'px "Space Mono", monospace';
-                for (var i = 0; i < cols.length; i++) {
-                    ctx.fillStyle = COLORS[i % 3];
-                    ctx.fillText(Math.random() < 0.5 ? '0' : '1', i * F, cols[i] * F);
-                    cols[i] = (cols[i] * F > H && Math.random() > 0.975) ? 0 : cols[i] + 1;
-                }
-            }
-            requestAnimationFrame(loop);
-        }
-        requestAnimationFrame(loop);
-    })();
-    </script>
-
+    <!-- Cursor Constelación -->
     <canvas id="cursor-fx" aria-hidden="true"></canvas>
     <script>
-    /* Cursor Constelación */
     (function () {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         var cv = document.getElementById('cursor-fx');
