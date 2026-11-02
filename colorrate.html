@@ -52,7 +52,7 @@
     </script>
 
     <style>
-        /* Variables para el footer de MATHEWIACS */
+        /* Variables para el footer de MATHEWIACS (idénticas a global.css) */
         :root {
             --void: #0a0a0a;
             --steel: #2a2a2a;
@@ -216,14 +216,13 @@
 
         .eyedropper-active { cursor: crosshair !important; }
 
-        /* ===== Estilos del Footer de MATHEWIACS ===== */
+        /* ===== Estilos del Footer de MATHEWIACS (Copia exacta de global.css) ===== */
         .mw-footer {
             background: var(--void);
             padding: 2.5rem 0;
             border-top: 2px solid var(--neon-pink);
-            font-family: var(--font-mono);
-            color: var(--ash);
-            font-size: 0.85rem;
+            position: relative;
+            z-index: 10;
         }
         .mw-footer-container {
             width: calc(100% - 2rem);
@@ -235,9 +234,13 @@
             grid-template-columns: 1fr auto 1fr;
             align-items: center;
             gap: 24px;
+            font-family: var(--font-mono);
+            color: var(--ash);
+            font-size: 0.85rem;
         }
         .mw-footer-brand {
             display: inline-flex;
+            flex-shrink: 0;
             align-items: center;
             justify-self: start;
             height: 25px;
@@ -255,6 +258,7 @@
             display: flex;
             gap: 0.55rem;
             justify-self: center;
+            margin: 0;
         }
         .mw-footer-social a {
             width: 38px;
@@ -277,7 +281,6 @@
             justify-self: end;
             text-align: right;
             margin: 0;
-            font-family: var(--font-mono);
         }
         @media (max-width: 768px) {
             .mw-footer-bottom {
@@ -302,6 +305,7 @@
     <div class="ambient-glow-1 animate-pulse-glow"></div>
     <div class="ambient-glow-2 animate-float"></div>
 
+    <!-- Contenedor principal de la App -->
     <div id="app-container" class="relative z-10 flex flex-col h-screen w-full overflow-hidden">
 
         <!-- Top Header -->
@@ -592,7 +596,7 @@
     </div>
 
     <!-- ===== Footer MATHEWIACS ===== -->
-    <footer class="mw-footer relative z-10">
+    <footer class="mw-footer">
         <div class="mw-footer-container">
             <div class="mw-footer-bottom">
                 <a class="mw-footer-brand" href="index.html" aria-label="Volver a MATHEWIACS">
