@@ -26,57 +26,227 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syncopate:wght@700&family=Inter:wght@400&display=swap" rel="stylesheet">
     <!-- global.css: hoja de estilos única de toda la web -->
     <link rel="stylesheet" href="assets/css/global.css">
-    
-    <!-- Estilos específicos para la integración de coloRRate -->
+
     <style>
-        .project-showcase {
-            padding: 140px 0 60px;
+        /* ===== Página Proyectos · Tarjeta destacada de coloRRate ===== */
+        .projects-section {
+            padding: 140px 0 100px;
             position: relative;
             z-index: 1;
             min-height: 100vh;
         }
-        .project-header {
-            margin-bottom: 2.5rem;
-            text-align: left;
+
+        .projects-header {
+            margin-bottom: 4rem;
+            max-width: 720px;
         }
-        .project-header h1 {
+
+        .projects-header h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             color: var(--white);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             letter-spacing: 2px;
         }
-        .project-header p {
+
+        .projects-header p {
             font-family: var(--font-mono);
             color: var(--ash);
             font-size: 1rem;
-            max-width: 600px;
             line-height: 1.8;
         }
-        .iframe-wrapper {
-            position: relative;
-            width: 100%;
-            height: 85vh; /* Altura adaptable */
-            min-height: 700px;
+
+        /* Tarjeta principal */
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--concrete);
             border: 1px solid var(--steel);
-            border-radius: 8px;
+            padding: 2.5rem;
+            position: relative;
             overflow: hidden;
-            background: #06080e; /* Fondo base de coloRRate */
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
-        .iframe-wrapper iframe {
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-neon);
+        }
+
+        /* Mockup visual de coloRRate */
+        .project-preview {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            background: #06080e;
+            overflow: hidden;
+            border: 1px solid var(--steel);
+        }
+
+        .mockup-bars {
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
+            display: flex;
         }
-        
-        @media (max-width: 768px) {
-            .project-showcase { padding-top: 100px; }
-            .iframe-wrapper {
-                height: 85vh;
-                min-height: 500px;
+
+        .mockup-bars > div {
+            flex: 1;
+            opacity: 0.92;
+        }
+
+        .mockup-bars > div:nth-child(1) { background: #ff006e; }
+        .mockup-bars > div:nth-child(2) { background: #bd00ff; }
+        .mockup-bars > div:nth-child(3) { background: #00f5ff; }
+        .mockup-bars > div:nth-child(4) { background: #ffea00; }
+        .mockup-bars > div:nth-child(5) { background: #10b981; }
+
+        .mockup-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: rgba(6, 8, 14, 0.35);
+            backdrop-filter: blur(2px);
+        }
+
+        .mockup-brand {
+            font-family: 'Syncopate', var(--font-display);
+            font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+        }
+
+        .mockup-rr {
+            display: inline-block;
+            transform: scaleX(-1);
+            color: #F32BB3;
+            margin: 0 1px;
+        }
+
+        .mockup-tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 12px;
+            border-radius: 99px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Columna de información */
+        .project-info h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--neon-yellow);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-family: var(--font-mono);
+            color: var(--smoke);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            padding: 0;
+        }
+
+        .project-features li {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--smoke);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-features li i {
+            color: var(--neon-cyan);
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border: 1px solid var(--steel);
+            color: var(--ash);
+        }
+
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: var(--neon-pink);
+            color: var(--white);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid var(--neon-pink);
+        }
+
+        .project-cta:hover {
+            background: transparent;
+            color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.4);
+        }
+
+        .project-cta i {
+            transition: transform 0.3s;
+        }
+
+        .project-cta:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 992px) {
+            .project-card {
+                grid-template-columns: 1fr;
+                padding: 1.75rem;
+                gap: 2rem;
             }
+            .projects-section { padding: 100px 0 80px; }
         }
     </style>
 </head>
@@ -124,25 +294,58 @@
         </div>
     </nav>
 
-    <main class="project-showcase">
+    <main class="projects-section">
         <div class="container">
-            <div class="project-header">
-                <span class="section-label" data-i18n="k_p1">[PROYECTO 01]</span>
-                <h1>coloRRate</h1>
-                <p data-i18n="k_p2">
-                    Generador creativo de paletas de color en espacio perceptual OKLCH.<br>
-                    Armonías, mesh gradients, mockups de UI y extracción de color desde fotografía.
-                </p>
+            <div class="projects-header">
+                <span class="section-label">[PROYECTOS]</span>
+                <h1>EXPERIMENTOS QUE GOLPEAN</h1>
+                <p>// Cada proyecto nace de la curiosidad y la experimentación. Herramientas reales, abiertas y sin filtros, hechas para jugar con el color, el código y las ideas.</p>
             </div>
-            
-            <!-- Integración de coloRRate mediante iframe para aislar estilos -->
-            <div class="iframe-wrapper">
-                <iframe src="colorrate.html" title="coloRRate - Generador de Paletas" loading="lazy" allow="clipboard-write; camera; microphone"></iframe>
-            </div>
+
+            <article class="project-card">
+                <div class="project-preview">
+                    <div class="mockup-bars">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="mockup-overlay">
+                        <span class="mockup-brand">colo<span class="mockup-rr">RR</span>ate</span>
+                        <span class="mockup-tag">OKLCH Palette Generator</span>
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <div class="project-meta">[PROYECTO 01 · 2026 · HERRAMIENTA]</div>
+                    <h2>coloRRate</h2>
+                    <p class="project-desc">
+                        Generador creativo de paletas de color construido sobre el espacio perceptual <strong>OKLCH</strong>. Armonías cromáticas, mesh gradients, mockup de UI aplicado en tiempo real, extracción de color desde fotografías con k-means en Oklab y cuentagotas global de pantalla.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> 11 modos de armonía cromática y 5 modos de visualización</li>
+                        <li><i class="fas fa-check"></i> Extracción de paleta dominante desde cualquier foto</li>
+                        <li><i class="fas fa-check"></i> Editor OKLCH interactivo y exportación de CSS</li>
+                        <li><i class="fas fa-check"></i> Cuentagotas de pantalla con EyeDropper API</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>OKLCH</span>
+                        <span>Tailwind</span>
+                        <span>Vanilla JS</span>
+                        <span>Canvas API</span>
+                        <span>K-Means</span>
+                    </div>
+                    <a href="colorrate.html" class="project-cta">
+                        <span>Ir al proyecto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
         </div>
     </main>
 
-    <footer style="position:relative;z-index:1">
+    <footer>
         <div class="container">
             <div class="footer-bottom">
                 <a class="navbar-brand footer-brand" href="index.html" aria-label="MATHEWIACS"><span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span></a>
@@ -175,7 +378,6 @@
         var cs = getComputedStyle(document.documentElement);
         function col(name, fallback) { return (cs.getPropertyValue(name) || fallback).trim() || fallback; }
         var COLORS = [col('--neon-cyan', '#00f5ff'), col('--neon-purple', '#bd00ff'), col('--neon-pink', '#ff006e')];
-
         function resize() {
             dpr = Math.min(window.devicePixelRatio || 1, 2);
             W = window.innerWidth; H = window.innerHeight;
@@ -186,7 +388,6 @@
         }
         window.addEventListener('resize', resize);
         resize();
-
         var last = 0;
         function loop(t) {
             if (t - last > 45) {
@@ -224,7 +425,6 @@
         }
         window.addEventListener('resize', resize);
         resize();
-
         var cs = getComputedStyle(document.documentElement);
         function hex(name, fallback) {
             var h = (cs.getPropertyValue(name) || fallback).trim().replace('#', '');
@@ -232,7 +432,6 @@
             return [0, 2, 4].map(function (i) { return parseInt(h.substr(i, 2), 16); });
         }
         var COLORS = [hex('--neon-cyan', '#00f5ff'), hex('--neon-purple', '#bd00ff'), hex('--neon-pink', '#ff006e')];
-
         var rnd = function (a, b) { return a + Math.random() * (b - a); };
         var pick = function () { return COLORS[(Math.random() * COLORS.length) | 0]; };
         var light = function (c, k) { return [c[0] + (255 - c[0]) * k, c[1] + (255 - c[1]) * k, c[2] + (255 - c[2]) * k]; };
@@ -245,9 +444,7 @@
             ctx.fillStyle = g;
             ctx.beginPath(); ctx.arc(x, y, R, 0, 6.2832); ctx.fill();
         }
-
         var ps = [], LINK = 70, lastX = -1, lastY = -1, running = false, prev = 0;
-
         window.addEventListener('pointermove', function (e) {
             if (e.pointerType === 'touch') return;
             var x = e.clientX, y = e.clientY;
@@ -259,7 +456,6 @@
             if (!running) { running = true; prev = performance.now(); requestAnimationFrame(loop); }
         }, { passive: true });
         document.addEventListener('pointerleave', function () { lastX = -1; });
-
         function loop(now) {
             var dt = Math.min(48, now - prev); prev = now;
             var k = dt / 16;
