@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coloRRate: generador de paletas de color OKLCH | MATHEWIACS</title>
+    <meta name="description" content="Crea paletas de color en OKLCH con armonías, mesh gradients y mockup de UI, y extrae colores de fotos. Herramienta gratuita de MATHEWIACS, sin registro.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mathewiacs.com/proyectos/colorrate.html">
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="coloRRate: generador de paletas de color OKLCH | MATHEWIACS">
+    <meta property="og:description" content="Crea paletas de color en OKLCH con armonías, mesh gradients y mockup de UI, y extrae colores de fotos. Herramienta gratuita de MATHEWIACS, sin registro.">
+    <meta property="og:url" content="https://mathewiacs.com/proyectos/colorrate.html">
+    <meta property="og:image" content="https://mathewiacs.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "coloRRate",
+  "url": "https://mathewiacs.com/proyectos/colorrate.html",
+  "description": "Crea paletas de color en OKLCH con armonías, mesh gradients y mockup de UI, y extrae colores de fotos. Herramienta gratuita de MATHEWIACS, sin registro.",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "es",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "creator": {
+    "@type": "Organization",
+    "@id": "https://mathewiacs.com/#organization",
+    "name": "Mathew IA Creative Studio",
+    "url": "https://mathewiacs.com/"
+  },
+  "featureList": [
+    "11 modos de armonía cromática",
+    "5 modos de visualización",
+    "Mesh gradients",
+    "Mockup de interfaz con tu paleta",
+    "Extracción de paleta desde fotografías",
+    "Cuentagotas global de pantalla"
+  ]
+}
+    </script>
+    <meta name="theme-color" content="#06080e">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../assets/css/colorrate.css">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (incluye Space Mono y Syncopate para el footer) -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    
+    
+
+    <style>
+        /* Variables para el footer de MATHEWIACS (idénticas a global.css) */
+        :root {
+            --void: #0a0a0a;
+            --steel: #2a2a2a;
+            --ash: #888888;
+            --neon-pink: #ff006e;
+            --neon-cyan: #00f5ff;
+            --neon-purple: #bd00ff;
+            --neon-yellow: #ffea00;
+            --font-mono: 'Space Mono', monospace;
+            --font-display: 'Syncopate', sans-serif;
+        }
+
+        html, body {
+            min-height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-color: #06080e;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        button, a, input[type="range"], input[type="color"], select, label, .cursor-pointer {
+            cursor: pointer !important;
+        }
+
+        /* Custom Interactive Glowing Cursor Lens with Negative Inversion */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(243, 43, 179, 0.9);
+            background: rgba(243, 43, 179, 0.12);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: width 0.12s ease, height 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+            z-index: 9999;
+            box-shadow: 0 0 18px rgba(243, 43, 179, 0.6);
+            mix-blend-mode: difference;
+        }
+
+        #custom-cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+            mix-blend-mode: difference;
+        }
+
+        /* Cursor personalizado: solo en dispositivos con ratón (no táctiles) */
+        #custom-cursor, #custom-cursor-dot { display: none; }
+        @media (hover: hover) and (pointer: fine) {
+            html, body { cursor: none; }
+            #custom-cursor, #custom-cursor-dot { display: block; visibility: hidden; }
+            body.cursor-ready #custom-cursor,
+            body.cursor-ready #custom-cursor-dot { visibility: visible; }
+        }
+
+        .ambient-glow-1 {
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(243, 43, 179, 0.18) 0%, rgba(0,0,0,0) 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0,0,0,0) 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .glass-panel {
+            background: rgba(14, 17, 26, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.22);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(6, 8, 14, 0.8);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(243, 43, 179, 0.5);
+        }
+
+        select.custom-select, select {
+            background-color: #0e111a !important;
+            color: #ffffff !important;
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        }
+
+        select.custom-select option, select option {
+            background-color: #0e111a !important;
+            color: #ffffff !important;
+            padding: 10px !important;
+        }
+
+        .color-bar {
+            transition: flex 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s ease, filter 0.3s ease;
+        }
+        .color-bar:hover { 
+            flex: 1.45 !important;
+            z-index: 20;
+            box-shadow: 0 0 35px rgba(0,0,0,0.4);
+        }
+
+        .rr-flipped {
+            display: inline-block;
+            transform: scaleX(-1);
+            color: #F32BB3;
+        }
+
+        .drag-over {
+            border-color: #F32BB3 !important;
+            background-color: rgba(243, 43, 179, 0.12) !important;
+        }
+
+        .eyedropper-active { cursor: crosshair !important; }
+
+        /* ===== Estilos del Footer de MATHEWIACS (Copia exacta de global.css) ===== */
+        .mw-footer {
+            background: var(--void);
+            padding: 2.5rem 0;
+            border-top: 2px solid var(--neon-pink);
+            position: relative;
+            z-index: 10;
+        }
+        .mw-footer-container {
+            width: calc(100% - 2rem);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .mw-footer-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 24px;
+            font-family: var(--font-mono);
+            color: var(--ash);
+            font-size: 0.85rem;
+        }
+        .mw-footer-brand {
+            display: inline-flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-self: start;
+            height: 25px;
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 25px;
+            text-decoration: none;
+        }
+        .mw-footer-brand .brand-main { color: var(--neon-pink); }
+        .mw-footer-brand .brand-ia   { color: var(--neon-purple); }
+        .mw-footer-brand .brand-cs   { color: var(--neon-cyan); }
+        .mw-footer-social {
+            display: flex;
+            gap: 0.55rem;
+            justify-self: center;
+            margin: 0;
+        }
+        .mw-footer-social a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--steel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ash);
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+        .mw-footer-social a:hover {
+            border-color: var(--neon-yellow);
+            color: var(--neon-yellow);
+            box-shadow: 0 0 20px rgba(255, 234, 0, 0.4);
+        }
+        .mw-footer-copy {
+            justify-self: end;
+            text-align: right;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .mw-footer-bottom {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+                gap: 16px;
+            }
+            .mw-footer-brand { justify-self: center; font-size: 1.1rem; letter-spacing: 1px; }
+            .mw-footer-social { justify-self: center; flex-wrap: wrap; justify-content: center; }
+            .mw-footer-copy { justify-self: center; text-align: center; font-size: 0.7rem; }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative selection:bg-pink-500 selection:text-white overflow-x-hidden">
+
+    <!-- Custom Cursor Lens Elements -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Ambient Glow Background Blobs -->
+    <div class="ambient-glow-1 animate-pulse-glow"></div>
+    <div class="ambient-glow-2 animate-float"></div>
+
+    <!-- Contenedor principal de la App -->
+    <div id="app-container" class="relative z-10 flex flex-col h-screen w-full overflow-hidden">
+
+        <!-- Top Header -->
+        <header class="glass-panel shrink-0 sticky top-0 z-40 px-4 lg:px-8 py-3 border-b border-white/10 flex flex-col gap-2.5">
+            <!-- Row 1: Logo & Tagline -->
+            <div class="flex items-center justify-between w-full gap-4">
+                <div class="flex items-center gap-3 group cursor-pointer" onclick="generatePalette()">
+                    <div class="w-10 h-10 lg:w-11 lg:h-11 shrink-0 rounded-2xl bg-dark-800/90 p-1.5 border border-white/15 flex items-center justify-center shadow-lg shadow-pink-500/10 group-hover:scale-105 transition-transform duration-300">
+                        <svg viewBox="0 0 100 100" class="w-full h-full">
+                            <circle cx="38" cy="40" r="28" fill="#F32BB3" style="mix-blend-mode: screen; opacity: 0.88;" />
+                            <circle cx="62" cy="40" r="28" fill="#3B82F6" style="mix-blend-mode: screen; opacity: 0.88;" />
+                            <circle cx="50" cy="62" r="28" fill="#10B981" style="mix-blend-mode: screen; opacity: 0.88;" />
+                        </svg>
+                    </div>
+                    <h1 class="text-2xl lg:text-3xl font-black font-display tracking-tight text-white flex items-center shrink-0">
+                        colo<span class="rr-flipped mx-[1px]">RR</span>ate
+                    </h1>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-[10px] text-pink-300 font-mono font-bold tracking-wider uppercase">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-400 animate-ping"></span> OKLCH v2.5
+                    </span>
+                    <p class="hidden sm:block text-[10px] lg:text-[11px] text-gray-400 font-mono tracking-widest uppercase text-right">Generador Creativo OKLCH Perceptual</p>
+                </div>
+            </div>
+
+            <!-- Row 2: Controls Toolbar -->
+            <div class="flex items-center justify-between gap-2 flex-wrap pt-2 border-t border-white/5">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Harmony Mode Selector Container -->
+                    <div class="relative flex items-center">
+                        <div id="harmony-select-wrapper" class="relative">
+                            <select id="harmony-mode" onchange="generatePalette()" class="glass-card text-xs font-semibold text-gray-200 px-3.5 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-500/50 cursor-pointer border border-white/10 appearance-none pr-8 bg-dark-800 transition">
+                                <optgroup label="Teoría del Color" class="bg-dark-800 text-gray-200">
+                                    <option value="random">Aleatorio Silvestre</option>
+                                    <option value="analogous" selected>Análogos Suaves</option>
+                                    <option value="monochromatic">Monocromático OKLCH</option>
+                                    <option value="triad">Tríada Armónica</option>
+                                    <option value="complementary">Complementario</option>
+                                    <option value="split-complementary">Split-Complementario</option>
+                                </optgroup>
+                                <optgroup label="Estilos Temáticos" class="bg-dark-800 text-gray-200">
+                                    <option value="cyberpunk">Cyberpunk Neon</option>
+                                    <option value="synthwave">80s Synthwave</option>
+                                    <option value="pastel">Pastel Dream OKLCH</option>
+                                    <option value="darkluxury">Dark Luxury</option>
+                                    <option value="forest">Forest Deep</option>
+                                    <option value="sunset">Warm Sunset</option>
+                                    <option value="minimal">Minimal Warm</option>
+                                </optgroup>
+                            </select>
+                            <i id="harmony-select-chevron" class="fa-solid fa-chevron-down text-xs text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+                    <!-- Generate Palette Main Button -->
+                    <button onclick="generatePalette()" class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 active:scale-95 text-white font-extrabold text-xs px-4 py-2 rounded-xl transition shadow-lg shadow-pink-600/25 flex items-center gap-2 border border-pink-400/30">
+                        <i class="fa-solid fa-rotate transition-transform duration-500 hover:rotate-180"></i>
+                        <span>Generar</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Color Count -->
+                    <div class="flex items-center bg-dark-800/90 rounded-xl border border-white/10 p-1 text-xs gap-1 shadow-inner">
+                        <span class="text-[10px] text-gray-400 font-mono px-1 font-bold">COLORES:</span>
+                        <div id="color-count-buttons" class="flex items-center gap-1"></div>
+                    </div>
+
+                    <!-- Save Favorite Palette -->
+                    <button onclick="saveCurrentPalette()" class="glass-card p-2 px-3 rounded-xl text-yellow-400 hover:bg-yellow-500/20 active:scale-95 transition flex items-center gap-1.5 text-xs font-bold border border-yellow-500/30" title="Guardar Paleta Completa">
+                        <i class="fa-solid fa-star"></i>
+                        <span class="hidden sm:inline">Guardar Paleta</span>
+                    </button>
+
+                    <!-- Favorites List Toggle -->
+                    <button onclick="toggleFavoritesModal()" class="glass-card p-2 px-3 rounded-xl text-gray-300 hover:text-white active:scale-95 transition flex items-center gap-1.5 text-xs border border-white/10" title="Ver Favoritos Guardados">
+                        <i class="fa-solid fa-bookmark text-yellow-400"></i>
+                        <span id="fav-count" class="bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded-full text-[10px] font-bold">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="px-4 lg:px-8 py-2 bg-black/50 backdrop-blur-md border-b border-white/5 flex items-center justify-between text-xs flex-wrap gap-2 shrink-0">
+            <div class="flex items-center gap-2 overflow-x-auto py-1 scrollbar-none">
+                <button onclick="setViewMode('bars')" id="view-btn-bars" class="px-3.5 py-1.5 rounded-xl flex items-center gap-2 transition bg-indigo-600 text-white font-bold shadow-md active:scale-95 border border-indigo-400/30">
+                    <i class="fa-solid fa-bars-staggered text-cyan-300"></i> <span>Franjas Flex</span>
+                </button>
+                <button onclick="setViewMode('mesh')" id="view-btn-mesh" class="px-3.5 py-1.5 rounded-lg flex items-center gap-2 transition text-gray-400 hover:text-white hover:bg-white/5 font-semibold active:scale-95">
+                    <i class="fa-solid fa-circle-nodes text-purple-400"></i> <span>Mesh Gradient</span>
+                </button>
+                <button onclick="setViewMode('ui')" id="view-btn-ui" class="px-3.5 py-1.5 rounded-lg flex items-center gap-2 transition text-gray-400 hover:text-white hover:bg-white/5 font-semibold active:scale-95">
+                    <i class="fa-solid fa-border-all text-amber-400"></i> <span>UI Mockup Real</span>
+                </button>
+                <button onclick="setViewMode('photo')" id="view-btn-photo" class="px-3.5 py-1.5 rounded-lg flex items-center gap-2 transition text-gray-400 hover:text-white hover:bg-white/5 font-semibold active:scale-95">
+                    <i class="fa-solid fa-image text-pink-400"></i> <span>Desde una fotografía</span>
+                </button>
+                <button onclick="setViewMode('global_picker')" id="view-btn-global_picker" class="px-3.5 py-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition flex items-center gap-2 font-semibold active:scale-95">
+                    <i class="fa-solid fa-eye-dropper text-cyan-400"></i>
+                    <span>Cuentagotas Global</span>
+                </button>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-4 text-gray-400 text-[11px] font-mono">
+                <span class="text-pink-400 font-bold flex items-center gap-1.5"><i class="fa-solid fa-atom animate-spin" style="animation-duration: 10s;"></i> Motor OKLCH</span>
+                <span><kbd class="px-2 py-0.5 bg-white/10 rounded text-gray-200 border border-white/10">ESPACIO</kbd> Generar</span>
+            </div>
+        </div>
+
+        <!-- MAIN VIEW AREA -->
+        <main class="flex-1 flex flex-col relative overflow-hidden" id="main-view-area">
+
+            <!-- MODE 1: BARS -->
+            <div id="view-bars" class="flex-1 flex flex-col md:flex-row w-full h-full relative overflow-y-auto md:overflow-visible"></div>
+
+            <!-- MODE 2: MESH -->
+            <div id="view-mesh" class="hidden flex-1 w-full h-full p-6 flex flex-col items-center justify-center overflow-y-auto">
+                <div id="mesh-canvas-container" class="w-full max-w-4xl h-[460px] rounded-3xl overflow-hidden glass-panel relative shadow-2xl border border-white/20 group">
+                    <div id="mesh-gradient-bg" class="w-full h-full transition-all duration-700"></div>
+                    <div class="absolute inset-0 bg-black/25 backdrop-blur-[3px] flex flex-col items-center justify-center p-6 text-center">
+                        <span class="text-xs uppercase font-mono text-indigo-300 font-extrabold mb-2 bg-black/50 px-3.5 py-1 rounded-full border border-white/15 shadow-lg">Gradiente Perceptual OKLCH</span>
+                        <h2 class="text-3xl md:text-5xl font-black text-white drop-shadow-lg tracking-tight">coloRRate Mesh</h2>
+                        <button onclick="copyMeshCSS()" class="mt-6 px-6 py-3 bg-white/15 hover:bg-white/25 active:scale-95 backdrop-blur-md text-white rounded-2xl text-xs font-extrabold border border-white/30 transition flex items-center gap-2 shadow-xl hover:border-white/50">
+                            <i class="fa-solid fa-copy text-pink-400"></i> Copiar CSS Gradient OKLCH
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODE 3: UI TOKENS MOCKUP -->
+            <div id="view-ui" class="hidden flex-1 w-full h-full p-6 overflow-y-auto">
+                <div class="max-w-5xl mx-auto space-y-6">
+                    <div id="ui-mockup-card" class="rounded-3xl p-6 md:p-8 transition-all duration-500 shadow-2xl border flex flex-col gap-6">
+                        <div id="ui-header-border" class="flex items-center justify-between border-b pb-4 border-white/10 flex-wrap gap-3">
+                            <div class="flex items-center gap-3">
+                                <div id="ui-avatar" class="w-12 h-12 rounded-2xl flex items-center justify-center font-black text-sm shadow-lg border transition-transform duration-300 hover:scale-110">cR</div>
+                                <div>
+                                    <div id="ui-text-primary" class="font-extrabold text-lg flex items-center gap-2">
+                                        coloRRate Dashboard
+                                        <span id="ui-dot-extra1" class="w-2.5 h-2.5 rounded-full inline-block shadow-sm"></span>
+                                    </div>
+                                    <div id="ui-text-secondary" class="text-xs opacity-80 flex items-center gap-2">
+                                        Sistema de Diseño & Tokens
+                                        <span id="ui-divider-extra2" class="h-3 w-[2px] inline-block rounded-full"></span>
+                                        <span id="ui-badge-extra2" class="text-[9px] font-bold px-2 py-0.5 rounded-full border">OKLCH</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="ui-btn-primary" onclick="simulateNewProject()" class="px-5 py-2.5 rounded-xl text-xs font-extrabold transition shadow-lg active:scale-95 flex items-center gap-2 border hover:opacity-90">
+                                <i class="fa-solid fa-plus"></i> <span>Nuevo Proyecto</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div id="ui-subcard-1" class="p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between shadow-md relative overflow-hidden group hover:-translate-y-1">
+                                <div>
+                                    <span id="ui-badge-1" class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border">Analítica</span>
+                                    <h3 id="ui-title-1" class="font-bold text-lg mt-3 mb-1">Rendimiento UI</h3>
+                                    <p id="ui-desc-1" class="text-xs opacity-80">Componentes probados en tiempo real.</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t flex items-center justify-between text-[10px]" id="ui-foot-1">
+                                    <span class="font-mono font-bold" id="ui-foot-text-1">Token #1</span>
+                                    <span id="ui-foot-dot-1" class="w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                                </div>
+                            </div>
+                            <div id="ui-subcard-2" class="p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between shadow-md relative overflow-hidden group hover:-translate-y-1">
+                                <div>
+                                    <span id="ui-badge-2" class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border">OKLCH</span>
+                                    <h3 id="ui-title-2" class="font-bold text-lg mt-3 mb-1">Croma Perceptual</h3>
+                                    <p id="ui-desc-2" class="text-xs opacity-80">Equilibrio constante de luminosidad.</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t flex items-center justify-between text-[10px]" id="ui-foot-2">
+                                    <span class="font-mono font-bold" id="ui-foot-text-2">Token #2</span>
+                                    <span id="ui-foot-dot-2" class="w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                                </div>
+                            </div>
+                            <div id="ui-subcard-3" class="p-5 rounded-2xl border transition-all duration-300 flex flex-col justify-between shadow-md relative overflow-hidden group hover:-translate-y-1">
+                                <div>
+                                    <span id="ui-badge-3" class="text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full border">Accesibilidad</span>
+                                    <h3 id="ui-title-3" class="font-bold text-lg mt-3 mb-1">Contraste Alto</h3>
+                                    <p id="ui-desc-3" class="text-xs opacity-80">Cumplimiento de guías WCAG.</p>
+                                </div>
+                                <div class="mt-4 pt-3 border-t flex items-center justify-between text-[10px]" id="ui-foot-3">
+                                    <span class="font-mono font-bold" id="ui-foot-text-3">Token #3</span>
+                                    <span id="ui-foot-dot-3" class="w-2.5 h-2.5 rounded-full shadow-sm"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODE 4: PHOTO EXTRACTION & INTERACTIVE SANDBOX -->
+            <div id="view-photo" class="hidden flex-1 w-full h-full p-6 overflow-y-auto">
+                <div class="max-w-5xl mx-auto space-y-6">
+                    <div id="photo-upload-box" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)" class="glass-panel p-8 md:p-12 rounded-3xl border-2 border-dashed border-white/20 text-center flex flex-col items-center justify-center gap-4 transition-all duration-300 cursor-pointer hover:border-pink-500/60 hover:bg-pink-500/5 group">
+                        <input type="file" id="photo-file-input" accept="image/jpeg,image/png,image/webp" onchange="handleFileSelect(event)" class="hidden">
+                        <div class="w-16 h-16 rounded-2xl bg-pink-500/10 border border-pink-500/30 flex items-center justify-center text-pink-400 text-2xl group-hover:scale-110 transition-transform duration-300 shadow-xl shadow-pink-500/10">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white mb-1">Cargar Fotografía</h3>
+                            <p class="text-xs text-gray-400">Arrastra una imagen aquí o haz clic para explorar tus archivos</p>
+                            <p class="text-[10px] text-gray-500 font-mono mt-1">Formatos soportados: JPG, PNG, WebP</p>
+                        </div>
+                        <button onclick="document.getElementById('photo-file-input').click()" class="mt-2 px-6 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 active:scale-95 text-white font-extrabold text-xs rounded-xl shadow-lg shadow-pink-500/20 transition flex items-center gap-2 border border-pink-400/30">
+                            <i class="fa-solid fa-image"></i> Seleccionar Imagen
+                        </button>
+                    </div>
+
+                    <div id="photo-preview-container" class="hidden flex-col lg:flex-row gap-6">
+                        <div class="flex-1 glass-panel p-4 rounded-3xl border border-white/10 flex flex-col items-center justify-center relative min-h-[350px]">
+                            <canvas id="photo-canvas" class="max-w-full h-auto rounded-2xl border border-white/10 shadow-2xl"></canvas>
+                            <div class="mt-4 flex items-center gap-3 flex-wrap justify-center w-full">
+                                <button onclick="toggleEyedropperMode()" class="px-4 py-2 glass-card text-xs font-bold text-cyan-300 hover:bg-cyan-500/20 rounded-xl transition border border-cyan-500/30 flex items-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-eye-dropper"></i> Capturar Color
+                                </button>
+                                <button onclick="document.getElementById('photo-file-input').click()" class="px-4 py-2 glass-card text-xs font-bold text-gray-300 hover:text-white rounded-xl transition border border-white/10 flex items-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-arrows-rotate"></i> Cambiar Foto
+                                </button>
+                                <button onclick="resetPhotoUploader()" class="px-4 py-2 glass-card text-xs font-bold text-red-400 hover:text-red-300 hover:border-red-500/30 rounded-xl transition border border-white/10 flex items-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-xmark"></i> Quitar Foto
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="w-full lg:w-96 glass-panel p-6 rounded-3xl border border-white/10 flex flex-col justify-between gap-6">
+                            <div>
+                                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                                    <h3 class="text-sm font-extrabold text-white flex items-center gap-2">
+                                        <i class="fa-solid fa-palette text-pink-400"></i> Banco Cromático Foto
+                                    </h3>
+                                    <div class="flex items-center gap-1.5 bg-dark-800/80 p-1 rounded-xl border border-white/10">
+                                        <span class="text-[9px] font-mono font-bold text-gray-400 px-1">COLORES:</span>
+                                        <div id="photo-color-count-buttons" class="flex items-center gap-1"></div>
+                                    </div>
+                                </div>
+
+                                <p class="text-xs text-gray-400 mb-4">Bloquea los tonos clave. Haz clic en "Generar" para explorar variaciones armónicas extraídas de la foto.</p>
+
+                                <div id="photo-sandbox-swatches" class="space-y-2.5"></div>
+                            </div>
+
+                            <div class="pt-4 border-t border-white/10 space-y-2">
+                                <button onclick="generatePhotoSandboxPalette()" class="w-full py-3 bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 active:scale-95 text-white font-extrabold text-xs rounded-xl shadow-lg transition flex items-center justify-center gap-2 border border-pink-400/30">
+                                    <i class="fa-solid fa-rotate"></i> Generar Nueva Combinación
+                                </button>
+                                <button id="btn-apply-photo-palette" onclick="applyPhotoPaletteToApp()" class="w-full py-2.5 glass-card text-xs font-extrabold text-indigo-300 hover:text-white border border-indigo-500/30 rounded-xl transition flex items-center justify-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-check"></i> Usar esta Paleta en App
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MODE 5: GLOBAL EYEDROPPER VIEW -->
+            <div id="view-global_picker" class="hidden flex-1 w-full h-full p-6 overflow-y-auto">
+                <div class="max-w-5xl mx-auto space-y-6">
+                    <div class="flex flex-wrap items-center justify-between gap-4 glass-panel p-6 rounded-3xl border border-white/10">
+                        <div>
+                            <h2 class="text-xl font-black text-white flex items-center gap-2.5">
+                                <i class="fa-solid fa-eye-dropper text-cyan-400"></i> Colección Cuentagotas Global
+                            </h2>
+                            <p class="text-xs text-gray-400 mt-1">Muestra cualquier color de la pantalla o de otra aplicación. Las muestras se guardan de forma independiente durante tu sesión.</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button id="btn-global-sample" onclick="triggerGlobalPickerSample()" class="px-5 py-2.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white rounded-xl text-xs font-black transition shadow-lg flex items-center gap-2 active:scale-95 border border-cyan-400/30">
+                                <i class="fa-solid fa-crosshairs"></i> Capturar Muestra
+                            </button>
+                            <button onclick="clearGlobalPickerSamples()" class="px-4 py-2.5 glass-card text-gray-400 hover:text-red-400 hover:border-red-500/30 rounded-xl text-xs font-bold transition flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-trash-can"></i> Limpiar Todo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="eyedropper-unsupported" class="hidden glass-panel p-4 rounded-2xl border border-amber-500/30 text-xs text-amber-200 items-start gap-3">
+                        <i class="fa-solid fa-triangle-exclamation mt-0.5"></i>
+                        <p>Tu navegador no incluye el cuentagotas de pantalla (solo Chrome, Edge y Opera de escritorio). Puedes usar la pestaña "Desde una fotografía" para capturar colores de una imagen.</p>
+                    </div>
+
+                    <div id="global-samples-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ===== Qué es coloRRate (texto para personas y buscadores) ===== -->
+<section class="max-w-3xl mx-auto px-5 py-14 text-gray-300" aria-labelledby="que-es">
+    <h2 id="que-es" class="text-2xl md:text-3xl font-black font-display text-white mb-4">¿Qué es coloRRate?</h2>
+    <p class="leading-relaxed mb-5">coloRRate es un generador gratuito de paletas de color creado por Mathew IA Creative Studio. Trabaja en OKLCH, un espacio de color perceptual: al cambiar el tono, los colores mantienen un brillo parecido y las paletas salen equilibradas. Todo ocurre en tu navegador: no se sube ninguna imagen ni ningún dato.</p>
+    <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-400 list-disc pl-5">
+        <li>11 modos de armonía cromática</li>
+        <li>5 modos de visualización</li>
+        <li>Mesh gradients listos para copiar en CSS</li>
+        <li>Mockup de interfaz con tu paleta</li>
+        <li>Extracción de colores desde fotografías</li>
+        <li>Cuentagotas global de pantalla</li>
+    </ul>
+</section>
+
+<!-- ===== Footer MATHEWIACS ===== -->
+    <footer class="mw-footer">
+        <div class="mw-footer-container">
+            <div class="mw-footer-bottom">
+                <a class="mw-footer-brand" href="../index.html" aria-label="Volver a MATHEWIACS">
+                    <span class="brand-main">MATHEW</span><span class="brand-ia">IA</span><span class="brand-cs">CS</span>
+                </a>
+                <div class="mw-footer-social">
+                    <a href="../contacto.html" aria-label="Enviar correo"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/Mathew.IA.CreativeStudio" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="Spotify"><i class="fab fa-spotify" aria-hidden="true"></i></a>
+                    <a href="https://github.com/mthweagle" target="_blank" rel="noopener noreferrer" aria-label="GitHub del estudio MATHEWIACS"><i class="fab fa-github" aria-hidden="true"></i></a>
+                </div>
+                <p class="mw-footer-copy">Mathew IA Creative Studio - 2026©</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAVORITES MODAL -->
+    <div id="fav-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 transition-opacity">
+        <div class="glass-panel w-full max-w-lg rounded-3xl p-6 border border-white/20 flex flex-col gap-4 max-h-[80vh] shadow-2xl animate-in fade-in duration-200">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <h3 class="text-base font-extrabold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-star text-yellow-400"></i> Elementos y Paletas Guardadas
+                </h3>
+                <button aria-label="Cerrar favoritos" onclick="toggleFavoritesModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="favorites-list" class="flex-1 overflow-y-auto space-y-3 pr-1"></div>
+        </div>
+    </div>
+
+    <!-- EDIT COLOR MODAL -->
+    <div id="edit-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 transition-opacity">
+        <div class="glass-panel w-full max-w-md rounded-3xl p-6 border border-white/20 flex flex-col gap-5 shadow-2xl">
+            <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                <div class="flex items-center gap-3">
+                    <div id="modal-color-preview" class="w-9 h-9 rounded-xl border border-white/20 shadow-md"></div>
+                    <div>
+                        <h3 id="modal-hex-title" class="text-base font-black font-mono text-white">#000000</h3>
+                        <p id="modal-oklch-title" class="text-[11px] font-mono text-gray-400">oklch(0% 0 0)</p>
+                    </div>
+                </div>
+                <button aria-label="Cerrar editor" onclick="closeEditModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between text-xs font-mono mb-1">
+                        <span class="text-gray-300">Luminosidad (L)</span>
+                        <span id="slider-oklch-l-val" class="text-pink-400 font-bold">50%</span>
+                    </div>
+                    <input type="range" id="slider-oklch-l" min="0" max="100" step="0.5" oninput="updateColorFromOKLCHSliders()" class="w-full accent-pink-500 cursor-pointer">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-xs font-mono mb-1">
+                        <span class="text-gray-300">Croma Perceptual (C)</span>
+                        <span id="slider-oklch-c-val" class="text-pink-400 font-bold">0.15</span>
+                    </div>
+                    <input type="range" id="slider-oklch-c" min="0" max="0.32" step="0.005" oninput="updateColorFromOKLCHSliders()" class="w-full accent-pink-500 cursor-pointer">
+                </div>
+
+                <div>
+                    <div class="flex justify-between text-xs font-mono mb-1">
+                        <span class="text-gray-300">Matiz Hue (H)</span>
+                        <span id="slider-oklch-h-val" class="text-pink-400 font-bold">180°</span>
+                    </div>
+                    <input type="range" id="slider-oklch-h" min="0" max="360" step="1" oninput="updateColorFromOKLCHSliders()" class="w-full accent-pink-500 cursor-pointer">
+                </div>
+
+                <div class="pt-3 border-t border-white/10 flex items-center justify-between">
+                    <span class="text-xs text-gray-400 font-medium">Selector Nativo sRGB:</span>
+                    <input type="color" id="native-color-picker" onchange="updateColorFromNative(this.value)" class="w-9 h-9 rounded-xl bg-transparent cursor-pointer border border-white/20">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass-panel px-4 py-3 rounded-2xl border border-pink-500/40 text-xs font-bold text-white shadow-2xl flex items-center gap-2.5">
+            <i class="fa-solid fa-circle-check text-pink-400 text-sm"></i>
+            <span id="toast-message">Notificación</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ---------- Cursor personalizado ---------- */
+        const cursor = document.getElementById('custom-cursor');
+        const cursorDot = document.getElementById('custom-cursor-dot');
+
+        window.addEventListener('mousemove', (e) => {
+            document.body.classList.add('cursor-ready');
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mouseover', (e) => {
+            if (e.target.closest('button, a, input, select, label, .cursor-pointer, [onclick]')) {
+                cursor.style.width = '48px';
+                cursor.style.height = '48px';
+            }
+        });
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.target.closest('button, a, input, select, label, .cursor-pointer, [onclick]')) {
+                cursor.style.width = '32px';
+                cursor.style.height = '32px';
+            }
+        });
+
+        /* ---------- Estado global ---------- */
+        let palette = [];
+        let colorCount = 5;
+        let viewMode = 'bars';
+        let currentEditIndex = null;
+
+        const FAVS_KEY = 'chroma_pulse_favs_v2';
+        const HEX_RE = /^#[0-9a-f]{6}$/i;
+
+        function loadFavorites() {
+            try {
+                const raw = JSON.parse(localStorage.getItem(FAVS_KEY) || '[]');
+                if (!Array.isArray(raw)) return [];
+                return raw.filter(f => {
+                    if (!f || !f.type) return false;
+                    if (f.type === 'color') return typeof f.data === 'string' && HEX_RE.test(f.data);
+                    if (f.type === 'palette') return Array.isArray(f.data) && f.data.every(h => typeof h === 'string' && HEX_RE.test(h));
+                    return false;
+                });
+            } catch { return []; }
+        }
+
+        function persistFavorites() {
+            try { localStorage.setItem(FAVS_KEY, JSON.stringify(savedFavorites)); }
+            catch { showToast('No se pudo guardar (almacenamiento bloqueado)'); }
+        }
+
+        let savedFavorites = loadFavorites();
+
+        let loadedImage = null;
+        let photoColorCount = 5;
+        let photoSandboxPalette = [];
+        let isEyedropperActive = false;
+        let extractedPhotoClusters = [];
+        let globalPickerSamples = [];
+        let lastMeshCSS = '';
+
+        /* ---------- Conversión de color OKLCH <-> sRGB ---------- */
+        function sRgbToLinear(c) {
+            c = c / 255;
+            return c > 0.04045 ? Math.pow((c + 0.055) / 1.055, 2.4) : c / 12.92;
+        }
+
+        function linearToSRgb(c) {
+            c = Math.max(0, Math.min(1, c));
+            return Math.round((c > 0.0031308 ? 1.055 * Math.pow(c, 1 / 2.4) - 0.055 : 12.92 * c) * 255);
+        }
+
+        function linearRgbToOklab(r, g, b) {
+            const l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b;
+            const m = 0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b;
+            const s = 0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b;
+            const l_ = Math.cbrt(l);
+            const m_ = Math.cbrt(m);
+            const s_ = Math.cbrt(s);
+            return {
+                L: 0.2104542553 * l_ + 0.7936177850 * m_ - 0.0040720403 * s_,
+                a: 1.9779984951 * l_ - 2.4285922050 * m_ + 0.4505937099 * s_,
+                b: 0.0259040371 * l_ + 0.7827717662 * m_ - 0.8086758033 * s_
+            };
+        }
+
+        function oklabToLinearRgb(L, a, b) {
+            const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
+            const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
+            const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+            const l = l_ * l_ * l_;
+            const m = m_ * m_ * m_;
+            const s = s_ * s_ * s_;
+            return {
+                r: +4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
+                g: -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
+                b: -0.0041960863 * l - 0.7034186147 * m + 1.7076147010 * s
+            };
+        }
+
+        function oklchToRgb(l, c, h) {
+            l = Math.max(0, Math.min(1, l));
+            c = Math.max(0, c);
+            const rad = (h * Math.PI) / 180;
+            const a = c * Math.cos(rad);
+            const b = c * Math.sin(rad);
+            let minC = c;
+            let rgb = oklabToLinearRgb(l, a, b);
+
+            if (rgb.r < 0 || rgb.r > 1 || rgb.g < 0 || rgb.g > 1 || rgb.b < 0 || rgb.b > 1) {
+                let low = 0, high = c;
+                for (let i = 0; i < 12; i++) {
+                    const mid = (low + high) / 2;
+                    const testA = mid * Math.cos(rad);
+                    const testB = mid * Math.sin(rad);
+                    const testRgb = oklabToLinearRgb(l, testA, testB);
+                    if (testRgb.r >= 0 && testRgb.r <= 1 && testRgb.g >= 0 && testRgb.g <= 1 && testRgb.b >= 0 && testRgb.b <= 1) {
+                        minC = mid; low = mid;
+                    } else { high = mid; }
+                }
+                const finalA = minC * Math.cos(rad);
+                const finalB = minC * Math.sin(rad);
+                rgb = oklabToLinearRgb(l, finalA, finalB);
+            }
+
+            return {
+                r: linearToSRgb(rgb.r),
+                g: linearToSRgb(rgb.g),
+                b: linearToSRgb(rgb.b)
+            };
+        }
+
+        function rgbToHex(r, g, b) {
+            return '#' + [r, g, b].map(x => {
+                const hex = Math.max(0, Math.min(255, Math.round(x))).toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }).join('');
+        }
+
+        function oklchToHex(l, c, h) {
+            const rgb = oklchToRgb(l, c, h);
+            return rgbToHex(rgb.r, rgb.g, rgb.b);
+        }
+
+        function hexToRgb(hex) {
+            hex = hex.replace(/^#/, '');
+            if (hex.length === 3) hex = hex.split('').map(x => x + x).join('');
+            const num = parseInt(hex, 16);
+            return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+        }
+
+        function hexToOklch(hex) {
+            const rgb = hexToRgb(hex);
+            const lab = linearRgbToOklab(sRgbToLinear(rgb.r), sRgbToLinear(rgb.g), sRgbToLinear(rgb.b));
+            const c = Math.sqrt(lab.a * lab.a + lab.b * lab.b);
+            let h = (Math.atan2(lab.b, lab.a) * 180) / Math.PI;
+            if (h < 0) h += 360;
+            return { l: lab.L, c, h };
+        }
+
+        function getContrastYIQ(hex) {
+            const rgb = hexToRgb(hex);
+            const yiq = ((rgb.r * 299) + (rgb.g * 587) + (rgb.b * 114)) / 1000;
+            return yiq >= 128 ? '#06080e' : '#f3f4f6';
+        }
+
+        /* ---------- Generación de paleta ---------- */
+        function generatePalette() {
+            const mode = document.getElementById('harmony-mode').value;
+            const seedHue = Math.random() * 360;
+            const baseC = 0.12 + Math.random() * 0.10;
+            const baseL = 0.45 + Math.random() * 0.35;
+            const newColors = [];
+
+            for (let i = 0; i < colorCount; i++) {
+                if (palette[i] && palette[i].locked) {
+                    newColors.push(palette[i]);
+                    continue;
+                }
+
+                let l = baseL, c = baseC, h = seedHue;
+
+                switch (mode) {
+                    case 'analogous':
+                        h = (seedHue + (i - colorCount / 2) * 28 + Math.random() * 10 + 360) % 360;
+                        l = Math.max(0.2, Math.min(0.9, baseL + (i - colorCount / 2) * 0.06));
+                        break;
+                    case 'monochromatic':
+                        h = seedHue;
+                        c = Math.max(0.02, Math.min(0.25, baseC * (0.4 + (i / colorCount) * 0.9)));
+                        l = 0.20 + (i / (colorCount - 1 || 1)) * 0.68;
+                        break;
+                    case 'triad':
+                        h = (seedHue + (i % 3) * 120 + Math.floor(i / 3) * 15 + Math.random() * 10 + 360) % 360;
+                        break;
+                    case 'complementary':
+                        h = (i % 2 === 0) ? seedHue : (seedHue + 180 + Math.random() * 15) % 360;
+                        break;
+                    case 'cyberpunk': {
+                        const cyberHues = [310, 185, 55, 280, 140];
+                        h = (cyberHues[i % cyberHues.length] + Math.random() * 20 - 10 + 360) % 360;
+                        c = 0.22; l = 0.65;
+                        break;
+                    }
+                    case 'synthwave': {
+                        const synthHues = [320, 270, 190, 45, 300];
+                        h = (synthHues[i % synthHues.length] + Math.random() * 15) % 360;
+                        c = 0.24; l = 0.60;
+                        break;
+                    }
+                    case 'pastel':
+                        h = (seedHue + i * (360 / colorCount) + Math.random() * 10) % 360;
+                        c = 0.08; l = 0.82;
+                        break;
+                    case 'darkluxury':
+                        h = (seedHue + i * 20) % 360;
+                        c = 0.10; l = 0.22;
+                        break;
+                    case 'forest':
+                        h = (120 + i * 18) % 360;
+                        c = 0.12; l = 0.35;
+                        break;
+                    case 'sunset':
+                        h = (25 + i * 15) % 360;
+                        c = 0.20; l = 0.62;
+                        break;
+                    case 'minimal':
+                        h = (seedHue + i * 10) % 360;
+                        c = 0.05; l = 0.75;
+                        break;
+                    case 'random':
+                    default:
+                        h = (seedHue + i * (360 / colorCount) + (Math.random() * 30 - 15) + 360) % 360;
+                        c = 0.08 + Math.random() * 0.16;
+                        l = 0.25 + (i / (colorCount - 1 || 1)) * 0.55 + (Math.random() * 0.1 - 0.05);
+                        l = Math.max(0.18, Math.min(0.88, l));
+                        break;
+                }
+
+                newColors.push({ hex: oklchToHex(l, c, h), locked: false });
+            }
+
+            palette = newColors;
+            renderCurrentView();
+        }
+
+        /* ---------- Carga de fotografía ---------- */
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (file) { processImageFile(file); e.target.value = ''; }
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            document.getElementById('photo-upload-box').classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('photo-upload-box').classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            document.getElementById('photo-upload-box').classList.remove('drag-over');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                processImageFile(e.dataTransfer.files[0]);
+            }
+        }
+
+        function processImageFile(file) {
+            const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!file || !validTypes.includes(file.type)) {
+                showToast('Formato de imagen no soportado (sólo JPG, PNG y WebP)');
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+                const img = new Image();
+                img.onload = () => {
+                    loadedImage = img;
+                    displayLoadedPhotoOnCanvas();
+                    extractDominantPhotoPalette();
+                    showToast('Fotografía cargada y analizada');
+                };
+                img.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function displayLoadedPhotoOnCanvas() {
+            const uploadBox = document.getElementById('photo-upload-box');
+            const previewContainer = document.getElementById('photo-preview-container');
+            const canvas = document.getElementById('photo-canvas');
+            if (!loadedImage || !canvas) return;
+
+            uploadBox.classList.add('hidden');
+            previewContainer.classList.remove('hidden');
+            previewContainer.classList.add('flex');
+
+            const ctx = canvas.getContext('2d');
+            let w = loadedImage.width, h = loadedImage.height;
+            const maxW = 800, maxH = 500;
+            if (w > maxW || h > maxH) {
+                const ratio = Math.min(maxW / w, maxH / h);
+                w = Math.round(w * ratio);
+                h = Math.round(h * ratio);
+            }
+            canvas.width = w;
+            canvas.height = h;
+            ctx.drawImage(loadedImage, 0, 0, w, h);
+            setupCanvasEyedropperEvents(canvas);
+        }
+
+        function resetPhotoUploader() {
+            loadedImage = null;
+            photoSandboxPalette = [];
+            extractedPhotoClusters = [];
+            isEyedropperActive = false;
+            const canvas = document.getElementById('photo-canvas');
+            if (canvas) canvas.classList.remove('eyedropper-active');
+            const fileInput = document.getElementById('photo-file-input');
+            if (fileInput) fileInput.value = '';
+            document.getElementById('photo-upload-box').classList.remove('hidden');
+            document.getElementById('photo-preview-container').classList.add('hidden');
+            document.getElementById('photo-preview-container').classList.remove('flex');
+            renderPhotoSandboxSwatches();
+        }
+
+        function extractDominantPhotoPalette() {
+            const canvas = document.getElementById('photo-canvas');
+            if (!canvas || !loadedImage) return;
+
+            const ctx = canvas.getContext('2d');
+            const sampleW = 120;
+            const sampleH = Math.round((canvas.height / canvas.width) * sampleW);
+            const sampleCanvas = document.createElement('canvas');
+            sampleCanvas.width = sampleW;
+            sampleCanvas.height = sampleH;
+            const sampleCtx = sampleCanvas.getContext('2d');
+            sampleCtx.drawImage(canvas, 0, 0, sampleW, sampleH);
+
+            const imgData = sampleCtx.getImageData(0, 0, sampleW, sampleH).data;
+            const points = [];
+            for (let i = 0; i < imgData.length; i += 16) {
+                if (imgData[i + 3] >= 128) {
+                    const lab = linearRgbToOklab(sRgbToLinear(imgData[i]), sRgbToLinear(imgData[i + 1]), sRgbToLinear(imgData[i + 2]));
+                    points.push([lab.L, lab.a, lab.b]);
+                }
+            }
+            if (points.length === 0) return;
+
+            const k = Math.min(photoColorCount, points.length);
+            let centroids = [];
+            centroids.push([...points[Math.floor(Math.random() * points.length)]]);
+
+            while (centroids.length < k) {
+                const dists = points.map(p => {
+                    let minD = Infinity;
+                    centroids.forEach(c => {
+                        const d = Math.hypot(p[0] - c[0], p[1] - c[1], p[2] - c[2]);
+                        if (d < minD) minD = d;
+                    });
+                    return minD * minD;
+                });
+                const sumD = dists.reduce((a, b) => a + b, 0);
+                const r = Math.random() * sumD;
+                let accum = 0, chosenIdx = 0;
+                for (let i = 0; i < dists.length; i++) {
+                    accum += dists[i];
+                    if (accum >= r) { chosenIdx = i; break; }
+                }
+                centroids.push([...points[chosenIdx]]);
+            }
+
+            let clusters = [];
+            for (let iter = 0; iter < 8; iter++) {
+                clusters = Array.from({ length: k }, () => []);
+                points.forEach(p => {
+                    let minDist = Infinity, bestC = 0;
+                    centroids.forEach((c, idx) => {
+                        const dist = Math.hypot(p[0] - c[0], p[1] - c[1], p[2] - c[2]);
+                        if (dist < minDist) { minDist = dist; bestC = idx; }
+                    });
+                    clusters[bestC].push(p);
+                });
+                centroids = clusters.map((cluster, idx) => {
+                    if (cluster.length === 0) return centroids[idx];
+                    let sumL = 0, sumA = 0, sumB = 0;
+                    cluster.forEach(p => { sumL += p[0]; sumA += p[1]; sumB += p[2]; });
+                    return [sumL / cluster.length, sumA / cluster.length, sumB / cluster.length];
+                });
+            }
+
+            extractedPhotoClusters = centroids.map((lab, idx) => {
+                const C = Math.sqrt(lab[1] * lab[1] + lab[2] * lab[2]);
+                let H = (Math.atan2(lab[2], lab[1]) * 180) / Math.PI;
+                if (H < 0) H += 360;
+                const rgb = oklabToLinearRgb(lab[0], lab[1], lab[2]);
+                return {
+                    l: lab[0], c: C, h: H,
+                    hex: rgbToHex(linearToSRgb(rgb.r), linearToSRgb(rgb.g), linearToSRgb(rgb.b)),
+                    population: clusters[idx] ? clusters[idx].length : 0
+                };
+            });
+            extractedPhotoClusters.sort((a, b) => b.population - a.population);
+            rebuildPhotoSandboxPalette();
+        }
+
+        function rebuildPhotoSandboxPalette() {
+            const allLocked = photoSandboxPalette.filter(item => item && item.locked);
+            const keptLocked = allLocked.slice(0, photoColorCount);
+            const newSandbox = [...keptLocked];
+            const usedHexes = new Set(keptLocked.map(item => item.hex.toUpperCase()));
+
+            let clusterIdx = 0;
+            while (newSandbox.length < photoColorCount) {
+                if (extractedPhotoClusters[clusterIdx]) {
+                    const cHex = extractedPhotoClusters[clusterIdx].hex.toUpperCase();
+                    if (!usedHexes.has(cHex)) {
+                        newSandbox.push({ hex: extractedPhotoClusters[clusterIdx].hex, locked: false });
+                        usedHexes.add(cHex);
+                    }
+                } else {
+                    newSandbox.push({ hex: oklchToHex(0.5, 0.15, Math.random() * 360), locked: false });
+                }
+                clusterIdx++;
+            }
+            photoSandboxPalette = newSandbox;
+            renderPhotoSandboxSwatches();
+        }
+
+        function generatePhotoSandboxPalette() {
+            if (photoSandboxPalette.length === 0 || extractedPhotoClusters.length === 0) return;
+            const clusterHexes = extractedPhotoClusters.map(c => c.hex);
+            const used = new Set(
+                photoSandboxPalette.filter(i => i.locked).map(i => i.hex.toUpperCase())
+            );
+            photoSandboxPalette = photoSandboxPalette.map(item => {
+                if (item.locked) return item;
+                const pool = clusterHexes.filter(h => !used.has(h.toUpperCase()));
+                const source = pool.length ? pool : clusterHexes;
+                const pick = source[Math.floor(Math.random() * source.length)];
+                used.add(pick.toUpperCase());
+                return { hex: pick, locked: false };
+            });
+            renderPhotoSandboxSwatches();
+            showToast('Nuevas combinaciones extraídas de la foto');
+        }
+
+        function togglePhotoSandboxLock(index) {
+            photoSandboxPalette[index].locked = !photoSandboxPalette[index].locked;
+            renderPhotoSandboxSwatches();
+        }
+
+        function renderPhotoSandboxSwatches() {
+            const container = document.getElementById('photo-sandbox-swatches');
+            const applyBtn = document.getElementById('btn-apply-photo-palette');
+            if (!container) return;
+
+            container.innerHTML = '';
+            if (applyBtn) applyBtn.disabled = photoSandboxPalette.length === 0;
+
+            photoSandboxPalette.forEach((item, index) => {
+                const textCol = getContrastYIQ(item.hex);
+                const row = document.createElement('div');
+                row.className = 'flex items-center justify-between p-3 rounded-2xl border border-white/10 shadow-md transition-transform hover:scale-[1.01]';
+                row.style.backgroundColor = item.hex;
+                row.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <button onclick="togglePhotoSandboxLock(${index})" class="w-8 h-8 rounded-xl bg-black/20 hover:bg-black/40 backdrop-blur-md transition flex items-center justify-center text-xs active:scale-90" style="color: ${textCol}" title="${item.locked ? 'Desbloquear' : 'Bloquear'}">
+                            <i class="${item.locked ? 'fa-solid fa-lock text-yellow-400' : 'fa-solid fa-unlock opacity-70'}"></i>
+                        </button>
+                        <span class="font-mono text-sm font-black px-2 py-1 rounded-lg bg-black/20 backdrop-blur-sm shadow-sm" style="color: ${textCol}">${item.hex.toUpperCase()}</span>
+                    </div>
+                    <button onclick="saveSingleColor('${item.hex}')" class="w-8 h-8 rounded-xl bg-black/20 hover:bg-black/40 backdrop-blur-md transition flex items-center justify-center text-yellow-400 text-xs active:scale-90" title="Guardar color individual">
+                        <i class="fa-solid fa-star"></i>
+                    </button>
+                `;
+                container.appendChild(row);
+            });
+        }
+
+        function toggleEyedropperMode() {
+            isEyedropperActive = !isEyedropperActive;
+            const canvas = document.getElementById('photo-canvas');
+            if (isEyedropperActive) {
+                canvas.classList.add('eyedropper-active');
+                showToast('Cuentagotas activo: Haz clic en la foto para capturar color');
+            } else {
+                canvas.classList.remove('eyedropper-active');
+            }
+        }
+
+        function setupCanvasEyedropperEvents(canvas) {
+            const ctx = canvas.getContext('2d');
+            canvas.onclick = function(e) {
+                if (!isEyedropperActive) return;
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                const x = Math.floor((e.clientX - rect.left) * scaleX);
+                const y = Math.floor((e.clientY - rect.top) * scaleY);
+                const pixel = ctx.getImageData(x, y, 1, 1).data;
+                const hex = rgbToHex(pixel[0], pixel[1], pixel[2]).toUpperCase();
+
+                let placed = false;
+                for (let i = 0; i < photoSandboxPalette.length; i++) {
+                    if (!photoSandboxPalette[i].locked) {
+                        photoSandboxPalette[i] = { hex, locked: true };
+                        placed = true;
+                        break;
+                    }
+                }
+                if (!placed) {
+                    showToast('⚠️ Todos los colores están bloqueados.');
+                    return;
+                }
+                toggleEyedropperMode();
+                renderPhotoSandboxSwatches();
+                showToast(`Color ${hex} capturado de la foto y bloqueado 🔒`);
+            };
+        }
+
+        /* ---------- Cuentagotas global ---------- */
+        async function triggerGlobalPickerSample() {
+            if ('EyeDropper' in window) {
+                try {
+                    const eyeDropper = new EyeDropper();
+                    const result = await eyeDropper.open();
+                    const hex = result.sRGBHex.toUpperCase();
+                    globalPickerSamples.push(hex);
+                    renderGlobalPickerSamples();
+                    showToast(`Muestra global ${hex} capturada`);
+                } catch (e) {
+                    if (e.name !== 'AbortError') {
+                        showToast('Error al activar el cuentagotas de pantalla');
+                    }
+                }
+            } else {
+                showToast('Tu navegador no soporta la API EyeDropper.');
+            }
+        }
+
+        function clearGlobalPickerSamples() {
+            globalPickerSamples = [];
+            renderGlobalPickerSamples();
+            showToast('Colección de muestras globales limpiada');
+        }
+
+        function removeGlobalPickerSample(index) {
+            globalPickerSamples.splice(index, 1);
+            renderGlobalPickerSamples();
+            showToast('Muestra eliminada');
+        }
+
+        function renderGlobalPickerSamples() {
+            const container = document.getElementById('global-samples-container');
+            if (!container) return;
+            container.innerHTML = '';
+            if (globalPickerSamples.length === 0) {
+                container.innerHTML = `<div class="col-span-full p-10 text-center text-xs text-gray-400 glass-panel rounded-3xl border border-white/10">No hay muestras capturadas. Haz clic en "Capturar Muestra" para muestrear cualquier color de tu pantalla.</div>`;
+                return;
+            }
+            globalPickerSamples.forEach((hex, index) => {
+                const textCol = getContrastYIQ(hex);
+                const card = document.createElement('div');
+                card.className = 'glass-panel p-4 rounded-2xl flex flex-col justify-between gap-3 border border-white/10 shadow-lg transition-transform hover:-translate-y-1';
+                card.style.backgroundColor = hex;
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-sm font-black px-2.5 py-1 rounded-lg bg-black/25 backdrop-blur-sm shadow-sm" style="color: ${textCol}">${hex}</span>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="saveSingleColor('${hex}')" class="w-8 h-8 rounded-xl bg-black/25 hover:bg-black/45 backdrop-blur-md transition flex items-center justify-center text-yellow-400 text-xs active:scale-90" title="Guardar en favoritos ⭐">
+                                <i class="fa-solid fa-star"></i>
+                            </button>
+                            <button onclick="removeGlobalPickerSample(${index})" class="w-8 h-8 rounded-xl bg-black/25 hover:bg-black/45 backdrop-blur-md transition flex items-center justify-center text-red-300 hover:text-red-200 text-xs active:scale-90" title="Eliminar muestra">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between pt-2 border-t border-black/10">
+                        <button onclick="copyText('${hex}')" class="px-3 py-1 bg-black/25 hover:bg-black/40 backdrop-blur-sm text-[11px] font-bold rounded-lg transition active:scale-95" style="color: ${textCol}">
+                            <i class="fa-solid fa-copy"></i> Copiar HEX
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function applyPhotoPaletteToApp() {
+            if (photoSandboxPalette.length === 0) return;
+            colorCount = photoSandboxPalette.length;
+            palette = JSON.parse(JSON.stringify(photoSandboxPalette));
+            renderColorCountButtons();
+            setViewMode('bars');
+            showToast('¡Paleta aplicada al menú principal!');
+        }
+
+        /* ---------- Favoritos ---------- */
+        function saveCurrentPalette() {
+            const hexes = palette.map(c => c.hex);
+            if (savedFavorites.some(f => f.type === 'palette' && JSON.stringify(f.data) === JSON.stringify(hexes))) {
+                showToast('La paleta ya está guardada');
+                return;
+            }
+            savedFavorites.push({ type: 'palette', data: hexes });
+            persistFavorites();
+            updateFavoritesUI();
+            showToast('¡Paleta guardada en favoritos!');
+        }
+
+        function saveSingleColor(hex) {
+            if (!HEX_RE.test(hex)) { showToast('Color inválido'); return; }
+            if (savedFavorites.some(f => f.type === 'color' && f.data === hex)) {
+                showToast('El color ya está guardado');
+                return;
+            }
+            savedFavorites.push({ type: 'color', data: hex });
+            persistFavorites();
+            updateFavoritesUI();
+            showToast(`Color ${hex} guardado en favoritos ⭐`);
+        }
+
+        function toggleFavoritesModal() {
+            const modal = document.getElementById('fav-modal');
+            modal.classList.toggle('hidden');
+            if (!modal.classList.contains('hidden')) renderFavoritesList();
+        }
+
+        function updateFavoritesUI() {
+            document.getElementById('fav-count').innerText = savedFavorites.length;
+        }
+
+        function renderFavoritesList() {
+            const list = document.getElementById('favorites-list');
+            list.innerHTML = '';
+            if (savedFavorites.length === 0) {
+                list.innerHTML = `<p class="text-xs text-gray-400 py-8 text-center">No hay elementos guardados en tu colección.</p>`;
+                return;
+            }
+            savedFavorites.forEach((fav, index) => {
+                const item = document.createElement('div');
+                item.className = 'glass-card p-3 rounded-2xl flex items-center justify-between gap-3 border border-white/10';
+
+                if (fav.type === 'color') {
+                    if (!HEX_RE.test(fav.data)) return;
+                    item.innerHTML = `
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-xl border border-white/20 shadow-inner" style="background-color: ${fav.data}"></div>
+                            <span class="font-mono text-sm font-bold text-white">${fav.data}</span>
+                            <span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-yellow-500/20 text-yellow-300 font-bold border border-yellow-500/30">Color Individual</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="copyText('${fav.data}')" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 active:scale-95 text-xs rounded-xl font-bold transition">Copiar</button>
+                            <button aria-label="Eliminar de favoritos" onclick="removeFavorite(${index})" class="text-red-400 hover:text-red-300 p-2 text-xs transition active:scale-90"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    `;
+                } else {
+                    if (!Array.isArray(fav.data)) return;
+                    let swatchesHtml = `<div class="flex h-9 flex-1 rounded-xl overflow-hidden cursor-pointer shadow-inner border border-white/10" onclick="loadFavoritePalette(${index})" title="Hacer clic para cargar">`;
+                    fav.data.forEach(hex => {
+                        if (!HEX_RE.test(hex)) return;
+                        swatchesHtml += `<div class="flex-1 h-full flex items-center justify-center text-[9px] font-mono font-black" style="background-color: ${hex}; color: ${getContrastYIQ(hex)}">${hex}</div>`;
+                    });
+                    swatchesHtml += `</div>`;
+                    item.innerHTML = `
+                        <div class="flex-1 flex flex-col gap-1.5">
+                            <div class="flex items-center justify-between text-[10px] text-gray-400 font-mono">
+                                <span class="text-yellow-400 font-bold"><i class="fa-solid fa-palette"></i> Paleta Completa</span>
+                                <span class="text-gray-300">Cargar</span>
+                            </div>
+                            ${swatchesHtml}
+                        </div>
+                        <button aria-label="Eliminar de favoritos" onclick="removeFavorite(${index})" class="text-red-400 hover:text-red-300 p-2 text-xs ml-2 active:scale-90 transition"><i class="fa-solid fa-trash"></i></button>
+                    `;
+                }
+                list.appendChild(item);
+            });
+        }
+
+        function loadFavoritePalette(index) {
+            const fav = savedFavorites[index];
+            if (!fav || fav.type !== 'palette') return;
+            colorCount = fav.data.length;
+            palette = fav.data.map(hex => ({ hex, locked: false }));
+            renderColorCountButtons();
+            renderCurrentView();
+            toggleFavoritesModal();
+            showToast('Paleta favorita cargada');
+        }
+
+        function removeFavorite(index) {
+            savedFavorites.splice(index, 1);
+            persistFavorites();
+            updateFavoritesUI();
+            renderFavoritesList();
+            showToast('Elemento eliminado');
+        }
+
+        /* ---------- Edición de color ---------- */
+        function toggleLock(index) {
+            palette[index].locked = !palette[index].locked;
+            renderCurrentView();
+        }
+
+        function openEditModal(index) {
+            currentEditIndex = index;
+            const color = palette[index];
+            const oklch = hexToOklch(color.hex);
+
+            document.getElementById('modal-color-preview').style.backgroundColor = color.hex;
+            document.getElementById('modal-hex-title').innerText = color.hex.toUpperCase();
+            document.getElementById('modal-oklch-title').innerText = `oklch(${(oklch.l * 100).toFixed(0)}% ${oklch.c.toFixed(3)} ${oklch.h.toFixed(0)}°)`;
+            document.getElementById('native-color-picker').value = color.hex;
+
+            document.getElementById('slider-oklch-l').value = (oklch.l * 100).toFixed(1);
+            document.getElementById('slider-oklch-c').value = oklch.c.toFixed(3);
+            document.getElementById('slider-oklch-h').value = oklch.h.toFixed(0);
+            document.getElementById('slider-oklch-l-val').innerText = `${(oklch.l * 100).toFixed(0)}%`;
+            document.getElementById('slider-oklch-c-val').innerText = oklch.c.toFixed(3);
+            document.getElementById('slider-oklch-h-val').innerText = `${oklch.h.toFixed(0)}°`;
+
+            document.getElementById('edit-modal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('edit-modal').classList.add('hidden');
+        }
+
+        function updateColorFromOKLCHSliders() {
+            if (currentEditIndex === null) return;
+            const l = parseFloat(document.getElementById('slider-oklch-l').value) / 100;
+            const c = parseFloat(document.getElementById('slider-oklch-c').value);
+            const h = parseFloat(document.getElementById('slider-oklch-h').value);
+
+            document.getElementById('slider-oklch-l-val').innerText = `${(l * 100).toFixed(0)}%`;
+            document.getElementById('slider-oklch-c-val').innerText = c.toFixed(3);
+            document.getElementById('slider-oklch-h-val').innerText = `${h.toFixed(0)}°`;
+
+            const hex = oklchToHex(l, c, h);
+            palette[currentEditIndex].hex = hex;
+
+            document.getElementById('modal-color-preview').style.backgroundColor = hex;
+            document.getElementById('modal-hex-title').innerText = hex.toUpperCase();
+            document.getElementById('modal-oklch-title').innerText = `oklch(${(l * 100).toFixed(0)}% ${c.toFixed(3)} ${h.toFixed(0)}°)`;
+            document.getElementById('native-color-picker').value = hex;
+            renderCurrentView();
+        }
+
+        function updateColorFromNative(hex) {
+            if (currentEditIndex === null) return;
+            palette[currentEditIndex].hex = hex;
+            const oklch = hexToOklch(hex);
+
+            document.getElementById('slider-oklch-l').value = (oklch.l * 100).toFixed(1);
+            document.getElementById('slider-oklch-c').value = oklch.c.toFixed(3);
+            document.getElementById('slider-oklch-h').value = oklch.h.toFixed(0);
+            document.getElementById('slider-oklch-l-val').innerText = `${(oklch.l * 100).toFixed(0)}%`;
+            document.getElementById('slider-oklch-c-val').innerText = oklch.c.toFixed(3);
+            document.getElementById('slider-oklch-h-val').innerText = `${oklch.h.toFixed(0)}°`;
+            document.getElementById('modal-color-preview').style.backgroundColor = hex;
+            document.getElementById('modal-hex-title').innerText = hex.toUpperCase();
+            document.getElementById('modal-oklch-title').innerText = `oklch(${(oklch.l * 100).toFixed(0)}% ${oklch.c.toFixed(3)} ${oklch.h.toFixed(0)}°)`;
+            renderCurrentView();
+        }
+
+        /* ---------- Vistas ---------- */
+        function setViewMode(mode) {
+            viewMode = mode;
+            ['bars', 'mesh', 'ui', 'photo', 'global_picker'].forEach(m => {
+                document.getElementById(`view-${m}`).classList.add('hidden');
+                document.getElementById(`view-btn-${m}`).className = 'px-3.5 py-1.5 rounded-lg flex items-center gap-2 transition text-gray-400 hover:text-white hover:bg-white/5 font-semibold active:scale-95';
+            });
+            document.getElementById(`view-${mode}`).classList.remove('hidden');
+            document.getElementById(`view-btn-${mode}`).className = 'px-3.5 py-1.5 rounded-xl flex items-center gap-2 transition bg-indigo-600 text-white font-bold shadow-md active:scale-95 border border-indigo-400/30';
+            renderCurrentView();
+        }
+
+        function renderCurrentView() {
+            if (viewMode === 'bars') renderBarsView();
+            else if (viewMode === 'mesh') renderMeshView();
+            else if (viewMode === 'ui') renderUiView();
+            else if (viewMode === 'global_picker') renderGlobalPickerSamples();
+        }
+
+        function renderBarsView() {
+            const container = document.getElementById('view-bars');
+            container.innerHTML = '';
+            palette.forEach((color, index) => {
+                const textCol = getContrastYIQ(color.hex);
+                const oklch = hexToOklch(color.hex);
+                const bar = document.createElement('div');
+                bar.className = 'color-bar flex-1 h-full min-h-[140px] md:min-h-0 flex flex-col justify-between p-4 md:p-6 relative group overflow-hidden border-b md:border-b-0 md:border-r border-white/10';
+                bar.style.backgroundColor = color.hex;
+                bar.innerHTML = `
+                    <div class="flex items-center justify-between w-full z-10">
+                        <button onclick="toggleLock(${index})" class="w-9 h-9 rounded-xl bg-black/25 hover:bg-black/45 backdrop-blur-md transition flex items-center justify-center text-xs shadow-md active:scale-90" style="color: ${textCol}" title="${color.locked ? 'Desbloquear' : 'Bloquear'}">
+                            <i class="${color.locked ? 'fa-solid fa-lock text-yellow-400' : 'fa-solid fa-unlock opacity-70'}"></i>
+                        </button>
+                        <div class="flex items-center gap-1.5">
+                            <button onclick="saveSingleColor('${color.hex}')" class="w-9 h-9 rounded-xl bg-black/25 hover:bg-black/45 backdrop-blur-md transition flex items-center justify-center text-yellow-400 text-xs shadow-md opacity-0 group-hover:opacity-100 active:scale-90" style="color: ${textCol}" title="Guardar color individual ⭐">
+                                <i class="fa-solid fa-star"></i>
+                            </button>
+                            <button onclick="openEditModal(${index})" class="w-9 h-9 rounded-xl bg-black/25 hover:bg-black/45 backdrop-blur-md transition flex items-center justify-center text-xs shadow-md opacity-0 group-hover:opacity-100 active:scale-90" style="color: ${textCol}" title="Editar con OKLCH">
+                                <i class="fa-solid fa-sliders"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="my-auto z-10 flex flex-col items-center justify-center">
+                        <span onclick="copyText('${color.hex}')" class="font-mono text-xl md:text-2xl font-black tracking-wider cursor-pointer hover:scale-110 active:scale-95 transition-transform px-3.5 py-1.5 rounded-2xl bg-black/20 backdrop-blur-sm border border-white/10 shadow-2xl" style="color: ${textCol}">
+                            ${color.hex.toUpperCase()}
+                        </span>
+                    </div>
+                    <div class="z-10 flex flex-col gap-0.5 border-t border-black/10 pt-2 text-[10px] font-mono whitespace-nowrap overflow-hidden" style="color: ${textCol}">
+                        <div class="flex justify-between items-center opacity-85">
+                            <span>L:${(oklch.l * 100).toFixed(0)}% C:${oklch.c.toFixed(2)} H:${oklch.h.toFixed(0)}°</span>
+                            <span class="text-[8px] font-bold px-1.5 py-0.5 rounded bg-black/25">OKLCH</span>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(bar);
+            });
+        }
+
+        function renderMeshView() {
+            const meshBg = document.getElementById('mesh-gradient-bg');
+            if (!meshBg || palette.length === 0) return;
+            const gradients = palette.map((c, i) => {
+                const o = hexToOklch(c.hex);
+                const x = (i * 137.5) % 100;
+                const y = (i * 61) % 100;
+                return `radial-gradient(at ${x.toFixed(2)}% ${y.toFixed(2)}%, oklch(${(o.l * 100).toFixed(1)}% ${o.c.toFixed(3)} ${o.h.toFixed(1)}) 0px, transparent 60%)`;
+            }).join(', ');
+            lastMeshCSS = `${gradients}, linear-gradient(135deg, ${palette[0].hex}, ${palette[palette.length - 1].hex})`;
+            meshBg.style.backgroundImage = lastMeshCSS;
+        }
+
+        function renderUiView() {
+            if (palette.length === 0) return;
+            const bgHex = palette[0] ? palette[0].hex : '#12141d';
+            const primaryHex = palette[1] ? palette[1].hex : palette[0].hex;
+            const bgText = getContrastYIQ(bgHex);
+            const primaryText = getContrastYIQ(primaryHex);
+
+            const card = document.getElementById('ui-mockup-card');
+            if (card) {
+                card.style.backgroundColor = bgHex;
+                card.style.color = bgText;
+                card.style.borderColor = palette[5] ? palette[5].hex : (bgText === '#f3f4f6' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)');
+            }
+            const headerBorder = document.getElementById('ui-header-border');
+            if (headerBorder) {
+                headerBorder.style.borderColor = palette[6] ? palette[6].hex : (bgText === '#f3f4f6' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)');
+            }
+            const btnPrimary = document.getElementById('ui-btn-primary');
+            if (btnPrimary) {
+                btnPrimary.style.backgroundColor = primaryHex;
+                btnPrimary.style.color = primaryText;
+                btnPrimary.style.borderColor = palette[7] ? palette[7].hex : 'transparent';
+            }
+            const avatar = document.getElementById('ui-avatar');
+            if (avatar) {
+                avatar.style.backgroundColor = primaryHex;
+                avatar.style.color = primaryText;
+                avatar.style.borderColor = palette[5] ? palette[5].hex : 'transparent';
+            }
+            const dotExtra1 = document.getElementById('ui-dot-extra1');
+            if (dotExtra1) {
+                if (palette[5]) { dotExtra1.style.backgroundColor = palette[5].hex; dotExtra1.style.display = 'inline-block'; }
+                else { dotExtra1.style.display = 'none'; }
+            }
+            const divExtra2 = document.getElementById('ui-divider-extra2');
+            if (divExtra2) {
+                if (palette[6]) { divExtra2.style.backgroundColor = palette[6].hex; divExtra2.style.display = 'inline-block'; }
+                else { divExtra2.style.display = 'none'; }
+            }
+            const badgeExtra2 = document.getElementById('ui-badge-extra2');
+            if (badgeExtra2) {
+                if (palette[7]) {
+                    badgeExtra2.style.backgroundColor = palette[7].hex;
+                    badgeExtra2.style.color = getContrastYIQ(palette[7].hex);
+                    badgeExtra2.style.borderColor = getContrastYIQ(palette[7].hex) === '#f3f4f6' ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)';
+                    badgeExtra2.style.display = 'inline-block';
+                } else { badgeExtra2.style.display = 'none'; }
+            }
+
+            const subcards = [
+                { card: 'ui-subcard-1', badge: 'ui-badge-1', title: 'ui-title-1', desc: 'ui-desc-1', foot: 'ui-foot-1', footTxt: 'ui-foot-text-1', footDot: 'ui-foot-dot-1', idx: 2 },
+                { card: 'ui-subcard-2', badge: 'ui-badge-2', title: 'ui-title-2', desc: 'ui-desc-2', foot: 'ui-foot-2', footTxt: 'ui-foot-text-2', footDot: 'ui-foot-dot-2', idx: 3 },
+                { card: 'ui-subcard-3', badge: 'ui-badge-3', title: 'ui-title-3', desc: 'ui-desc-3', foot: 'ui-foot-3', footTxt: 'ui-foot-text-3', footDot: 'ui-foot-dot-3', idx: 4 }
+            ];
+
+            subcards.forEach((sc) => {
+                const colorObj = palette[sc.idx] || palette[sc.idx % palette.length] || palette[0];
+                const cHex = colorObj.hex;
+                const cText = getContrastYIQ(cHex);
+
+                const elCard = document.getElementById(sc.card);
+                if (elCard) {
+                    elCard.style.backgroundColor = cHex;
+                    const borderCol = palette[sc.idx + 3] ? palette[sc.idx + 3].hex : (cText === '#f3f4f6' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)');
+                    elCard.style.borderColor = borderCol;
+                }
+                const elTitle = document.getElementById(sc.title);
+                if (elTitle) elTitle.style.color = cText;
+                const elDesc = document.getElementById(sc.desc);
+                if (elDesc) elDesc.style.color = cText;
+                const elBadge = document.getElementById(sc.badge);
+                if (elBadge) {
+                    elBadge.style.backgroundColor = bgHex;
+                    elBadge.style.color = getContrastYIQ(bgHex);
+                    elBadge.style.borderColor = palette[sc.idx + 3] ? palette[sc.idx + 3].hex : 'transparent';
+                }
+                const elFoot = document.getElementById(sc.foot);
+                if (elFoot) elFoot.style.borderColor = cText === '#f3f4f6' ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.15)';
+                const elFootTxt = document.getElementById(sc.footTxt);
+                if (elFootTxt) elFootTxt.style.color = cText;
+                const elFootDot = document.getElementById(sc.footDot);
+                if (elFootDot) elFootDot.style.backgroundColor = palette[sc.idx + 3] ? palette[sc.idx + 3].hex : primaryHex;
+            });
+        }
+
+        function setMainColorCount(newCount) {
+            if (newCount === colorCount) return;
+            if (newCount > colorCount) {
+                while (palette.length < newCount) {
+                    palette.push({ hex: oklchToHex(0.5, 0.15, Math.random() * 360), locked: false });
+                }
+            } else {
+                const locked = palette.filter(c => c.locked);
+                const unlocked = palette.filter(c => !c.locked);
+                if (locked.length >= newCount) palette = locked.slice(0, newCount);
+                else palette = [...locked, ...unlocked.slice(0, newCount - locked.length)];
+            }
+            colorCount = newCount;
+            renderColorCountButtons();
+            renderCurrentView();
+        }
+
+        function setPhotoColorCount(newCount) {
+            if (newCount === photoColorCount) return;
+            photoColorCount = newCount;
+            renderColorCountButtons();
+            if (loadedImage) extractDominantPhotoPalette();
+            else rebuildPhotoSandboxPalette();
+        }
+
+        function renderColorCountButtons() {
+            const container = document.getElementById('color-count-buttons');
+            const photoContainer = document.getElementById('photo-color-count-buttons');
+            if (container) {
+                container.innerHTML = '';
+                for (let i = 2; i <= 8; i++) {
+                    const btn = document.createElement('button');
+                    btn.onclick = () => setMainColorCount(i);
+                    btn.innerText = i;
+                    btn.className = (i === colorCount)
+                        ? 'w-6 h-6 rounded-lg bg-pink-600 text-white font-bold text-xs flex items-center justify-center shadow-md shadow-pink-600/30'
+                        : 'w-6 h-6 rounded-lg text-gray-400 hover:text-white text-xs flex items-center justify-center transition hover:bg-white/5';
+                    container.appendChild(btn);
+                }
+            }
+            if (photoContainer) {
+                photoContainer.innerHTML = '';
+                for (let i = 2; i <= 8; i++) {
+                    const btn = document.createElement('button');
+                    btn.onclick = () => setPhotoColorCount(i);
+                    btn.innerText = i;
+                    btn.className = (i === photoColorCount)
+                        ? 'w-7 h-7 rounded-xl bg-pink-600 text-white font-bold text-xs flex items-center justify-center shadow-md border border-pink-400/50'
+                        : 'w-7 h-7 rounded-xl bg-white/5 border border-white/10 text-gray-300 hover:text-white text-xs flex items-center justify-center transition';
+                    photoContainer.appendChild(btn);
+                }
+            }
+        }
+
+        /* ---------- Portapapeles ---------- */
+        async function copyText(text) {
+            const done = () => showToast(text.length > 24 ? 'Copiado al portapapeles' : `Copiado: ${text}`);
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    done();
+                } else {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    ta.setAttribute('readonly', '');
+                    ta.style.position = 'fixed';
+                    ta.style.opacity = '0';
+                    document.body.appendChild(ta);
+                    ta.select();
+                    const ok = document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    ok ? done() : showToast('No se pudo copiar al portapapeles');
+                }
+            } catch {
+                showToast('No se pudo copiar al portapapeles');
+            }
+        }
+
+        function copyMeshCSS() {
+            if (lastMeshCSS) copyText(`background: ${lastMeshCSS};`);
+        }
+
+        /* ---------- Notificaciones ---------- */
+        let toastTimer = null;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        /* ---------- Soporte cuentagotas ---------- */
+        function initEyedropperSupport() {
+            if ('EyeDropper' in window) return;
+            const notice = document.getElementById('eyedropper-unsupported');
+            if (notice) { notice.classList.remove('hidden'); notice.classList.add('flex'); }
+            const btn = document.getElementById('btn-global-sample');
+            if (btn) {
+                btn.disabled = true;
+                btn.setAttribute('aria-disabled', 'true');
+                btn.classList.add('opacity-40');
+                btn.style.cursor = 'not-allowed';
+            }
+        }
+
+        function simulateNewProject() {
+            showToast('¡Interacción probada con éxito!');
+        }
+
+        /* ---------- Teclado ---------- */
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const favModal = document.getElementById('fav-modal');
+                if (favModal && !favModal.classList.contains('hidden')) { toggleFavoritesModal(); return; }
+                const editModal = document.getElementById('edit-modal');
+                if (editModal && !editModal.classList.contains('hidden')) { closeEditModal(); return; }
+            }
+            if (e.code === 'Space') {
+                const activeEl = document.activeElement;
+                if (activeEl && (['INPUT', 'SELECT', 'TEXTAREA', 'BUTTON'].includes(activeEl.tagName) || activeEl.isContentEditable)) return;
+                e.preventDefault();
+                generatePalette();
+            }
+        });
+
+        /* ---------- Arranque ---------- */
+        window.onload = function() {
+            initEyedropperSupport();
+            updateFavoritesUI();
+            renderColorCountButtons();
+            generatePalette();
+        };
+    </script>
+</body>
+</html>

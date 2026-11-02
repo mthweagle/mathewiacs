@@ -14,7 +14,8 @@ El estudio se basa en un modelo **50 % criterio humano · 50 % precisión sinté
 |---|---|---|
 | Inicio | `index.html` | Presentación del estudio y resumen de servicios |
 | Servicios | `servicios.html` | Los seis servicios del estudio |
-| Proyectos | `proyectos.html` | En construcción (`noindex`) |
+| Proyectos | `proyectos.html` | Escaparate de proyectos (hoy: coloRRate) |
+| ↳ coloRRate | `proyectos/colorrate.html` | Generador de paletas de color en OKLCH, con diseño propio |
 | Laboratorio | `laboratorio.html` | En construcción (`noindex`) |
 | Blog | `blog.html` | En construcción (`noindex`) |
 | Equipo | `equipo.html` | Mateo, Lara Montenegro y THEO |
@@ -27,6 +28,8 @@ El estudio se basa en un modelo **50 % criterio humano · 50 % precisión sinté
 ```
 mathewiacs/
 ├── index.html · servicios.html · proyectos.html
+├── proyectos/
+│   └── colorrate.html    ← herramienta coloRRate (URL: /proyectos/colorrate.html)
 ├── laboratorio.html · equipo.html · contacto.html
 ├── assets/
 │   ├── css/
@@ -64,7 +67,7 @@ Web estática, sin pasos de compilación: **HTML + CSS + JavaScript puro**.
 
 ## 🎨 Estilos: una sola hoja
 
-Todas las páginas cargan únicamente `assets/css/global.css`. Dentro está ordenado por secciones:
+Todas las páginas de la web cargan únicamente `assets/css/global.css`. **La excepción es coloRRate**, que tiene su propio diseño (`assets/css/colorrate.css`) y comparte con el resto solo el footer. Dentro está ordenado por secciones:
 
 1. **Variables** (colores, tipografías, capas)
 2. **Estilos de la web**: base, cabecera, hero, botones, servicios, footer, Equipo, páginas en construcción, Contacto y responsive
@@ -126,7 +129,7 @@ THEO es el chatbot mascota: un robot verde menta con ruedas que responde en el c
 3. Añade el enlace en el menú de **todas** las páginas.
 4. Añade la página en `sitemap.xml`.
 
-**Rellenar una página en construcción** (Proyectos, Laboratorio o Blog). Hoy las tres muestran solo el aviso «EN CONSTRUCCIÓN». Cuando el contenido esté decidido, se sustituye el bloque `<main>` de esa página por la estructura nueva.
+**Rellenar una página en construcción** (Laboratorio o Blog). Hoy las dos muestran solo el aviso «EN CONSTRUCCIÓN». Cuando el contenido esté decidido, se sustituye el bloque `<main>` de esa página por la estructura nueva.
 
 ---
 
@@ -152,7 +155,7 @@ También sirve la extensión *Live Server* de Visual Studio Code. Abrir los arch
 - Cada página tiene título (50–60 caracteres), descripción (145–155), URL canónica, favicon e imagen para compartir (Open Graph y Twitter).
 - **Datos estructurados (JSON-LD):** Inicio lleva `Organization` y `WebSite`; Equipo lleva `Person` (Mateo). Lara y THEO se describen como parte del estudio, pero no se marcan como personas, porque son una co-creadora sintética y una mascota.
 - Cada página tiene un único `<h1>`. En Inicio hay una frase inicial que explica qué es el estudio.
-- Las páginas en construcción (Proyectos, Laboratorio y Blog) llevan `noindex` y no están en `sitemap.xml`. **Cuando tengan contenido real, cambia `noindex, follow` por `index, follow` y añádelas al sitemap.**
+- Las páginas en construcción (Laboratorio y Blog) llevan `noindex` y no están en `sitemap.xml`. **Cuando tengan contenido real, cambia `noindex, follow` por `index, follow` y añádelas al sitemap.**
 - `sitemap.xml` y `robots.txt` configurados.
 - Foco visible al navegar con teclado y animaciones desactivadas si el usuario pide «reducir movimiento».
 - El efecto de cursor se desactiva en pantallas táctiles, y la lluvia de fondo si se pide «reducir movimiento».
@@ -163,8 +166,18 @@ También sirve la extensión *Live Server* de Visual Studio Code. Abrir los arch
 
 - **Formulario de contacto**: todavía no envía mensajes (la interfaz está lista, falta conectarlo a un servicio de envío).
 - **Redes**: LinkedIn, YouTube, TikTok y Spotify están en el footer pero aún sin enlace (`#`).
-- **Proyectos, Laboratorio y Blog**: definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real (y quitarles el `noindex`).
+- **Laboratorio y Blog**: definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real (y quitarles el `noindex`).
 
 ---
 
 © 2026 Mathew IA Creative Studio · Jerez de la Frontera
+
+---
+
+## 🎨 coloRRate (`proyectos/colorrate.html`)
+
+Herramienta independiente: generador de paletas de color en OKLCH con armonías, mesh gradients, mockup de interfaz y extracción de color desde fotos.
+
+- Su CSS (`assets/css/colorrate.css`) es una versión **ya compilada** de Tailwind, para que cargue rápido. **No edites ese archivo a mano.** Si cambias las clases de Tailwind en el HTML, hay que volver a compilarlo.
+- Todo se procesa en el navegador: no se envía ningún dato ni imagen a servidores.
+- El footer es el de la web (vuelve a Inicio y lleva las redes). Las rutas usan `../` porque la página vive dentro de `/proyectos/`.

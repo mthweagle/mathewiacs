@@ -1,0 +1,11 @@
+SUBIR A GITHUB (respetando las carpetas):
+
+  proyectos/colorrate.html        (NUEVO, carpeta proyectos/)
+  assets/css/colorrate.css        (NUEVO, carpeta assets/css/)
+  proyectos.html                  (sustituye al actual: enlaza a proyectos/colorrate.html)
+  sitemap.xml                     (sustituye al actual)
+  README.md                       (sustituye al actual)
+
+BORRAR EN GITHUB:
+
+  colorrate.html                  (el de la raíz; ya no se usa)
