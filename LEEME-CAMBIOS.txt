@@ -1,11 +1,15 @@
-SUBIR A GITHUB (respetando las carpetas):
+SUBIR A GITHUB (respetando las carpetas; todos sustituyen al actual):
 
-  proyectos/colorrate.html        (NUEVO, carpeta proyectos/)
-  assets/css/colorrate.css        (NUEVO, carpeta assets/css/)
-  proyectos.html                  (sustituye al actual: enlaza a proyectos/colorrate.html)
-  sitemap.xml                     (sustituye al actual)
-  README.md                       (sustituye al actual)
+  README.md
+  conocimiento.md
+  index.html                 (JSON-LD: descripcion del equipo; alt de THEO)
+  equipo.html                (cargos de Mateo y Lara, THEO mascota bot, nueva tarjeta de tendencias IA)
+  servicios.html · proyectos.html · laboratorio.html · blog.html · contacto.html   (solo el alt de THEO)
+  assets/js/equipo.js        (traducciones EN/FR/IT al dia, y arreglada la errata de las ruedas de THEO)
+  assets/js/theo-chatbot.js  (respuestas nuevas de Mateo, Lara y THEO, y nueva respuesta sobre la Orbea)
 
-BORRAR EN GITHUB:
+NO CAMBIAN: assets/css, assets/img, proyectos/, sitemap.xml, robots.txt, CNAME, favicon, og-image.
 
-  colorrate.html                  (el de la raíz; ya no se usa)
+BORRAR EN GITHUB (si todavia existe):
+
+  colorrate.html              (el de la raiz; ya no se usa)
