@@ -43,8 +43,8 @@ MUSIC.BRUT-STUDIO es una herramienta musical del estudio, gratuita y que funcion
 En el apartado de Proyectos de la web se pueden consultar algunos de los mejores proyectos del estudio. También se anima a investigar el laboratorio, donde el estudio va creando y explorando sin filtros. Al estudio le encanta llegar a soluciones creativas, disruptivas y divergentes para que la experiencia del usuario sea enriquecedora.
 
 ## Contacto
-De momento solo se puede contactar con el estudio de dos formas: a través del formulario de contacto de la web o a través del Instagram del estudio: instagram.com/mathew.ia.creativestudio
-No se ofrece email por ahora.
+De momento se puede contactar con el estudio a través del formulario de contacto de la web, del Instagram del estudio (instagram.com/mathew.ia.creativestudio) o del LinkedIn de Mateo (linkedin.com/in/tuprofemateo).
+No se ofrece un email público por ahora; el formulario es la vía recomendada.
 
 ## Lanzamiento de la web
 La web todavía está en construcción. El lanzamiento oficial de la web completa será el 1 de enero de 2027.

@@ -185,8 +185,8 @@ Y abre http://localhost:8000 en el navegador.
 
 La estructura ya está montada; estos son los huecos que se irán rellenando antes del **1 de enero de 2027**:
 
-- **Formulario de contacto:** todavía no envía mensajes (falta conectarlo a un servicio de envío).
-- **Redes:** LinkedIn, YouTube, TikTok y Spotify están en el footer pero aún sin enlace (`#`).
+- **Formulario de contacto:** provisional, abre el correo del visitante con el mensaje dirigido a la cuenta personal (`CONTACT_EMAIL` en `assets/js/contacto.js`). Cambiar a la cuenta corporativa o a un servicio de envío cuando exista.
+- **Redes:** LinkedIn apunta al perfil personal de Mateo (provisional hasta tener cuenta corporativa); YouTube, TikTok y Spotify siguen sin enlace (`#`).
 - **Laboratorio y Blog:** definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real.
 - **THEO:** mantener sus respuestas (`TEMAS`) alineadas con `conocimiento.md`.
 
