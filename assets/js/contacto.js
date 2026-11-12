@@ -1,7 +1,16 @@
+/* Contacto provisional: el mensaje se prepara en el correo del visitante y va a la cuenta personal
+   del estudio hasta que existan las cuentas corporativas (cambiar CONTACT_EMAIL entonces). */
+const CONTACT_EMAIL = 'mthweagle@gmail.com';
 document.getElementById('contactForm').addEventListener('submit', (event) => {
-            event.preventDefault();
-            document.getElementById('form-status').textContent = 'El formulario aún no está conectado para enviar mensajes.';
-        });
+    event.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const subject = 'Contacto desde mathewiacs.com - ' + name;
+    const body = message + '\n\n--\nNombre: ' + name + '\nEmail: ' + email;
+    document.getElementById('form-status').textContent = 'Abriendo tu aplicación de correo para enviar el mensaje…';
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+});
 
 /* Sustituye al onclick en línea del selector de idioma (necesario para CSP sin 'unsafe-inline') */
 document.querySelectorAll('input[name="language"]').forEach((radio) => {
