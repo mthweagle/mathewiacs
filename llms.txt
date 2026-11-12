@@ -24,8 +24,8 @@ Datos básicos:
 1. IMPERFECT.BY.DESIGN: rechazo de la perfección algorítmica (pieles sin poros, simetrías de fábrica, suavizado por defecto) a favor del grano analógico, las microasimetrías, los poros y las pecas.
 2. 50/50.HUMANO.SINTÉTICO: mente humana, ejecución sintética. Mateo dirige; Lara, entrenada por él, ejecuta código, prompts y render; THEO une las dos mitades. El humano dirige, la IA ejecuta y el humano cura.
 3. ZERO.FILTERS.ONLY.FLOW: de la intuición a la realidad sin fricción; primero la versión fea, sin parálisis por análisis ni reuniones vacías.
-4. DYNAMIC.UI: interfaces vivas, rítmicas y adaptativas, de lo sutil y elegante a lo retro-brutalista y expresivo.
-5. NEON.SOUL: la parte poética y narrativa del estudio; la tecnología como amplificador del latido consciente, nunca su supresor.
+4. NEON.SOUL: la parte poética y narrativa del estudio; la tecnología como amplificador del latido consciente, nunca su supresor.
+5. DYNAMIC.UI: interfaces vivas, rítmicas y adaptativas, de lo sutil y elegante a lo retro-brutalista y expresivo.
 
 ## Optional
 

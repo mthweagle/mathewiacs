@@ -17,9 +17,9 @@ La página de inicio de la web **es** el manifiesto del estudio: cinco pilares q
 
 **III. [ZERO.FILTERS.ONLY.FLOW];** Intuición de baja latencia. De la intuición a la realidad sin fricción: sin parálisis por análisis ni reuniones vacías. Primero la versión fea, se prueba de inmediato y solo después se optimiza.
 
-**IV. [DYNAMIC.UI];** Interfaces que respiran. Webs vivas, rítmicas y adaptativas, desde lo sutil y elegante hasta lo retro-brutalista y expresivo. El cursor constelación de la home es un ejemplo.
+**IV. [NEON.SOUL];** El latido dentro de la máquina. La parte poética, visceral y narrativa del estudio: canciones, historias urbanas, estética de club nocturno y violonchelo. La tecnología como amplificador del latido consciente, nunca su supresor.
 
-**V. [NEON.SOUL];** El latido dentro de la máquina. La parte poética, visceral y narrativa del estudio: canciones, historias urbanas, estética de club nocturno y violonchelo. La tecnología como amplificador del latido consciente, nunca su supresor.
+**V. [DYNAMIC.UI];** Interfaces que respiran. Webs vivas, rítmicas y adaptativas, desde lo sutil y elegante hasta lo retro-brutalista y expresivo. El cursor constelación de la home es un ejemplo.
 
 ---
 
