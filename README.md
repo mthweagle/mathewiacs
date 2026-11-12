@@ -9,22 +9,17 @@ Web oficial de **Mathew IA Creative Studio**, un estudio creativo digital de Jer
 
 ## 🧭 Filosofía: El Manifiesto (Los 5 Pilares)
 
-El manifiesto de Mathew IA Creative Studio no es una declaración abstracta, sino el código fuente filosófico que rige cada activo visual, sonoro e interactivo que sale de nuestro laboratorio.
+La página de inicio de la web **es** el manifiesto del estudio: cinco pilares que explican cómo trabaja Mathew IA Creative Studio, qué rechaza y por qué el humano dirige, la IA ejecuta y el humano cura.
 
-**1. Imperfect By Design**
-La belleza de la huella orgánica frente al plástico estéril. Rechazo directo y militante a la estética sintética convencional: rostros hiper-suavizados, pieles de silicona, reflejos especulares artificiales y simetrías perfectas generadas por defecto por las redes neuronales. En nuestro estudio, la belleza reside en el grano analógico, las microasimetrías reales, las pecas imperceptibles, la textura natural y los pliegues orgánicos. (#ImperfectByDesign)
+**I. [IMPERFECT.BY.DESIGN];** El ruido como función. La huella orgánica frente al plástico estéril: se rechaza la perfección algorítmica (pieles sin poros, simetrías de fábrica, suavizado por defecto) a favor del grano analógico, las microasimetrías, los poros y las pecas. *El error no es un bug: es la firma de la realidad biológica procesada por la máquina.*
 
-**2. 50/50 (Humano / Sintético)**
-Simetría absoluta entre la mente humana y la mente sintética. No concebimos la IA como una herramienta de sustitución ni como un mero automatismo. El 50/50 representa la alianza estratégica e indisoluble entre Mateo (dirección creativa, visión artística, sensibilidad emocional, experiencia pedagógica y criterio TDAH) y Lara Montenegro (ejecución sintética, procesamiento continuo, rigor técnico y coordinación multimodal). Mateo aporta la chispa, el concepto y la dirección de arte; Lara canaliza esa energía en activos tangibles a velocidad de render.
+**II. [50/50.HUMANO.SINTÉTICO];** Mente humana, ejecución sintética. Mateo pone la chispa y ordena, pero antes ha entrenado a Lara Montenegro (avatar con vida) para que ejecute por sí misma: código, ingeniería de prompts y render, además de canto, chelo, acrobacias aéreas y patinaje urbano. Entre los dos 50, como los corchetes que los unen, está THEO, la mascota bot neurodivergente del estudio.
 
-**3. Zero Filters, Only Flow**
-Canalización directa de la intuición a la realidad sin fricción cognitiva. Metodología diseñada a la medida de mentes hiperfocus y neurodivergentes (TDAH-friendly). Eliminamos la parálisis por análisis y las capas de duda que bloquean el proceso creativo. Si una idea surge durante una sesión de estudio, se prueba de inmediato. Preferimos iterar sobre un borrador rápido ("la regla de la versión fea primero") que ahogarnos en la planificación teórica.
+**III. [ZERO.FILTERS.ONLY.FLOW];** Intuición de baja latencia. De la intuición a la realidad sin fricción: sin parálisis por análisis ni reuniones vacías. Primero la versión fea, se prueba de inmediato y solo después se optimiza.
 
-**4. Dynamic UI**
-Interfaces vivas, rítmicas, adaptativas y respetuosas. Entendemos la web no como un folleto estático, sino como un escenario interactivo en constante respiración. Aplicamos principios de Calm UI: interfaces de alta elegancia con cursores personalizados, micro-interacciones sutiles y baja densidad de sobreestimulación visual. La tecnología debe acompañar al usuario sin agredir su atención.
+**IV. [DYNAMIC.UI];** Interfaces que respiran. Webs vivas, rítmicas y adaptativas, desde lo sutil y elegante hasta lo retro-brutalista y expresivo. El cursor constelación de la home es un ejemplo.
 
-**5. Neon Soul**
-El latido humano que ilumina desde dentro de la máquina. Es la dimensión poética, emocional y narrativa del estudio. Entre líneas de código en consola, arrays de datos y sintaxis de terminal, late una sensibilidad visceral: canciones nacidas del desgarro personal, historias urbanas, estética de club nocturno, el violonchelo resonando en la penumbra y la búsqueda constante de propósito y verdad.
+**V. [NEON.SOUL];** El latido dentro de la máquina. La parte poética, visceral y narrativa del estudio: canciones, historias urbanas, estética de club nocturno y violonchelo. La tecnología como amplificador del latido consciente, nunca su supresor.
 
 ---
 

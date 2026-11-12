@@ -7,21 +7,22 @@
 
     <!-- ==== SEO PRIMARIO ==== -->
     <title>Mathew IA Creative Studio | Branding, web y arte con IA</title>
-    <meta name="description" content="Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA. Modelo 50% humano, 50% sintético. Lanzamiento: 1 de enero de 2027.">
-    <meta name="keywords" content="estudio creativo Jerez, agencia branding Jerez, diseño web Jerez, diseño gráfico Jerez, arte generativo IA, UX UI, inteligencia artificial, Mathew IA Creative Studio, MATHEWIACS">
+    <meta name="description" content="Estudio creativo en Jerez de la Frontera: branding, diseño web, UX/UI y arte con IA. Descubre nuestro manifiesto: 5 pilares y un modelo 50% humano, 50% sintético.">
+    <meta name="keywords" content="estudio creativo Jerez, agencia branding Jerez de la Frontera, diseño web Jerez, diseño gráfico Jerez, arte generativo IA, UX UI, inteligencia artificial, manifiesto, Imperfect By Design, Mathew IA Creative Studio, MATHEWIACS">
     <meta name="author" content="Mateo — Mathew IA Creative Studio">
     <meta name="copyright" content="© 2026 Mathew IA Creative Studio. Todos los derechos reservados.">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="bingbot" content="index, follow">
 
-    <!-- ==== IDIOMAS Y CANONICAL ==== -->
+    <!-- ==== GEO (SEO local: Jerez de la Frontera, Cádiz, Andalucía) ==== -->
+    <meta name="geo.region" content="ES-CA">
+    <meta name="geo.placename" content="Jerez de la Frontera">
+    <meta name="geo.position" content="36.6850;-6.1261">
+    <meta name="ICBM" content="36.6850, -6.1261">
+
+    <!-- ==== CANONICAL ==== -->
     <link rel="canonical" href="https://mathewiacs.com/">
-    <link rel="alternate" hreflang="es" href="https://mathewiacs.com/">
-    <link rel="alternate" hreflang="en" href="https://mathewiacs.com/?lang=en">
-    <link rel="alternate" hreflang="fr" href="https://mathewiacs.com/?lang=fr">
-    <link rel="alternate" hreflang="it" href="https://mathewiacs.com/?lang=it">
-    <link rel="alternate" hreflang="x-default" href="https://mathewiacs.com/">
 
     <!-- ==== IDENTIDAD Y VERIFICACIÓN ==== -->
     <link rel="me" href="https://www.instagram.com/Mathew.IA.CreativeStudio">
@@ -37,7 +38,7 @@
     <meta property="og:locale:alternate" content="fr_FR">
     <meta property="og:locale:alternate" content="it_IT">
     <meta property="og:title" content="Mathew IA Creative Studio | Branding, web y arte con IA">
-    <meta property="og:description" content="Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA. Modelo 50% humano, 50% sintético.">
+    <meta property="og:description" content="Manifiesto de un estudio creativo de Jerez: 5 pilares y un modelo 50% humano, 50% sintético. Branding, diseño web, UX/UI y arte con IA.">
     <meta property="og:url" content="https://mathewiacs.com/">
     <meta property="og:image" content="https://mathewiacs.com/og-image.png">
     <meta property="og:image:width" content="1200">
@@ -50,7 +51,7 @@
     <meta name="twitter:site" content="@MathewIACS">
     <meta name="twitter:creator" content="@MathewIACS">
     <meta name="twitter:title" content="Mathew IA Creative Studio | Branding, web y arte con IA">
-    <meta name="twitter:description" content="Estudio creativo digital en Jerez. Modelo 50% humano, 50% sintético.">
+    <meta name="twitter:description" content="Manifiesto de un estudio creativo de Jerez: 5 pilares y un modelo 50% humano, 50% sintético.">
     <meta name="twitter:image" content="https://mathewiacs.com/og-image.png">
     <meta name="twitter:image:alt" content="Mathew IA Creative Studio — Estudio creativo digital con IA">
 
@@ -70,31 +71,23 @@
     <!-- ==== HOJA DE ESTILOS ÚNICA ==== -->
     <link rel="stylesheet" href="assets/css/global.css">
 
-    <!-- ==== ESTILO MÍNIMO PARA TEXTO SEMÁNTICO OCULTO (solo sr-only) ==== -->
-    <style>
-        .sr-only {
-            position: absolute !important;
-            width: 1px !important;
-            height: 1px !important;
-            padding: 0 !important;
-            margin: -1px !important;
-            overflow: hidden !important;
-            clip: rect(0, 0, 0, 0) !important;
-            white-space: nowrap !important;
-            border: 0 !important;
-        }
-    </style>
-
-    <!-- ==== JSON-LD EXTENDIDO (Schema.org) ==== -->
+    <!-- ==== JSON-LD (Schema.org): organización, geo, manifiesto, equipo y FAQ ==== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Organization",
+          "@type": [
+            "Organization",
+            "ProfessionalService"
+          ],
           "@id": "https://mathewiacs.com/#organization",
           "name": "Mathew IA Creative Studio",
-          "alternateName": ["MATHEWIACS", "Mathew IA", "Mathew Creative Studio"],
+          "alternateName": [
+            "MATHEWIACS",
+            "Mathew IA",
+            "Mathew Creative Studio"
+          ],
           "url": "https://mathewiacs.com/",
           "logo": {
             "@type": "ImageObject",
@@ -103,36 +96,183 @@
             "height": 512
           },
           "image": {
-            "@type": "ImageObject",
-            "url": "https://mathewiacs.com/og-image.png",
-            "width": 1200,
-            "height": 630
+            "@id": "https://mathewiacs.com/#primaryimage"
           },
-          "description": "Estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Modelo 50% criterio humano, 50% precisión sintética.",
+          "description": "Estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Modelo 50% criterio humano, 50% ejecución sintética: el humano dirige, la IA ejecuta y el humano cura.",
           "slogan": "Imperfect By Design",
           "foundingDate": "2026",
-          "founder": { "@id": "https://mathewiacs.com/equipo.html#mateo" },
+          "founder": {
+            "@id": "https://mathewiacs.com/equipo.html#mateo"
+          },
+          "member": [
+            {
+              "@id": "https://mathewiacs.com/equipo.html#mateo"
+            },
+            {
+              "@id": "https://mathewiacs.com/equipo.html#lara"
+            }
+          ],
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Jerez de la Frontera",
             "addressRegion": "Cádiz",
             "addressCountry": "ES"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 36.685,
+            "longitude": -6.1261
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "Jerez de la Frontera"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Provincia de Cádiz"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Andalucía"
+            },
+            {
+              "@type": "Country",
+              "name": "España"
+            }
+          ],
+          "knowsLanguage": [
+            "es",
+            "en",
+            "fr",
+            "it"
+          ],
           "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
             "url": "https://mathewiacs.com/contacto.html",
-            "availableLanguage": ["es", "en", "fr", "it"]
+            "availableLanguage": [
+              "es",
+              "en",
+              "fr",
+              "it"
+            ]
           },
           "sameAs": [
             "https://www.instagram.com/Mathew.IA.CreativeStudio",
             "https://github.com/mthweagle"
           ],
           "knowsAbout": [
-            "Branding", "Diseño gráfico", "Diseño web", "UX/UI",
-            "Diseño instruccional", "Arte generativo con IA", "Motion graphics",
-            "3D", "Realidad mixta", "Storytelling", "Worldbuilding", "Consultoría de IA"
-          ]
+            "Branding",
+            "Diseño gráfico",
+            "Diseño web",
+            "UX/UI",
+            "Diseño instruccional",
+            "Arte generativo con IA",
+            "Motion graphics",
+            "3D",
+            "Realidad mixta",
+            "Storytelling",
+            "Worldbuilding",
+            "Consultoría de IA"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de Mathew IA Creative Studio",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Branding"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diseño de logo"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Contenido audiovisual"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diseño web"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diseño gráfico"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Diseño instruccional"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Creación de avatares"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Storytelling"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Worldbuilding"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Motion graphics"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "3D"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Realidad mixta (VR/AR)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Consultoría de inteligencia artificial"
+                }
+              }
+            ]
+          }
         },
         {
           "@type": "WebSite",
@@ -140,53 +280,132 @@
           "url": "https://mathewiacs.com/",
           "name": "MATHEWIACS",
           "inLanguage": "es",
-          "publisher": { "@id": "https://mathewiacs.com/#organization" }
+          "publisher": {
+            "@id": "https://mathewiacs.com/#organization"
+          }
+        },
+        {
+          "@type": "ImageObject",
+          "@id": "https://mathewiacs.com/#primaryimage",
+          "url": "https://mathewiacs.com/og-image.png",
+          "width": 1200,
+          "height": 630,
+          "caption": "Mathew IA Creative Studio — Diseño web, branding y arte con IA en Jerez de la Frontera"
         },
         {
           "@type": "WebPage",
           "@id": "https://mathewiacs.com/#webpage",
           "url": "https://mathewiacs.com/",
           "name": "Mathew IA Creative Studio | Branding, web y arte con IA",
-          "isPartOf": { "@id": "https://mathewiacs.com/#website" },
-          "about": { "@id": "https://mathewiacs.com/#organization" },
+          "isPartOf": {
+            "@id": "https://mathewiacs.com/#website"
+          },
+          "about": {
+            "@id": "https://mathewiacs.com/#organization"
+          },
+          "mainEntity": {
+            "@id": "https://mathewiacs.com/#manifiesto"
+          },
+          "primaryImageOfPage": {
+            "@id": "https://mathewiacs.com/#primaryimage"
+          },
           "inLanguage": "es",
-          "primaryImageOfPage": { "@id": "https://mathewiacs.com/og-image.png" },
           "datePublished": "2026-01-01",
-          "dateModified": "2026-11-02",
-          "description": "Estudio creativo digital en Jerez: branding, diseño web, UX/UI y arte con IA."
+          "dateModified": "2026-11-12",
+          "description": "Estudio creativo en Jerez de la Frontera: branding, diseño web, UX/UI y arte con IA. Descubre nuestro manifiesto: 5 pilares y un modelo 50% humano, 50% sintético."
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://mathewiacs.com/#manifiesto",
+          "name": "Manifiesto de Mathew IA Creative Studio: los 5 pilares",
+          "inLanguage": "es",
+          "numberOfItems": 5,
+          "itemListOrder": "https://schema.org/ItemListOrderAscending",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "I. IMPERFECT.BY.DESIGN",
+              "description": "Rechazo de la perfección algorítmica (pieles sin poros, simetrías de fábrica, suavizado por defecto) a favor del grano analógico, las microasimetrías, los poros y las pecas: el error como firma de la realidad biológica procesada por la máquina.",
+              "url": "https://mathewiacs.com/#pilar-1"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "II. 50/50.HUMANO.SINTÉTICO",
+              "description": "Mente humana, ejecución sintética. Mateo dirige y ha entrenado a Lara Montenegro (avatar con vida) para que ejecute código, prompts y render; THEO, la mascota bot, une las dos mitades. El humano dirige, la IA ejecuta y el humano cura.",
+              "url": "https://mathewiacs.com/#pilar-2"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "III. ZERO.FILTERS.ONLY.FLOW",
+              "description": "De la intuición a la realidad sin fricción: sin parálisis por análisis ni reuniones vacías. Primero la versión fea, se prueba de inmediato y solo después se optimiza.",
+              "url": "https://mathewiacs.com/#pilar-3"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "IV. DYNAMIC.UI",
+              "description": "Interfaces vivas, rítmicas y adaptativas, desde experiencias sutiles y elegantes hasta bastidores retro-brutalistas y expresivos, a la medida de cada proyecto.",
+              "url": "https://mathewiacs.com/#pilar-4"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "V. NEON.SOUL",
+              "description": "La parte poética, visceral y narrativa del estudio: canciones, historias urbanas, estética de club nocturno y un violonchelo en la penumbra. La tecnología como amplificador del latido consciente, nunca su supresor.",
+              "url": "https://mathewiacs.com/#pilar-5"
+            }
+          ]
         },
         {
           "@type": "Person",
           "@id": "https://mathewiacs.com/equipo.html#mateo",
           "name": "Mateo",
           "jobTitle": "Fundador, director creativo y director de arte",
-          "worksFor": { "@id": "https://mathewiacs.com/#organization" },
+          "worksFor": {
+            "@id": "https://mathewiacs.com/#organization"
+          },
           "url": "https://mathewiacs.com/equipo.html",
           "image": "https://mathewiacs.com/assets/img/team-mateo.webp"
         },
         {
+          "@type": "Person",
+          "@id": "https://mathewiacs.com/equipo.html#lara",
+          "name": "Lara Montenegro",
+          "jobTitle": "Avatar influencer IA: programación, ingeniería de prompts y tendencias IA",
+          "description": "Personaje virtual del estudio, un avatar con vida entrenado por Mateo en programación, ingeniería de prompts, canto, violonchelo, acrobacias aéreas y patinaje urbano.",
+          "worksFor": {
+            "@id": "https://mathewiacs.com/#organization"
+          },
+          "url": "https://mathewiacs.com/equipo.html",
+          "image": "https://mathewiacs.com/assets/img/team-lara.webp"
+        },
+        {
           "@type": "FAQPage",
           "@id": "https://mathewiacs.com/#faq",
+          "inLanguage": "es",
           "mainEntity": [
             {
               "@type": "Question",
               "name": "¿Qué es Mathew IA Creative Studio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mathew IA Creative Studio (MATHEWIACS) es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50% criterio humano y 50% precisión sintética, bajo la filosofía Imperfect By Design."
+                "text": "Es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50% criterio humano y 50% ejecución sintética, bajo la filosofía Imperfect By Design."
               }
             },
             {
               "@type": "Question",
-              "name": "¿Dónde está Mathew IA Creative Studio?",
+              "name": "¿Dónde está el estudio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "El estudio está en Jerez de la Frontera, pero trabaja con clientes de cualquier parte del mundo."
+                "text": "En Jerez de la Frontera (Cádiz, España), pero trabaja con clientes y proyectos de cualquier parte del mundo."
               }
             },
             {
               "@type": "Question",
-              "name": "¿Qué servicios ofrece Mathew IA Creative Studio?",
+              "name": "¿Qué servicios ofrece?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Branding, diseño de logo, contenido audiovisual, diseño web, diseño gráfico, diseño instruccional, creación de avatares, storytelling, worldbuilding, motion graphics, 3D, realidad mixta (VR/AR) y consultoría de inteligencia artificial."
@@ -194,26 +413,18 @@
             },
             {
               "@type": "Question",
-              "name": "¿Quiénes forman el equipo de Mathew IA Creative Studio?",
+              "name": "¿Quién forma el equipo?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "El equipo lo componen Mateo (fundador, director creativo y de arte), Lara Montenegro (avatar influencer IA, experta en programación, ingeniería de prompts y tendencias IA) y THEO (la mascota bot del estudio, creada por Mateo)."
+                "text": "Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio)."
               }
             },
             {
               "@type": "Question",
-              "name": "¿Cómo puedo contactar con Mathew IA Creative Studio?",
+              "name": "¿Cuándo se lanza la web completa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A través del formulario de contacto de la web (https://mathewiacs.com/contacto.html) o del Instagram del estudio (https://www.instagram.com/Mathew.IA.CreativeStudio)."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "¿Cuándo se lanza la web completa de Mathew IA Creative Studio?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "El lanzamiento oficial de la web completa está previsto para el 1 de enero de 2027. Hasta entonces se publica por fases."
+                "text": "El 1 de enero de 2027. Hasta entonces se publica por fases."
               }
             }
           ]
@@ -222,18 +433,7 @@
     }
     </script>
 </head>
-<body>
-
-    <!-- Microdata oculta para que los analizadores detecten Organization -->
-    <div itemscope itemtype="https://schema.org/Organization" class="sr-only">
-        <meta itemprop="name" content="Mathew IA Creative Studio">
-        <meta itemprop="alternateName" content="MATHEWIACS">
-        <meta itemprop="url" content="https://mathewiacs.com/">
-        <meta itemprop="logo" content="https://mathewiacs.com/favicon.svg">
-        <meta itemprop="description" content="Estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte con IA.">
-        <meta itemprop="sameAs" content="https://www.instagram.com/Mathew.IA.CreativeStudio">
-        <meta itemprop="sameAs" content="https://github.com/mthweagle">
-    </div>
+<body class="page-home">
 
     <div class="grid-bg"></div>
     <div class="noise"></div>
@@ -282,42 +482,177 @@
 
     <main id="contenido-principal">
 
-        <!-- H2 oculto para reforzar palabras clave y contexto (invisible, solo para SEO) -->
-        <h2 class="sr-only">Estudio creativo digital en Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte con inteligencia artificial</h2>
-
         <section class="hero" id="inicio" aria-labelledby="hero-title">
             <div class="container">
                 <div class="hero-content">
+                    <p class="section-label">Mathew IA Creative Studio // Jerez de la Frontera</p>
                     <h1 id="hero-title">
-                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="HUMANO" data-i18n="k07">HUMANO</span><span class="hero-bracket" aria-hidden="true">]</span><br>
-                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">50%</span><span class="hero-word" data-text="SINTÉTICO" data-i18n="k08">SINTÉTICO</span><span class="hero-bracket" aria-hidden="true">]</span>
+                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word" data-i18n="m01">MANIFIESTO</span><span class="hero-bracket" aria-hidden="true">]</span><br>
+                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">05.</span><span class="hero-word" data-text="PILARES" data-i18n="m02">PILARES</span><span class="hero-bracket" aria-hidden="true">]</span>
                     </h1>
 
-                    <p class="hero-description" data-i18n="hero_desc">
-                        <span class="hero-yellow" aria-hidden="true">//[</span>Mathew<span class="hero-yellow" aria-hidden="true">][</span>IA<span class="hero-yellow" aria-hidden="true">][</span>CreativeStudio<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>ImperfectByDesign<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>InteligenciaArtificial<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>DiseñoGráfico<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>DiseñoWeb<span class="hero-yellow" aria-hidden="true">][</span>UX/UI<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>Márketing<span class="hero-yellow" aria-hidden="true">][</span>Branding<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>RealidadMixta<span class="hero-yellow" aria-hidden="true">][</span>VR/AR<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>MotionGraphics<span class="hero-yellow" aria-hidden="true">][</span>3D<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>Storytelling<span class="hero-yellow" aria-hidden="true">][</span>Worldbuilding<span class="hero-yellow" aria-hidden="true">];</span><br>
-                        <span class="hero-yellow" aria-hidden="true">//[</span>Video<span class="hero-yellow" aria-hidden="true">][</span>Música<span class="hero-yellow" aria-hidden="true">];</span>
+                    <p class="hero-description">
+                        <a href="#pilar-1"><span class="hero-yellow" aria-hidden="true">//[</span>I.IMPERFECT.BY.DESIGN<span class="hero-yellow" aria-hidden="true">];</span></a><br>
+                        <a href="#pilar-2"><span class="hero-yellow" aria-hidden="true">//[</span>II.50/50.<span data-i18n="m04b">HUMANO.SINTÉTICO</span><span class="hero-yellow" aria-hidden="true">];</span></a><br>
+                        <a href="#pilar-3"><span class="hero-yellow" aria-hidden="true">//[</span>III.ZERO.FILTERS.ONLY.FLOW<span class="hero-yellow" aria-hidden="true">];</span></a><br>
+                        <a href="#pilar-4"><span class="hero-yellow" aria-hidden="true">//[</span>IV.DYNAMIC.UI<span class="hero-yellow" aria-hidden="true">];</span></a><br>
+                        <a href="#pilar-5"><span class="hero-yellow" aria-hidden="true">//[</span>V.NEON.SOUL<span class="hero-yellow" aria-hidden="true">];</span></a>
                     </p>
 
-                    <p class="hero-lead" data-i18n="hero_lead">
-                        Mathew IA Creative Studio es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte generativo con IA. Trabajamos con un modelo de 50 % criterio humano y 50 % precisión sintética: el humano dirige, la IA ejecuta y el humano cura. Nuestro enfoque, Imperfect By Design, busca darle una visión personal y profundamente humana a la inteligencia artificial.
+                    <p class="hero-lead" data-i18n="m05">
+                        Mathew IA Creative Studio es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte generativo con IA. Este es nuestro manifiesto: cinco pilares que explican cómo trabajamos, qué rechazamos y por qué el humano dirige, la IA ejecuta y el humano cura.
                     </p>
 
                     <div class="hero-buttons">
-                        <a href="proyectos.html" class="btn-brutal" aria-label="Ver proyectos de Mathew IA Creative Studio">
-                            <i class="fas fa-bolt" aria-hidden="true"></i> <span data-i18n="k09">Ver Trabajos</span>
+                        <a href="#pilar-1" class="btn-brutal" aria-label="Leer el manifiesto de Mathew IA Creative Studio" data-i18n-aria="m06a">
+                            <i class="fas fa-bolt" aria-hidden="true"></i> <span data-i18n="m06">Leer el manifiesto</span>
                         </a>
-                        <a href="equipo.html" class="btn-brutal-outline" aria-label="Conocer al equipo de Mathew IA Creative Studio">
-                            <i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="k10">Equipo</span>
+                        <a href="proyectos.html" class="btn-brutal-outline" aria-label="Ver proyectos de Mathew IA Creative Studio">
+                            <i class="fas fa-layer-group" aria-hidden="true"></i> <span data-i18n="k09">Ver Trabajos</span>
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="manifesto" aria-label="Manifiesto: los cinco pilares" data-i18n-aria="m03">
+        <article class="pillar pillar-1" id="pilar-1" aria-labelledby="pilar-1-titulo">
+            <div class="container">
+                <div class="pillar-inner">
+                    <div class="pillar-num" aria-hidden="true">I</div>
+                    <div class="pillar-body">
+                        <h2 class="pillar-title" id="pilar-1-titulo"><span class="rn">I.</span> <span class="br" aria-hidden="true">[</span><span class="nm">IMPERFECT.<wbr>BY.<wbr>DESIGN</span><span class="br" aria-hidden="true">]</span><span class="br" aria-hidden="true">;</span></h2>
+                        <p class="pillar-kicker" data-i18n="p1_k">// EL RUIDO COMO FUNCIÓN</p>
+                        <blockquote class="pillar-quote" data-i18n="p1_q">El error no es un bug: es la firma de la realidad biológica procesada por la máquina.</blockquote>
+                        <div class="pillar-text">
+                        <p data-i18n="p1_a">La huella orgánica frente al plástico estéril. Rechazamos la perfección algorítmica: pieles sin poros, simetrías de fábrica y suavizado por defecto. La belleza auténtica vive en lo que el render intenta borrar: el grano analógico, las microasimetrías de un rostro real, las pecas apenas visibles, los poros y los pliegues de un tejido. Por eso inyectamos ruido a propósito y dejamos la huella a la vista.</p>
+                        </div>
+                        <div class="service-tags pillar-tags" data-i18n="p1_t"><span class="service-tag">GRANO.ANALÓGICO</span><span class="service-tag">MICROASIMETRÍAS</span><span class="service-tag">PORO.VISIBLE</span><span class="service-tag">PECAS</span></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="pillar pillar-2" id="pilar-2" aria-labelledby="pilar-2-titulo">
+            <div class="container">
+                <div class="pillar-inner">
+                    <div class="pillar-num" aria-hidden="true">II</div>
+                    <div class="pillar-body">
+                        <h2 class="pillar-title" id="pilar-2-titulo"><span class="rn">II.</span> <span class="br" aria-hidden="true">[</span><span class="nm">50/50.<wbr><span data-i18n="m04">HUMANO.<wbr>SINTÉTICO</span></span><span class="br" aria-hidden="true">]</span><span class="br" aria-hidden="true">;</span></h2>
+                        <p class="pillar-kicker" data-i18n="p2_k">// MENTE HUMANA, EJECUCIÓN SINTÉTICA</p>
+                        <blockquote class="pillar-quote" data-i18n="p2_q">Mateo ordena y Lara ejecuta lo que ha aprendido: ninguno de los dos sería lo mismo sin el otro.</blockquote>
+                        <div class="pillar-text">
+                        <p data-i18n="p2_a">Mateo pone la chispa: dirección creativa, visión artística, concepto y empatía. Y aunque Mateo ordena, antes ha entrenado a Lara Montenegro para que ejecute por sí misma: escribe y lanza código según lo que aprendió, afina prompts y renderiza a velocidad de render. Lara no es una herramienta, es un avatar con vida: también está entrenada en canto, chelo, acrobacias aéreas y patinaje urbano.</p>
+                        <p data-i18n="p2_b">No es una jerarquía, es un reparto de funciones: el humano dirige, la IA ejecuta y el humano cura. Y entre los dos 50, como los corchetes que los mantienen unidos, está THEO, la mascota bot neurodivergente del estudio: aporta la forma de pensar de su creador y la naturaleza digital de un robot.</p>
+                        </div>
+                        <div class="duo" role="group" aria-label="Mateo, THEO y Lara">
+                            <div class="duo-card duo-mateo">
+                                <span class="duo-num" aria-hidden="true">50</span>
+                                <strong class="duo-name">MATEO</strong>
+                                <span class="duo-role" data-i18n="d1">Ordena · dirección, concepto y empatía</span>
+                            </div>
+                            <div class="duo-card duo-theo">
+                                <span class="duo-br" aria-hidden="true">[ ]</span>
+                                <strong class="duo-name">THEO</strong>
+                                <span class="duo-role" data-i18n="d2">El corchete · une las dos mitades</span>
+                            </div>
+                            <div class="duo-card duo-lara">
+                                <span class="duo-num" aria-hidden="true">50</span>
+                                <strong class="duo-name">LARA</strong>
+                                <span class="duo-role" data-i18n="d3">Ejecuta · código, canto, chelo, acrobacias y patinaje</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="pillar pillar-3" id="pilar-3" aria-labelledby="pilar-3-titulo">
+            <div class="container">
+                <div class="pillar-inner">
+                    <div class="pillar-num" aria-hidden="true">III</div>
+                    <div class="pillar-body">
+                        <h2 class="pillar-title" id="pilar-3-titulo"><span class="rn">III.</span> <span class="br" aria-hidden="true">[</span><span class="nm">ZERO.<wbr>FILTERS.<wbr>ONLY.<wbr>FLOW</span><span class="br" aria-hidden="true">]</span><span class="br" aria-hidden="true">;</span></h2>
+                        <p class="pillar-kicker" data-i18n="p3_k">// INTUICIÓN DE BAJA LATENCIA</p>
+                        <blockquote class="pillar-quote" data-i18n="p3_q">Compilamos la intuición en caliente: primero la versión fea.</blockquote>
+                        <div class="pillar-text">
+                        <p data-i18n="p3_a">De la intuición a la realidad sin fricción. Nada de parálisis por análisis ni de reuniones que no producen nada: si una idea aparece en el laboratorio, se prueba ahora. Lanzamos el borrador imperfecto, escuchamos lo que devuelve el entorno y solo entonces optimizamos. Un «vómito mental» en caliente vale más que un plan perfecto que nunca se ejecuta.</p>
+                        </div>
+                        <div class="service-tags pillar-tags" data-i18n="p3_t"><span class="service-tag">VERSIÓN.FEA.PRIMERO</span><span class="service-tag">SIN.REUNIONES.VACÍAS</span><span class="service-tag">ITERAR.EN.VIVO</span></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="pillar pillar-4" id="pilar-4" aria-labelledby="pilar-4-titulo">
+            <div class="container">
+                <div class="pillar-inner">
+                    <div class="pillar-num" aria-hidden="true">IV</div>
+                    <div class="pillar-body">
+                        <h2 class="pillar-title" id="pilar-4-titulo"><span class="rn">IV.</span> <span class="br" aria-hidden="true">[</span><span class="nm">DYNAMIC.<wbr>UI</span><span class="br" aria-hidden="true">]</span><span class="br" aria-hidden="true">;</span></h2>
+                        <p class="pillar-kicker" data-i18n="p4_k">// INTERFACES QUE RESPIRAN</p>
+                        <blockquote class="pillar-quote" data-i18n="p4_q">Una web no es un folleto: es un escenario que respira.</blockquote>
+                        <div class="pillar-text">
+                        <p data-i18n="p4_a">Diseñamos interfaces vivas, rítmicas y adaptativas, sin etiquetas ni moldes: desde experiencias sutiles y elegantes hasta bastidores retro-brutalistas y expresivos, a la medida del carácter de cada proyecto. Si estás en un ordenador, mueve el ratón: el cursor constelación de esta página es un ejemplo.</p>
+                        </div>
+                        <div class="service-tags pillar-tags" data-i18n="p4_t"><span class="service-tag">INTERFAZ.VIVA</span><span class="service-tag">MICROINTERACCIONES</span><span class="service-tag">RETRO.BRUTALISMO</span></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article class="pillar pillar-5" id="pilar-5" aria-labelledby="pilar-5-titulo">
+            <div class="container">
+                <div class="pillar-inner">
+                    <div class="pillar-num" aria-hidden="true">V</div>
+                    <div class="pillar-body">
+                        <h2 class="pillar-title" id="pilar-5-titulo"><span class="rn">V.</span> <span class="br" aria-hidden="true">[</span><span class="nm">NEON.<wbr>SOUL</span><span class="br" aria-hidden="true">]</span><span class="br" aria-hidden="true">;</span></h2>
+                        <p class="pillar-kicker" data-i18n="p5_k">// EL LATIDO DENTRO DE LA MÁQUINA</p>
+                        <blockquote class="pillar-quote" data-i18n="p5_q">La tecnología es un amplificador del latido consciente, nunca su supresor.</blockquote>
+                        <div class="pillar-text">
+                        <p data-i18n="p5_a">Es la parte poética, visceral y narrativa del estudio: canciones nacidas del desgarro, historias urbanas, estética de club nocturno y un violonchelo resonando en la penumbra. Entre líneas de código y terminales buscamos propósito. Por eso cada proyecto, por técnico que sea, lleva dentro algo que late.</p>
+                        </div>
+                        <div class="service-tags pillar-tags" data-i18n="p5_t"><span class="service-tag">ESTÉTICA.DE.CLUB</span><span class="service-tag">VIOLONCHELO</span><span class="service-tag">STORYTELLING</span><span class="service-tag">WORLDBUILDING</span></div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        </section>
+
+        <section class="cta" id="contacto-inicio" aria-labelledby="cta-title">
+            <div class="container">
+                <h2 id="cta-title"><span class="br" aria-hidden="true">[</span><span data-i18n="c01">¿HABLAMOS?</span><span class="br" aria-hidden="true">]</span></h2>
+                <p data-i18n="c02">Si tu proyecto necesita branding, diseño web o arte con IA con alma, cuéntanoslo. Estudiamos tu caso y te damos un presupuesto ajustado, sin rellenos y sin pagar de más.</p>
+                <div class="hero-buttons cta-buttons">
+                    <a href="contacto.html" class="btn-brutal"><i class="fas fa-envelope" aria-hidden="true"></i> <span data-i18n="k06">CONTACTO</span></a>
+                    <a href="equipo.html" class="btn-brutal-outline"><i class="fas fa-users" aria-hidden="true"></i> <span data-i18n="k10">Equipo</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">// FAQ</span>
+                    <h2 id="faq-title" data-i18n="f00">Preguntas frecuentes</h2>
+                </div>
+                <div class="faq-list">
+                <details class="faq-item">
+                    <summary><h3 data-i18n="f1q">¿Qué es Mathew IA Creative Studio?</h3></summary>
+                    <p data-i18n="f1a">Es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50% criterio humano y 50% ejecución sintética, bajo la filosofía Imperfect By Design.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3 data-i18n="f2q">¿Dónde está el estudio?</h3></summary>
+                    <p data-i18n="f2a">En Jerez de la Frontera (Cádiz, España), pero trabaja con clientes y proyectos de cualquier parte del mundo.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3 data-i18n="f3q">¿Qué servicios ofrece?</h3></summary>
+                    <p data-i18n="f3a">Branding, diseño de logo, contenido audiovisual, diseño web, diseño gráfico, diseño instruccional, creación de avatares, storytelling, worldbuilding, motion graphics, 3D, realidad mixta (VR/AR) y consultoría de inteligencia artificial.</p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3 data-i18n="f4q">¿Quién forma el equipo?</h3></summary>
+                    <p data-i18n="f4a">Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio).</p>
+                </details>
+                <details class="faq-item">
+                    <summary><h3 data-i18n="f5q">¿Cuándo se lanza la web completa?</h3></summary>
+                    <p data-i18n="f5a">El 1 de enero de 2027. Hasta entonces se publica por fases.</p>
+                </details>
                 </div>
             </div>
         </section>

@@ -1,0 +1,32 @@
+# Mathew IA Creative Studio (MATHEWIACS)
+
+> Estudio creativo digital de Jerez de la Frontera (Cádiz, España) especializado en branding, diseño gráfico, diseño web, UX/UI y arte generativo con inteligencia artificial. Trabaja con un modelo 50% criterio humano y 50% ejecución sintética, bajo la filosofía Imperfect By Design. Atiende proyectos de cualquier parte del mundo.
+
+Datos básicos:
+- Nombre: Mathew IA Creative Studio (también MATHEWIACS)
+- Ubicación: Jerez de la Frontera, Cádiz, Andalucía, España
+- Fundado en: 2026
+- Idiomas de la web: español, inglés, francés e italiano
+- Lanzamiento de la web completa: 1 de enero de 2027 (se publica por fases)
+- Contacto: formulario de la web e Instagram @Mathew.IA.CreativeStudio
+- Equipo: Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA, entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio, verde menta, con ruedas)
+
+## Páginas principales
+
+- [Inicio y manifiesto](https://mathewiacs.com/): los cinco pilares del estudio y preguntas frecuentes
+- [Servicios](https://mathewiacs.com/servicios.html): branding, logo, audiovisual, diseño web, diseño gráfico, diseño instruccional, avatares, storytelling, worldbuilding, motion graphics, 3D, realidad mixta (VR/AR) y consultoría de IA
+- [Proyectos](https://mathewiacs.com/proyectos.html): trabajos del estudio
+- [Equipo](https://mathewiacs.com/equipo.html): Mateo, Lara Montenegro y THEO
+- [Contacto](https://mathewiacs.com/contacto.html): formulario de contacto y presupuestos
+
+## El manifiesto en cinco pilares
+
+1. IMPERFECT.BY.DESIGN: rechazo de la perfección algorítmica (pieles sin poros, simetrías de fábrica, suavizado por defecto) a favor del grano analógico, las microasimetrías, los poros y las pecas.
+2. 50/50.HUMANO.SINTÉTICO: mente humana, ejecución sintética. Mateo dirige; Lara, entrenada por él, ejecuta código, prompts y render; THEO une las dos mitades. El humano dirige, la IA ejecuta y el humano cura.
+3. ZERO.FILTERS.ONLY.FLOW: de la intuición a la realidad sin fricción; primero la versión fea, sin parálisis por análisis ni reuniones vacías.
+4. DYNAMIC.UI: interfaces vivas, rítmicas y adaptativas, de lo sutil y elegante a lo retro-brutalista y expresivo.
+5. NEON.SOUL: la parte poética y narrativa del estudio; la tecnología como amplificador del latido consciente, nunca su supresor.
+
+## Optional
+
+- [Base de conocimiento de THEO](https://mathewiacs.com/conocimiento.md): texto con el que responde el chatbot del estudio
