@@ -434,6 +434,7 @@
     }
     </script>
 <style id="manifiesto-estilos-integrados">
+/* Portada integrada: efectos por turnos, sin animación permanente. */
 body.page-home{--home-header-height:140px;padding-top:var(--home-header-height)!important}
 .page-home #contenido-principal{padding-top:0!important}
 .page-home #inicio.hero{min-height:0;height:auto;display:block;padding:clamp(24px,3vw,48px) 0 64px!important}
@@ -451,22 +452,27 @@ body.page-home{--home-header-height:140px;padding-top:var(--home-header-height)!
 .page-home .home-manifesto-pillar ul{margin:0;padding:0 0 0 1.25rem;border-left:3px solid var(--neon-yellow);list-style:none;font-family:var(--font-mono)}
 .page-home .home-manifesto-pillar li{color:var(--ash);font-size:.9rem;line-height:1.8;overflow-wrap:anywhere}
 .page-home #faq[hidden]{display:none!important}
-.neon-by{display:inline-block;animation:by-tube-failure 5.2s linear infinite}
-@keyframes by-tube-failure{0%,79%,100%{opacity:1;filter:none;text-shadow:0 0 3px #ff006e59,0 0 8px #ff006e26}80%,83%,87%{opacity:.12;filter:blur(.5px);text-shadow:none}81%,85%,89%{opacity:1;filter:none;text-shadow:0 0 5px #ff006e,0 0 16px #ff006eaa}90%,95%{opacity:.06;filter:blur(.8px);text-shadow:none}96%{opacity:1;filter:none;text-shadow:0 0 7px #ff006e,0 0 20px #ff006e}98%{opacity:.5;filter:none}}
-.page-home .home-manifesto-title .flow-morph{display:inline-grid;vertical-align:baseline;max-width:calc(100% - 2.5em);animation:flow-glitch 7.1s linear infinite}
+.neon-by{display:inline-block}
+.is-animating .neon-by{animation:by-tube-failure .85s linear 1}
+@keyframes by-tube-failure{0%,100%{opacity:1;filter:none}8%,30%,50%,72%{opacity:.1;filter:blur(.5px);text-shadow:none}16%,40%,58%,88%{opacity:1;filter:none;text-shadow:0 0 6px #ff006e,0 0 14px #ff006eaa}76%,82%{opacity:.05;filter:blur(.7px)}}
+/* Le texte complet conserve sa place; toute la ponctuation change avec lui. */
+.page-home .home-manifesto-title .flow-morph{display:inline-grid;vertical-align:baseline;max-width:calc(100% - 2.5em)}
 .flow-full,.flow-short{grid-area:1/1;align-self:start;min-width:0;justify-self:start}
-.flow-short{white-space:nowrap}
-.flow-full{animation:flow-full-cycle 7.1s steps(1,end) infinite}.flow-short{animation:flow-short-cycle 7.1s steps(1,end) infinite}
-@keyframes flow-full-cycle{0%,85%,100%{opacity:1}86%,97%{opacity:0}98%{opacity:1}}
-@keyframes flow-short-cycle{0%,85%,98%,100%{opacity:0}86%,97%{opacity:1}}
-@keyframes flow-glitch{0%,84%,89%,96%,100%{transform:none;filter:none}85%{transform:translateX(-2px) skewX(-3deg);filter:drop-shadow(2px 0 #00f5ff)}86%{transform:translateX(2px);filter:drop-shadow(-2px 0 #bd00ff)}87%{transform:translateX(-1px);filter:none}97%{transform:translateX(2px) skewX(2deg);filter:drop-shadow(-2px 0 #00f5ff)}98%{transform:translateX(-1px);filter:none}}
-/* Efecto 19 de la demo: vibración eléctrica, ciclo de 4 segundos. */
-.page-home .home-manifesto-title .neon-electric{display:inline-block;animation:neon-electric-19 4s steps(1,end) infinite}
-@keyframes neon-electric-19{0%,82%,100%{transform:none}84%,88%{transform:translate(1px,-1px)}86%,90%{transform:translate(-1px,1px)}92%{transform:none}}
-.page-home .home-manifesto-title .balance-number{display:inline-block;min-width:5ch;font-variant-numeric:tabular-nums;white-space:nowrap}
+.flow-full{opacity:1}.flow-short{opacity:0;white-space:nowrap}
+.is-animating .flow-full{animation:flow-full-once 1s steps(1,end) 1}
+.is-animating .flow-short{animation:flow-short-once 1s steps(1,end) 1}
+.is-animating .flow-morph{animation:flow-glitch 1s linear 1}
+@keyframes flow-full-once{0%,100%{opacity:1}10%,89%{opacity:0}90%{opacity:1}}
+@keyframes flow-short-once{0%,100%{opacity:0}10%,89%{opacity:1}90%{opacity:0}}
+@keyframes flow-glitch{0%,25%,75%,100%{transform:none;filter:none}8%{transform:translateX(-2px) skewX(-3deg);filter:drop-shadow(2px 0 #00f5ff)}15%{transform:translateX(2px);filter:drop-shadow(-2px 0 #bd00ff)}85%{transform:translateX(2px) skewX(2deg);filter:drop-shadow(-2px 0 #00f5ff)}95%{transform:translateX(-1px)}}
+.page-home .home-manifesto-title .neon-electric{display:inline-block}
+.is-animating .neon-electric{animation:neon-electric-19 .3s steps(1,end) 1}
+@keyframes neon-electric-19{0%,100%{transform:none}12%,45%,75%{transform:translate(1px,-1px)}28%,60%,88%{transform:translate(-1px,1px)}}
+/* Pas de largeur minimale: le crochet suit directement le dernier chiffre. */
+.page-home .home-manifesto-title .balance-number{display:inline;min-width:0;font-variant-numeric:tabular-nums;white-space:nowrap}
 .page-home .home-manifesto-title .mw-binary-word{display:inline-grid;vertical-align:baseline;max-width:100%}.mw-binary-word>span{grid-area:1/1;min-width:0}.mw-binary-reserve{visibility:hidden}.mw-binary-output{overflow-wrap:anywhere}
 @media(max-width:768px){body.page-home{--home-header-height:108px}}
-@media(prefers-reduced-motion:reduce){.neon-by,.page-home .home-manifesto-title .flow-morph,.flow-full,.flow-short,.page-home .home-manifesto-title .neon-electric{animation:none!important}.flow-full{opacity:1!important}.flow-short{display:none!important}}
+@media(prefers-reduced-motion:reduce){.home-manifesto-title *{animation:none!important}.flow-full{opacity:1!important}.flow-short{display:none!important}}
 </style></head>
 <body class="page-home">
 <div class="grid-bg"></div>
@@ -659,21 +665,47 @@ body.page-home{--home-header-height:140px;padding-top:var(--home-header-height)!
     })();
     </script>
 <script id="manifiesto-efectos-integrados">(() => {
-const header=document.querySelector('nav.navbar');if(header){let frame;const update=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>document.body.style.setProperty('--home-header-height',Math.ceil(header.getBoundingClientRect().height)+'px'));};update();if('ResizeObserver'in window)new ResizeObserver(update).observe(header);window.addEventListener('resize',update,{passive:true});window.addEventListener('load',update,{once:true});if(document.fonts)document.fonts.ready.then(update);}
-document.querySelectorAll('.home-manifesto-title').forEach(title=>{title.addEventListener('selectstart',event=>event.preventDefault());title.addEventListener('dragstart',event=>event.preventDefault());});
-const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const output=document.querySelector('.mw-binary-output'),balance=document.querySelector('.balance-number');
-let binaryTimer=null,binaryFrame=null,balanceFrame=null,binaryRunning=false;
-const reset=()=>{clearInterval(binaryTimer);binaryTimer=null;cancelAnimationFrame(binaryFrame);cancelAnimationFrame(balanceFrame);binaryRunning=false;if(output)output.textContent='DYNAMIC.UI';if(balance)balance.textContent='50/50';};
-const scramble=()=>{if(!output||binaryRunning||motion.matches||document.hidden)return;binaryRunning=true;const start=performance.now();let last=-100;const tick=now=>{const elapsed=now-start;if(elapsed>=1200){output.textContent='DYNAMIC.UI';binaryRunning=false;return;}if(elapsed-last>=65){output.textContent=Array.from('DYNAMIC.UI',()=>Math.random()<.5?'0':'1').join('');last=elapsed;}binaryFrame=requestAnimationFrame(tick);};binaryFrame=requestAnimationFrame(tick);};
-const schedule=()=>{
- reset();if(motion.matches||document.hidden)return;
- if(output)binaryTimer=setInterval(scramble,4600);
- if(balance){const epoch=performance.now();let last=-100;const tick=now=>{
-  const time=now-epoch,p=time%4600;
-  if(time-last>=70){const a=Math.round(50+18*Math.sin(time/700)*Math.max(0,1-p/4000));balance.textContent=String(a).padStart(2,'0')+'/'+String(100-a).padStart(2,'0');last=time;}
-  balanceFrame=requestAnimationFrame(tick);
- };balanceFrame=requestAnimationFrame(tick);}
-};
-document.addEventListener('visibilitychange',schedule);if(motion.addEventListener)motion.addEventListener('change',schedule);else motion.addListener(schedule);schedule();})();</script></body>
+ const header=document.querySelector('nav.navbar');
+ if(header){let frame;const update=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>document.body.style.setProperty('--home-header-height',Math.ceil(header.getBoundingClientRect().height)+'px'));};update();if('ResizeObserver'in window)new ResizeObserver(update).observe(header);window.addEventListener('resize',update,{passive:true});window.addEventListener('load',update,{once:true});if(document.fonts)document.fonts.ready.then(update);}
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const titles=[...document.querySelectorAll('.home-manifesto-title')];
+ titles.forEach(el=>{el.addEventListener('selectstart',e=>e.preventDefault());el.addEventListener('dragstart',e=>e.preventDefault());});
+ const balance=document.querySelector('.balance-number'),binary=document.querySelector('.mw-binary-output');
+ const config=[{period:14000,duration:850},{period:16000,duration:1800},{period:14000,duration:1000},{period:12000,duration:300},{period:16000,duration:1200}];
+ const tasks=titles.map((el,i)=>({el,...config[i],visible:false,due:Infinity,i}));
+ let active=null,quietUntil=0,timer=null,frame=null;
+ const restore=()=>{if(balance)balance.textContent='50/50';if(binary)binary.textContent='DYNAMIC.UI';};
+ const stop=()=>{clearTimeout(timer);cancelAnimationFrame(frame);timer=null;frame=null;tasks.forEach(t=>t.el.classList.remove('is-animating'));active=null;restore();};
+ const enabled=()=>!motion.matches&&!document.hidden;
+ const start=task=>{
+  const began=performance.now();active=task;task.due=began+task.period;
+  task.el.classList.add('is-animating');let last=-100;
+  if(task.i===1||task.i===4){
+   const tick=now=>{
+    const elapsed=now-began;
+    if(elapsed>=task.duration)return;
+    if(elapsed-last>=65){
+     if(task.i===1){const p=elapsed/task.duration;const a=Math.round(50+18*Math.sin(p*Math.PI*4)*(1-p));balance.textContent=a+'/'+(100-a);}
+     else binary.textContent=Array.from('DYNAMIC.UI',()=>Math.random()<.5?'0':'1').join('');
+     last=elapsed;
+    }
+    frame=requestAnimationFrame(tick);
+   };frame=requestAnimationFrame(tick);
+  }
+  timer=setTimeout(()=>{cancelAnimationFrame(frame);task.el.classList.remove('is-animating');restore();active=null;quietUntil=performance.now()+2000;},task.duration);
+ };
+ if('IntersectionObserver'in window){
+  const observer=new IntersectionObserver(entries=>{
+   const now=performance.now();entries.forEach(entry=>{
+    const t=tasks.find(t=>t.el===entry.target);const was=t.visible;t.visible=entry.isIntersecting;
+    if(t.visible&&!was)t.due=now+2500+t.i*600;
+    if(!t.visible&&active===t){stop();quietUntil=now+2000;}
+   });
+  },{threshold:.55,rootMargin:'-140px 0px 0px 0px'});tasks.forEach(t=>observer.observe(t.el));
+ }else tasks.forEach((t,i)=>{t.visible=true;t.due=performance.now()+3000+i*3500;});
+ const reset=()=>{stop();const now=performance.now();quietUntil=now+2500;tasks.forEach(t=>{t.due=now+3000+t.i*1000;});};
+ document.addEventListener('visibilitychange',reset);
+ if(motion.addEventListener)motion.addEventListener('change',reset);else motion.addListener(reset);
+ setInterval(()=>{if(!enabled()||active||performance.now()<quietUntil)return;const now=performance.now();const next=tasks.filter(t=>t.visible&&t.due<=now).sort((a,b)=>a.due-b.due)[0];if(next)start(next);},150);
+})();</script></body>
 </html>
