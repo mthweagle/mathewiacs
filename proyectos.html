@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0a0a0a">
-    <meta name="description" content="Explora coloRRate, el generador creativo de paletas OKLCH de MATHEWIACS. Branding, diseño web, UX/UI y arte generativo con IA.">
+    <meta name="description" content="Explora las herramientas de MATHEWIACS: coloRRate, generador de paletas OKLCH, y MUSIC.BRUT-STUDIO, consola de síntesis y secuenciación. Branding, diseño web, UX/UI y arte con IA.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
-    <meta property="og:title" content="Proyectos | coloRRate - MATHEWIACS">
-    <meta property="og:description" content="Descubre coloRRate, nuestro generador de paletas en espacio perceptual OKLCH.">
+    <meta property="og:title" content="Proyectos | coloRRate y MUSIC.BRUT-STUDIO - MATHEWIACS">
+    <meta property="og:description" content="Descubre coloRRate, nuestro generador de paletas OKLCH, y MUSIC.BRUT-STUDIO, nuestra consola de síntesis.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="canonical" href="https://mathewiacs.com/proyectos.html">
     <meta property="og:url" content="https://mathewiacs.com/proyectos.html">
@@ -17,7 +17,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <title>Proyectos | coloRRate - MATHEWIACS</title>
+    <title>Proyectos | coloRRate y MUSIC.BRUT-STUDIO - MATHEWIACS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -145,6 +145,25 @@
             border-radius: 99px;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
+
+        /* Tarjeta de MUSIC.BRUT-STUDIO */
+        .project-card + .project-card { margin-top: 3rem; }
+        .music-preview { background: #0d0d0c; }
+        .music-steps {
+            position: absolute;
+            left: 8%; right: 8%; bottom: 14%;
+            display: grid;
+            grid-template-columns: repeat(16, 1fr);
+            gap: 4px;
+        }
+        .music-steps span { aspect-ratio: 1 / 1.6; border: 1px solid #3a3935; background: #171715; }
+        .music-steps span.on { background: #b79a5b; border-color: #b79a5b; }
+        .music-steps span.hit { background: #d1171f; border-color: #d1171f; }
+        .music-preview .mockup-overlay { justify-content: flex-start; padding-top: 12%; background: none; backdrop-filter: none; }
+        .music-brand { display: flex; align-items: stretch; border: 2px solid #e6dec9; font-family: 'Syncopate', var(--font-display); font-weight: 700; }
+        .music-brand b { background: #d1171f; color: #e6dec9; padding: 6px 12px; font-size: clamp(1rem, 2.6vw, 1.7rem); }
+        .music-brand i { font-style: normal; color: #e6dec9; padding: 6px 12px; font-size: clamp(.7rem, 1.6vw, 1rem); display: flex; align-items: center; letter-spacing: .08em; }
 
         /* Columna de información */
         .project-info h2 {
@@ -337,6 +356,39 @@
                         <span>K-Means</span>
                     </div>
                     <a href="proyectos/colorrate.html" class="project-cta">
+                        <span>Ir al proyecto</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            <article class="project-card">
+                <div class="project-preview music-preview">
+                    <div class="mockup-overlay">
+                        <span class="music-brand" aria-hidden="true"><b>M.B-S</b><i>MUSIC.BRUT-STUDIO</i></span>
+                        <span class="mockup-tag">Estudio de síntesis avanzada</span>
+                    </div>
+                    <div class="music-steps" aria-hidden="true"><span class="hit"></span><span></span><span class="on"></span><span></span><span class="hit"></span><span></span><span class="on"></span><span class="on"></span><span class="hit"></span><span></span><span class="on"></span><span></span><span class="hit"></span><span class="on"></span><span></span><span class="on"></span></div>
+                </div>
+
+                <div class="project-info">
+                    <div class="project-meta">[PROYECTO 02 · 2026 · HERRAMIENTA]</div>
+                    <h2>MUSIC.BRUT-STUDIO</h2>
+                    <p class="project-desc">
+                        Consola de síntesis y secuenciación con estética industrial brutalista. Un cello eléctrico <strong>NS Design WAV4</strong> y un sitar eléctrico <strong>Eastwood Breadwinner</strong> en una sola pantalla, con osciloscopio en tiempo real y pedales de efectos.
+                    </p>
+                    <ul class="project-features">
+                        <li><i class="fas fa-check"></i> Secuenciador de 16 pasos con notas, técnicas (arco, punteo, ocarina) y percusión</li>
+                        <li><i class="fas fa-check"></i> Matriz de 19 cuerdas simpáticas inspirada en el sitar eléctrico</li>
+                        <li><i class="fas fa-check"></i> Osciloscopio conectado a la Web Audio API</li>
+                        <li><i class="fas fa-check"></i> Fuzz, Chorus, Reverb y Delay, y guardado de ritmos en tu navegador</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Web Audio API</span>
+                        <span>Vanilla JS</span>
+                        <span>Canvas API</span>
+                        <span>Secuenciador</span>
+                    </div>
+                    <a href="proyectos/music-brut.html" class="project-cta">
                         <span>Ir al proyecto</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>

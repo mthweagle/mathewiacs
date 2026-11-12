@@ -189,7 +189,6 @@ La estructura ya está montada; estos son los huecos que se irán rellenando ant
 - **Redes:** LinkedIn, YouTube, TikTok y Spotify están en el footer pero aún sin enlace (`#`).
 - **Laboratorio y Blog:** definir su estructura y sustituir el aviso «EN CONSTRUCCIÓN» por el contenido real.
 - **THEO:** mantener sus respuestas (`TEMAS`) alineadas con `conocimiento.md`.
-- **MUSIC.BRUT:** integrar su tarjeta en `proyectos.html` (como se hizo con coloRRate).
 
 ---
 

@@ -4,12 +4,17 @@ SUBIR A GITHUB (respetando las carpetas; todos sustituyen al actual):
   assets/css/global.css      (estilos nuevos al final: sección 7)
   assets/js/index.js         (traducciones EN/FR/IT del manifiesto; revelado al hacer scroll)
   llms.txt                   (NUEVO: resumen del estudio para asistentes de IA)
-  sitemap.xml                (fecha de la home actualizada)
-  conocimiento.md            (THEO ya sabe lo del manifiesto y del entrenamiento de Lara)
-  README.md                  (sección del manifiesto actualizada)
+  sitemap.xml                (fecha de la home actualizada; nueva página de MUSIC.BRUT)
+  conocimiento.md            (THEO ya sabe lo del manifiesto, del entrenamiento de Lara y de MUSIC.BRUT)
+  README.md                  (sección del manifiesto actualizada; MUSIC.BRUT ya integrado)
+
+  --- MUSIC.BRUT-STUDIO ---
+  proyectos/music-brut.html   (NUEVO: la herramienta, con SEO y datos estructurados)
+  proyectos.html                    (tarjeta "PROYECTO 02" de MUSIC.BRUT-STUDIO)
+  assets/js/theo-chatbot.js         (THEO responde sobre MUSIC.BRUT)
 
 NO CAMBIAN: equipo.html, servicios.html, proyectos.html, laboratorio.html, blog.html, contacto.html,
-assets/js (equipo.js, contacto.js, theo-chatbot.js), assets/img, proyectos/, robots.txt, CNAME, favicon, og-image.
+assets/js (equipo.js, contacto.js), assets/img, proyectos/colorrate.html, robots.txt, CNAME, favicon, og-image.
 
 BORRAR EN GITHUB (si todavia existe):
 

@@ -36,6 +36,9 @@ La Orbea variegata es la planta de Mateo: la tiene en su casa y también vive en
 ## El manifiesto (los cinco pilares)
 La página de inicio de la web es el manifiesto del estudio, en cinco pilares: (I) Imperfect By Design: el ruido analógico, los poros, las pecas y las microasimetrías frente a la perfección sintética; (II) 50/50 Humano/Sintético: mente humana, ejecución sintética; Mateo ordena, Lara (entrenada por él) ejecuta y THEO hace de corchete que une las dos mitades; (III) Zero Filters, Only Flow: de la intuición a la realidad sin fricción, primero la versión fea; (IV) Neon Soul: la parte poética del estudio, con canciones, estética de club nocturno y violonchelo; (V) Dynamic UI: interfaces vivas que respiran, como el cursor constelación de la propia web. La frase que resume el modelo: el humano dirige, la IA ejecuta y el humano cura.
 
+## MUSIC.BRUT-STUDIO
+MUSIC.BRUT-STUDIO es una herramienta musical del estudio, gratuita y que funciona en el navegador: una consola de síntesis y secuenciación con estética industrial brutalista. Reúne un cello eléctrico NS Design WAV4 y un sitar eléctrico Eastwood Breadwinner, un secuenciador de 16 pasos, una matriz de 19 cuerdas simpáticas, osciloscopio, pedales (Fuzz, Chorus, Reverb y Delay) y guardado de ritmos en el navegador. Se encuentra en el apartado de Proyectos: https://mathewiacs.com/proyectos/music-brut.html
+
 ## Proyectos y laboratorio
 En el apartado de Proyectos de la web se pueden consultar algunos de los mejores proyectos del estudio. También se anima a investigar el laboratorio, donde el estudio va creando y explorando sin filtros. Al estudio le encanta llegar a soluciones creativas, disruptivas y divergentes para que la experiencia del usuario sea enriquecedora.
 
