@@ -107,9 +107,6 @@
           "member": [
             {
               "@id": "https://mathewiacs.com/equipo.html#mateo"
-            },
-            {
-              "@id": "https://mathewiacs.com/equipo.html#lara"
             }
           ],
           "address": {
@@ -312,7 +309,15 @@
           "inLanguage": "es",
           "datePublished": "2026-01-01",
           "dateModified": "2026-11-12",
-          "description": "Estudio creativo en Jerez de la Frontera: branding, diseño web, UX/UI y arte con IA. Descubre nuestro manifiesto: 5 pilares y un modelo 50% humano, 50% sintético."
+          "description": "Estudio creativo en Jerez de la Frontera: branding, diseño web, UX/UI y arte con IA. Descubre nuestro manifiesto: 5 pilares y un modelo 50% humano, 50% sintético.",
+          "mentions": [
+            {
+              "@id": "https://mathewiacs.com/equipo.html#lara"
+            },
+            {
+              "@id": "https://mathewiacs.com/equipo.html#theo"
+            }
+          ]
         },
         {
           "@type": "ItemList",
@@ -371,14 +376,11 @@
           "image": "https://mathewiacs.com/assets/img/team-mateo.webp"
         },
         {
-          "@type": "Person",
+          "@type": "Thing",
           "@id": "https://mathewiacs.com/equipo.html#lara",
           "name": "Lara Montenegro",
-          "jobTitle": "Avatar influencer IA: programación, ingeniería de prompts y tendencias IA",
-          "description": "Personaje virtual del estudio, un avatar con vida entrenado por Mateo en programación, ingeniería de prompts, canto, violonchelo, acrobacias aéreas y patinaje urbano.",
-          "worksFor": {
-            "@id": "https://mathewiacs.com/#organization"
-          },
+          "alternateName": "Lara",
+          "description": "Avatar influencer IA del estudio. Es un personaje virtual, no una persona real: Mateo la ha entrenado en programación, ingeniería de prompts, canto, violonchelo, acrobacias aéreas y patinaje urbano.",
           "url": "https://mathewiacs.com/equipo.html",
           "image": "https://mathewiacs.com/assets/img/team-lara.webp"
         },
@@ -416,7 +418,7 @@
               "name": "¿Quién forma el equipo?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio)."
+                "text": "Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA, un personaje virtual y no una persona real, entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio)."
               }
             },
             {
@@ -428,6 +430,14 @@
               }
             }
           ]
+        },
+        {
+          "@type": "Thing",
+          "@id": "https://mathewiacs.com/equipo.html#theo",
+          "name": "THEO",
+          "description": "Mascota bot del estudio, verde menta y con ruedas. Es un personaje virtual creado por Mateo, no existe físicamente.",
+          "url": "https://mathewiacs.com/equipo.html",
+          "image": "https://mathewiacs.com/assets/img/theo-640.webp"
         }
       ]
     }
@@ -485,19 +495,14 @@
         <section class="hero" id="inicio" aria-labelledby="hero-title">
             <div class="container">
                 <div class="hero-content">
-                    <p class="section-label">Mathew IA Creative Studio // Jerez de la Frontera</p>
                     <h1 id="hero-title">
-                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word" data-i18n="m01">MANIFIESTO</span><span class="hero-bracket" aria-hidden="true">]</span><br>
-                        <span class="hero-bracket" aria-hidden="true">[</span><span class="hero-percent">05.</span><span class="hero-word" data-text="PILARES" data-i18n="m02">PILARES</span><span class="hero-bracket" aria-hidden="true">]</span>
+                        <span class="section-label">Mathew IA Creative Studio // Jerez de la Frontera</span>
+                        <a class="hero-line" href="#pilar-1"><span class="hero-percent">I.</span><span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word">IMPERFECT.<wbr>BY.<wbr>DESIGN</span><span class="hero-bracket" aria-hidden="true">];</span></a>
+                        <a class="hero-line" href="#pilar-2"><span class="hero-percent">II.</span><span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word">50/50.<wbr><span data-i18n="m04">HUMANO.<wbr>SINTÉTICO</span></span><span class="hero-bracket" aria-hidden="true">];</span></a>
+                        <a class="hero-line" href="#pilar-3"><span class="hero-percent">III.</span><span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word">ZERO.<wbr>FILTERS.<wbr>ONLY.<wbr>FLOW</span><span class="hero-bracket" aria-hidden="true">];</span></a>
+                        <a class="hero-line" href="#pilar-4"><span class="hero-percent">IV.</span><span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word">DYNAMIC.<wbr>UI</span><span class="hero-bracket" aria-hidden="true">];</span></a>
+                        <a class="hero-line" href="#pilar-5"><span class="hero-percent">V.</span><span class="hero-bracket" aria-hidden="true">[</span><span class="hero-word" data-text="NEON.SOUL">NEON.<wbr>SOUL</span><span class="hero-bracket" aria-hidden="true">];</span></a>
                     </h1>
-
-                    <p class="hero-description">
-                        <a href="#pilar-1"><span class="hero-yellow" aria-hidden="true">//[</span>I.IMPERFECT.BY.DESIGN<span class="hero-yellow" aria-hidden="true">];</span></a><br>
-                        <a href="#pilar-2"><span class="hero-yellow" aria-hidden="true">//[</span>II.50/50.<span data-i18n="m04b">HUMANO.SINTÉTICO</span><span class="hero-yellow" aria-hidden="true">];</span></a><br>
-                        <a href="#pilar-3"><span class="hero-yellow" aria-hidden="true">//[</span>III.ZERO.FILTERS.ONLY.FLOW<span class="hero-yellow" aria-hidden="true">];</span></a><br>
-                        <a href="#pilar-4"><span class="hero-yellow" aria-hidden="true">//[</span>IV.DYNAMIC.UI<span class="hero-yellow" aria-hidden="true">];</span></a><br>
-                        <a href="#pilar-5"><span class="hero-yellow" aria-hidden="true">//[</span>V.NEON.SOUL<span class="hero-yellow" aria-hidden="true">];</span></a>
-                    </p>
 
                     <p class="hero-lead" data-i18n="m05">
                         Mathew IA Creative Studio es un estudio creativo digital de Jerez de la Frontera especializado en branding, diseño web, UX/UI y arte generativo con IA. Este es nuestro manifiesto: cinco pilares que explican cómo trabajamos, qué rechazamos y por qué el humano dirige, la IA ejecuta y el humano cura.
@@ -647,7 +652,7 @@
                 </details>
                 <details class="faq-item">
                     <summary><h3 data-i18n="f4q">¿Quién forma el equipo?</h3></summary>
-                    <p data-i18n="f4a">Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio).</p>
+                    <p data-i18n="f4a">Mateo (fundador, director creativo y director de arte), Lara Montenegro (avatar influencer IA, un personaje virtual y no una persona real, entrenada por Mateo en programación, ingeniería de prompts, canto, chelo, acrobacias aéreas y patinaje urbano) y THEO (la mascota bot del estudio).</p>
                 </details>
                 <details class="faq-item">
                     <summary><h3 data-i18n="f5q">¿Cuándo se lanza la web completa?</h3></summary>
