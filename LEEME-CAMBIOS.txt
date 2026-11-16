@@ -1,21 +1,10 @@
-SUBIR A GITHUB (respetando las carpetas; todos sustituyen al actual):
+MATHEWIACS — revisión de estructura, SEO y GEO — 17/11/2026
 
-  index.html                 (página de inicio nueva: manifiesto en 5 pilares, CTA y FAQ; SEO y GEO)
-  assets/css/global.css      (estilos nuevos al final: sección 7)
-  assets/js/index.js         (traducciones EN/FR/IT del manifiesto; revelado al hacer scroll)
-  llms.txt                   (NUEVO: resumen del estudio para asistentes de IA)
-  sitemap.xml                (fecha de la home actualizada; nueva página de MUSIC.BRUT)
-  conocimiento.md            (THEO ya sabe lo del manifiesto, del entrenamiento de Lara y de MUSIC.BRUT)
-  README.md                  (sección del manifiesto actualizada; MUSIC.BRUT ya integrado)
-
-  --- MUSIC.BRUT-STUDIO ---
-  proyectos/music-brut.html   (NUEVO: la herramienta, con SEO y datos estructurados)
-  proyectos.html                    (tarjeta "PROYECTO 02" de MUSIC.BRUT-STUDIO)
-  assets/js/theo-chatbot.js         (THEO responde sobre MUSIC.BRUT)
-
-NO CAMBIAN: equipo.html, servicios.html, proyectos.html, laboratorio.html, blog.html, contacto.html,
-assets/js (equipo.js, contacto.js), assets/img, proyectos/colorrate.html, robots.txt, CNAME, favicon, og-image.
-
-BORRAR EN GITHUB (si todavia existe):
-
-  colorrate.html              (el de la raiz; ya no se usa)
+ZIP completo del sitio, no un parche. Mantiene CNAME, recursos y aplicaciones.
+Inicio: presentación de estudio, servicios, herramientas, contacto y FAQ.
+Equipo: manifiesto completo con sus efectos originales, equipo y talentos de Lara.
+Imagen canónica Lara WebP conservada sin cambios.
+URLs existentes conservadas; los enlaces antiguos a los pilares de inicio se trasladan mediante JavaScript a equipo.html.
+SEO: títulos y descripciones de portada/equipo, metadatos sociales, datos estructurados coherentes, sitemap actualizado, noindex en blog/laboratorio mientras estén incompletos. Se conservan las traducciones existentes y se traducen los nuevos bloques de portada.
+GEO: información visible y semántica, identidad sintética transparente, llms.txt y conocimiento actualizados. llms.txt no garantiza visibilidad.
+Pruebas: sintaxis JavaScript, JSON-LD, sitemap XML, rutas locales e IDs. La ejecución en navegador local fue bloqueada por el entorno; no se han medido Core Web Vitals ni probado dependencias externas. No publicado. Idiomas todavía no totalmente auditados; no hay URLs independientes por idioma. Formulario mailto conservado.

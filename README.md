@@ -9,7 +9,7 @@ Web oficial de **Mathew IA Creative Studio**, un estudio creativo digital de Jer
 
 ## 🧭 Filosofía: El Manifiesto (Los 5 Pilares)
 
-La página de inicio de la web **es** el manifiesto del estudio: cinco pilares que explican cómo trabaja Mathew IA Creative Studio, qué rechaza y por qué el humano dirige, la IA ejecuta y el humano cura.
+La página Manifiesto y equipo contiene el manifiesto del estudio: cinco pilares que explican cómo trabaja Mathew IA Creative Studio, qué rechaza y por qué el humano dirige, la IA ejecuta y el humano cura.
 
 **I. [IMPERFECT.BY.DESIGN];** El ruido como función. La huella orgánica frente al plástico estéril: se rechaza la perfección algorítmica (pieles sin poros, simetrías de fábrica, suavizado por defecto) a favor del grano analógico, las microasimetrías, los poros y las pecas. *El error no es un bug: es la firma de la realidad biológica procesada por la máquina.*
 
@@ -66,14 +66,14 @@ Consola de síntesis y secuenciación avanzada con estética industrial.
 
 | Página | Archivo | Qué contiene |
 |---|---|---|
-| Inicio | `index.html` | Presentación del estudio, manifiesto y resumen |
+| Inicio | `index.html` | Presentación del estudio, servicios y herramientas |
 | Servicios | `servicios.html` | Los seis servicios del estudio |
 | Proyectos | `proyectos.html` | Tarjetas de las herramientas (coloRRate, etc.) |
 | ↳ coloRRate | `proyectos/colorrate.html` | Aplicación web completa de coloRRate |
 | ↳ MUSIC.BRUT | `proyectos/music-brut.html` | Aplicación web completa de MUSIC.BRUT-STUDIO |
 | Laboratorio | `laboratorio.html` | En construcción (`noindex`) |
 | Blog | `blog.html` | En construcción (`noindex`) |
-| Equipo | `equipo.html` | Mateo, Lara Montenegro y THEO |
+| Manifiesto y equipo | `equipo.html` | Mateo, Lara Montenegro y THEO |
 | Contacto | `contacto.html` | Formulario y datos de contacto |
 
 ---

@@ -13,10 +13,10 @@ Datos básicos:
 
 ## Páginas principales
 
-- [Inicio y manifiesto](https://mathewiacs.com/): los cinco pilares del estudio y preguntas frecuentes
+- [Inicio](https://mathewiacs.com/): presentación, servicios, herramientas y preguntas frecuentes
 - [Servicios](https://mathewiacs.com/servicios.html): branding, logo, audiovisual, diseño web, diseño gráfico, diseño instruccional, avatares, storytelling, worldbuilding, motion graphics, 3D, realidad mixta (VR/AR) y consultoría de IA
 - [Proyectos](https://mathewiacs.com/proyectos.html): trabajos del estudio
-- [Equipo](https://mathewiacs.com/equipo.html): Mateo, Lara Montenegro y THEO
+- [Manifiesto y equipo](https://mathewiacs.com/equipo.html): cinco pilares, Mateo, Lara Montenegro y THEO
 - [Contacto](https://mathewiacs.com/contacto.html): formulario de contacto y presupuestos
 
 ## El manifiesto en cinco pilares
