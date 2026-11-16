@@ -46,11 +46,11 @@ document.querySelectorAll('input[name="language"]').forEach((radio) => {
    y el footer siguen el idioma elegido en el resto de la web. */
 (function () {
     const I18N = {
-        en: { k01: 'HOME', k02: 'SERVICES', k03: 'PROJECTS', k04: 'LAB', k05: 'TEAM', k06: 'CONTACT',
+        en: { k01: 'HOME', k02: 'SERVICES', k03: 'PROJECTS', k04: 'LAB', k05: 'MANIFESTO / TEAM', k06: 'CONTACT',
               a01: 'Select language', a02: 'Available languages', a04: 'GitHub of the MATHEWIACS studio', a05: 'Send email' },
-        fr: { k01: 'ACCUEIL', k02: 'SERVICES', k03: 'PROJETS', k04: 'LABORATOIRE', k05: 'ÉQUIPE', k06: 'CONTACT',
+        fr: { k01: 'ACCUEIL', k02: 'SERVICES', k03: 'PROJETS', k04: 'LABORATOIRE', k05: 'MANIFESTE / ÉQUIPE', k06: 'CONTACT',
               a01: 'Sélectionner la langue', a02: 'Langues disponibles', a04: 'GitHub du studio MATHEWIACS', a05: 'Envoyer un e-mail' },
-        it: { k01: 'HOME', k02: 'SERVIZI', k03: 'PROGETTI', k04: 'LABORATORIO', k05: 'TEAM', k06: 'CONTATTI',
+        it: { k01: 'HOME', k02: 'SERVIZI', k03: 'PROGETTI', k04: 'LABORATORIO', k05: 'MANIFESTO / TEAM', k06: 'CONTATTI',
               a01: 'Seleziona la lingua', a02: 'Lingue disponibili', a04: 'GitHub dello studio MATHEWIACS', a05: 'Invia email' }
     };
     const KEY = 'mathewiacs-lang';
