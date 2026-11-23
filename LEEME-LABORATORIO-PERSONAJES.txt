@@ -1,0 +1,12 @@
+LABORATORIO DE PERSONAJES — MÚSICA Y MODA
+
+Secciones en laboratorio.html:
+- MÚSICA (6 fichas): Mariconchi, Nena Sulfato, TRIPLE DRAMA, Rous, La Bombina de Conil y Cleo-Potra.
+- MODA (2 fichas): O.CEANIC y XXX (gemelos diseñadores, nombre provisional).
+
+Nuevas imágenes originales sin retoque:
+- assets/img/personajes/oceanic.jpg
+- assets/img/personajes/xxx-gemelos.png
+
+Inventario estructurado: assets/data/personajes.json (campo category: musica/moda).
+Se han conservado los demás archivos y páginas del ZIP anterior.

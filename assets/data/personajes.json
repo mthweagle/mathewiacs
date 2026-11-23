@@ -1,0 +1,122 @@
+{
+  "updated": "2026-11-24",
+  "confirmed_characters": [
+    {
+      "name": "Mariconchi",
+      "role": "Artista musical",
+      "status": "Confirmada",
+      "img": "assets/img/personajes/mariconchi.png",
+      "desc": "Proyecto musical con imaginario pop descarado, rosa brillante y estética provocadora.",
+      "tags": [
+        "personaje",
+        "música",
+        "canon visual"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "Nena Sulfato",
+      "role": "Cantante / personaje",
+      "status": "Confirmada",
+      "img": "assets/img/personajes/nena-sulfato.png",
+      "desc": "Figura escénica teatral y glam. Incorporada al archivo visual del laboratorio como identidad definida.",
+      "tags": [
+        "personaje",
+        "escénica",
+        "canon visual"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "TRIPLE DRAMA",
+      "role": "Grupo musical",
+      "status": "Confirmado",
+      "img": "assets/img/personajes/triple-drama.png",
+      "desc": "Trío pop de universo propio. Esta imagen funciona como referencia de grupo dentro del laboratorio.",
+      "tags": [
+        "grupo",
+        "universo musical",
+        "canon de conjunto"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "Rous",
+      "role": "Artista musical",
+      "status": "Confirmada",
+      "img": "assets/img/personajes/rous.png",
+      "desc": "Personaje musical con imaginería poderosa, dramática y oscura. Referencia visual integrada al archivo.",
+      "tags": [
+        "personaje",
+        "música",
+        "canon visual"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "La Bombina de Conil",
+      "role": "Artista musical",
+      "status": "Confirmada",
+      "img": "assets/img/personajes/la-bombina-de-conil.jpg",
+      "desc": "Artista asociada a un imaginario mediterráneo, cálido y andaluz. Incorporada como referencia visual del laboratorio.",
+      "tags": [
+        "personaje",
+        "andalucía",
+        "canon visual"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "Cleo-Potra",
+      "role": "Artista musical",
+      "status": "Confirmada",
+      "img": "assets/img/personajes/cleo-potra.png",
+      "desc": "La emperatriz de Chamberí. Imagen escénica facilitada y validada para el archivo visual de personajes.",
+      "tags": [
+        "personaje",
+        "música",
+        "referencia visual"
+      ],
+      "category": "musica"
+    },
+    {
+      "name": "O.CEANIC",
+      "role": "Diseño de moda · referencia de personajes",
+      "status": "Imagen confirmada",
+      "category": "moda",
+      "img": "assets/img/personajes/oceanic.jpg",
+      "desc": "Dúo de personajes asociado a O.CEANIC, en una fotografía de moda de estética escultórica y tejidos translúcidos.",
+      "tags": [
+        "moda",
+        "O.CEANIC",
+        "imagen aportada"
+      ]
+    },
+    {
+      "name": "XXX",
+      "role": "Gemelos diseñadores de moda",
+      "status": "Nombre provisional",
+      "category": "moda",
+      "img": "assets/img/personajes/xxx-gemelos.png",
+      "desc": "Gemelos pelirrojos diseñadores de moda. «XXX» es el nombre provisional hasta definir su identidad artística definitiva.",
+      "tags": [
+        "moda",
+        "gemelos",
+        "nombre pendiente"
+      ]
+    }
+  ],
+  "pending": [
+    "Kary Doble Ese",
+    "La Castora",
+    "La Pitijopa",
+    "Jean du Mirtell",
+    "Omara",
+    "Ona",
+    "Hugo"
+  ],
+  "categories": {
+    "musica": "Artistas y grupos musicales",
+    "moda": "Diseñadores y personajes de moda"
+  }
+}
